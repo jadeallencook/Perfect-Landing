@@ -1,0 +1,90 @@
+/* normalize */
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Helvetica';
+    background-color: #A3CCFF;
+}
+
+h1, h2, h3, p {
+    margin-top: 0px;
+}
+
+div {
+    display: inline-block;
+}
+
+/* app */
+
+div#app {
+    width: 500px;
+    border: solid black thin;
+    margin: 25px;
+    padding: 15px;
+    text-align: center;
+    text-align: left;
+    background-color: #fff;
+    border-radius: 3px;
+}
+
+div#prop-images img {
+    display: inline-block;
+    width: 50px;
+    margin: 5px;
+}
+
+div#prop-images img:hover {
+    opacity: 0.75;
+    cursor: pointer;
+}
+
+span#prop-address {
+    display: block;
+    margin-top: -15px;
+    margin-bottom: 15px;
+}
+
+div.direction-btn {
+    display: inline-block;
+    background-color: #000;
+    color: #fff;
+    padding: 5px;
+    font-weight: 100;
+    margin-top: 15px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+div.direction-btn:hover {
+    opacity: 0.75;
+}
+
+div#prop-description {
+    font-size: 0.75em;
+    height: 250px;
+    overflow-x: scroll;
+    width: 100%;
+}
+
+div#prop-amenities {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+div.amenity {
+    padding: 5px;
+    font-size: 0.75em;
+    display: inline-block;
+    background-color: #A3CCFF;
+    margin: 0px 5px 5px 0px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+div.amenity:hover {
+    opacity: 0.75;
+}
