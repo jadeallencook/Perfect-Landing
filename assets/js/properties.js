@@ -20,6 +20,7 @@ $(function () {
             // create object for rentals
             function createProperty(data) {
                 var object = {
+                    id: data.propid['#text'],
                     name: data.propname['#text'],
                     address: data.addr1['#text'],
                     city: data.city['#text'],
@@ -52,8 +53,9 @@ $(function () {
                 },
                 view: function () {
                     var property = build.properties[build.current];
+                    getPropertyCalendar(property.id);
                     $('title').empty().text('Perfect Landing - ' + property.name);
-                    $id.empty().text('Property #' + (build.current + 1));
+                    $id.empty().text('Property #' + property.id);
                     $name.empty().text(property.name);
                     $description.empty().append(property.description);
                     $images.empty();
