@@ -29,8 +29,10 @@
     <!-- Custom Stylesheet -->
     <link rel="stylesheet" href="css/media-query.css">
     <link rel="stylesheet" href="css/template/color/F1C40F.css">
-    <!-- Media Query -->
-
+    <!-- jQuery UI -->
+    <link rel="stylesheet" href="css/jquery-ui.min.css">
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/custom-ui.css">
     <!-- Use Iconifyer to generate all the favicons and touch icons you need: http://iconifier.net -->
     <link rel="shortcut icon" href="images/favicon/favicon.png" type="image/x-icon" />
     <link rel="apple-touch-icon" href="images/favicon/apple-touch-icon.png" />
@@ -52,6 +54,7 @@
     <script src="script/modernizr.min.js"></script>
     <script src="script/tabletop.js"></script>
     <script src="script/gDoc.js"></script>
+    <script src="script/xml-to-json.js"></script>
     <!-- Modernizr -->
 
 </head>
@@ -150,68 +153,31 @@
         <section id="search-box" class="no-margin">
             <div class="container search-container fixed-map">
                 <div class="search-options sample-page">
-                    <span class="botton-options"><i class="fa fa-chevron-down"></i> Hide Advanced Search</span>
+                    <span class="botton-options"><i class="fa fa-chevron-down"></i> Hide Search Options</span>
                     <div class="searcher">
                         <div class="row margin-div">
-                            <div class="col-sm-6 col-md-3 margin-bottom">
-                                <input class="form-control" type="text" name="keywords" id="keywords" placeholder="Keywords" />
-                            </div>
-                            <div class="col-sm-6 col-md-3">
-                                <select class="dropdown" data-settings='{"cutOff": 5}'>
+                            <div class="col-sm-12 col-md-4">
+                                <select class="dropdown" data-settings='{"cutOff": 3}'>
                                     <option value="">-- All Cities --</option>
-                                    <option value="brixton">Brixton</option>
-                                    <option value="london">London</option>
-                                    <option value="middlesex">Middlesex</option>
-                                    <option value="stratford">Stratford</option>
-                                    <option value="wembley">Wembley</option>
-                                    <option value="west-norwood">West Norwood</option>
-                                    <option value="westminster">Westminster</option>
                                 </select>
                             </div>
-                            <div class="col-sm-6 col-md-3">
-                                <select class="dropdown" data-settings='{"cutOff": 5}'>
-                                    <option value="">-- Any Purpose --</option>
-                                    <option value="rent">Rent</option>
-                                    <option value="sell">Sell</option>
-                                </select>
+                            <div class="col-sm-6 col-md-2 margin-bottom">
+                                <span id="label-checkin" data-text="Check In"></span>
+                                <input class="form-control" type="text" name="checkin" id="checkin" value="Check In" />
                             </div>
-                            <div class="col-sm-6 col-md-3">
-                                <select class="dropdown" data-settings='{"cutOff": 5}'>
-                                    <option value="">-- Any Type --</option>
-                                    <option value="apartments">Apartments</option>
-                                    <option value="condos">Condos</option>
-                                    <option value="duplex">Duplex</option>
-                                    <option value="houses">Houses</option>
-                                    <option value="offices">Offices</option>
-                                    <option value="retail">Retail</option>
-                                    <option value="villa">Villa</option>
-                                </select>
-                            </div>
-                        </div>
-                        <!-- ./row 1 -->
-                        <div class="row margin-div sercher-margin-bottom">
-                            <div class="col-sm-6 col-md-3">
-                                <select class="dropdown">
-                                    <option value="">-- Any Status --</option>
-                                    <option value="Normal">Normal</option>
-                                    <option value="Available">Available</option>
-                                    <option value="Not Available">Not Available</option>
-                                    <option value="Sold">Sold</option>
-                                    <option value="Open House">Open House</option>
-                                </select>
+                            <div class="col-sm-6 col-md-2 margin-bottom">
+                                <span id="label-checkout" data-text="Check Out"></span>
+                                <input class="form-control" type="text" name="checkout" id="checkout" value="Check Out" />
                             </div>
                             <div class="col-sm-6 col-md-2 margin-bottom">
                                 <span id="label-bathroom" data-text="Bathroom"></span>
-                                <input class="form-control" type="text" name="bathroom" id="bathroom" value="3" />
+                                <input class="form-control" type="text" name="bathroom" id="bathroom" value="1" />
                             </div>
                             <div class="col-sm-6 col-md-2 margin-bottom">
                                 <span id="label-bedroom" data-text="Bedroom"></span>
-                                <input class="form-control" type="text" name="bedroom" id="bedroom" value="2" />
+                                <input class="form-control" type="text" name="bedroom" id="bedroom" value="1" />
                             </div>
-                            <div class="col-sm-6 col-md-2 margin-bottom">
-                                <span id="label-property-size" data-text="Size"></span>
-                                <input class="form-control" type="text" name="property-size" id="property-size" value="120" />
-                            </div>
+                            <!-- 
                             <div class="col-sm-12 col-md-3 margin-bottom">
                                 <div class="slider" id="price-range"></div>
                                 <div class="price-slider price">
@@ -220,6 +186,7 @@
                                     <span id="price-value-max"></span>
                                 </div>
                             </div>
+                            -->
                         </div>
                         <!-- ./row 2 -->
                         <div class="row filter hide-filter hidden-xs hidden-sm">

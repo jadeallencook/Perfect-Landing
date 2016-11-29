@@ -600,5 +600,9 @@ $(function () {
             }
         },
         simpleSheet: false
-    })
+    });
+    // init datepicker
+    $('input#checkin').datepicker();
+    $('input#checkout').datepicker();
+    
 });
