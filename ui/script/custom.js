@@ -139,13 +139,13 @@ $(document).ready(function ($) {
 var $priceRange = $("#price-range");
 if ($priceRange.length) {
     $priceRange.noUiSlider({
-        start: [250000, 745000],
+        start: [100, 250],
         behaviour: 'drag',
-        step: 5000,
+        step: 25,
         connect: true,
         range: {
-            'min': 70000,
-            'max': 1000000
+            'min': 0,
+            'max': 1000
         }
     });
     $priceRange.Link('lower').to($('#price-value-min'))
@@ -432,7 +432,7 @@ $("#mortgage-calc", document.body).on('click', function () {
 
 /* FIT IMAGE SCRIPT
 ============================================== */
-$('.image-fill', document.body).imagefill();
+// $('.image-fill', document.body).imagefill();
 
 
 
@@ -576,33 +576,3 @@ if ($masonryImages.length) {
         width: 250
     });
 }
-
-/* gDoc.js */
-$(function () {
-    // set all layout info
-    gDoc('1jmx69ezkmKHqKb5MlUttTpL8pkt8i-ThFeXWMQzNRT4', 'layout');
-    // set homepage banner info
-    Tabletop.init({
-        key: '1jmx69ezkmKHqKb5MlUttTpL8pkt8i-ThFeXWMQzNRT4',
-        callback: function (data, tabletop) {
-            data = data.homepage.elements;
-            // set for 3 banners
-            for (var i = 1; i < 4; i++) {
-                // set each background
-                $('figure#banner-' + i).css({
-                    backgroundImage: 'url("' + data[(i - 1)].image + '")',
-                    backgroundSize: 'cover'
-                });
-                // and all the text
-                $('figure#banner-' + i + ' div.content h2').text(data[(i - 1)].small);
-                $('figure#banner-' + i + ' div.content h1').text(data[(i - 1)].large);
-                $('figure#banner-' + i + ' div.content h3').text(data[(i - 1)].description);
-            }
-        },
-        simpleSheet: false
-    });
-    // init datepicker
-    $('input#checkin').datepicker();
-    $('input#checkout').datepicker();
-    
-});

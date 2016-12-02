@@ -1,0 +1,45 @@
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+div#ui-datepicker-div {
+    position: absolute;
+    z-index: 20;
+}
+
+div#amenities {
+    width: 100%;
+    overflow-y: scroll;
+    overflow-x: scroll;
+}
+
+div#amenities label {
+    float: left;
+    display: inline-block;
+}
+
+span.labelauty-unchecked {
+    padding-right: 15px;
+}
+
+div#loading-container {
+    padding-top: 175px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+    background-color: #F1C40F;
+    text-align: center;
+}
+
+img#loading-logo {
+    width: 50%;
+    max-width: 750px;
+}
+
+div#loading-container div {
+    transform: translateY(50%);
+}

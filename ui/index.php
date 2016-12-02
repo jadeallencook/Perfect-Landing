@@ -61,6 +61,23 @@
 
 <body class="fixed-header">
 
+    <div id="loading-container">
+        <div>
+            <img src="images/large-logo.png" id="loading-logo" />
+            <br />
+            <br />
+            <script>
+                var lines = new Array(
+                    'Shovelling coal into the server...',
+                    'Programming the flux capacitor...',
+                    'Sweeping off the welcome mat...',
+                    'Loading your dream vacation...'
+                );
+                document.write('<h2 style="color: #fff">' + lines[Math.round(Math.random() * (lines.length - 1))] + '</h2>');
+            </script>
+        </div>
+    </div>
+
     <div id="page-container">
         <header class="menu-color-line" id="header-container-box">
             <div class="info">
@@ -73,8 +90,8 @@
                         </div>
                         <!-- /.logo -->
                         <div class="col-md-10 hidden-xs" id="login-pan">
-                            <a href="call:1-800-555-1234"><i class="icon fa fa-phone"></i> <span gDoc="phone"></span></a>
-                            <a class="hidden-sm" data-section="modal-contact" data-target="#modal-contact" data-toggle="modal" href="#"><i class="icon fa fa-envelope-o"></i> <span gDoc="email"></span></a>
+                            <a href="call:1-989-362-3300"><i class="icon fa fa-phone"></i> (989)362-3300</a>
+                            <a class="hidden-sm" data-section="modal-contact" data-target="#modal-contact" data-toggle="modal" href="#"><i class="icon fa fa-envelope-o"></i> hello@perfectlanding.com</a>
                         </div>
                     </div>
                 </div>
@@ -87,19 +104,19 @@
                             <a href="#">Home</a>
                         </li>
                         <li>
-                            <a href="#">Browse</a>
+                            <a href="browse/">Browse</a>
                         </li>
                         <li>
-                            <a href="#">Blog</a>
+                            <a href="blog/">Blog</a>
                         </li>
                         <li>
-                            <a href="#">IDX</a>
+                            <a href="idx/">IDX</a>
                         </li>
                         <li>
-                            <a href="#">Submit</a>
+                            <a href="submit/">Submit</a>
                         </li>
                         <li>
-                            <a href="#">Contact</a>
+                            <a href="contact/">Contact</a>
                         </li>
                 </nav>
             </div>
@@ -155,11 +172,9 @@
                 <div class="search-options sample-page">
                     <span class="botton-options"><i class="fa fa-chevron-down"></i> Hide Search Options</span>
                     <div class="searcher">
-                        <div class="row margin-div">
-                            <div class="col-sm-12 col-md-4">
-                                <select class="dropdown" data-settings='{"cutOff": 3}'>
-                                    <option value="">-- All Cities --</option>
-                                </select>
+                        <div class="row margin-div" id="searcher-container">
+                            <div class="col-sm-12 col-md-4" id="cities-container">
+
                             </div>
                             <div class="col-sm-6 col-md-2 margin-bottom">
                                 <span id="label-checkin" data-text="Check In"></span>
@@ -189,10 +204,7 @@
                             -->
                         </div>
                         <!-- ./row 2 -->
-                        <div class="row filter hide-filter hidden-xs hidden-sm">
-                            <div class="col-xs-6 col-sm-4 col-md-3">
-                                <input class="labelauty" type="checkbox" data-labelauty="Swimming Pool">
-                            </div>
+                        <div class="row filter hide-filter hidden-xs hidden-sm" id="filters">
                         </div>
                         <!-- ./filter -->
                         <div class="margin-div footer">
@@ -228,189 +240,13 @@
             </div>
             <div class="container">
                 <div class="list-box-title">
-                    <span><i class="icon fa fa-plus-square"></i>Recent Listed</span>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="box-ads box-home">
-                            <a class="hover-effect image image-fill" href="property-detail.html">
-                                <span class="cover"></span>
-                                <img alt="Sample images" src="http://placehold.it/1240x745/bbbbbb/ffffff">
-                                <h3 class="title">59 Paterson Ave</h3>
-                            </a>
-                            <!-- /.hover-effect -->
-                            <span class="price">$ 536.500,00</span>
-                            <span class="address"><i class="fa fa-map-marker"></i> Hoboken, NJ 07030</span>
-                            <span class="description">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.</span>
-                            <dl class="detail">
-                                <dt class="status">Status:</dt>
-                                <dd><span>Sale</span></dd>
-                                <dt class="area">Area:</dt>
-                                <dd><span>860m2</span></dd>
-                                <dt class="bed">Beds:</dt>
-                                <dd><span>3</span></dd>
-                                <dt class="bath">Baths:</dt>
-                                <dd><span>2</span></dd>
-                            </dl>
-                            <!-- /.detail -->
-                            <div class="footer">
-                                <a class="btn btn-reverse" href="property-detail.html">Read now</a>
-                            </div>
-                        </div>
-                        <!-- /.box-home .box-ads -->
-                    </div>
-                    <!-- ./col-md-4 -->
-                    <div class="col-md-4">
-                        <div class="box-ads box-home">
-                            <a class="hover-effect image image-fill" href="property-detail.html">
-                                <span class="cover"></span>
-                                <img alt="Sample images" src="http://placehold.it/1240x745/bbbbbb/ffffff">
-                                <h3 class="title">560 Marshall Dr</h3>
-                            </a>
-                            <!-- /.hover-effect -->
-                            <span class="price">$ 709.000,00</span>
-                            <span class="address"><i class="fa fa-map-marker"></i> Hoboken, NJ 07056</span>
-                            <span class="description">Lorem Ipsum available, but the majority have suffered There are many variations of passages by injected humour.</span>
-                            <dl class="detail">
-                                <dt class="status">Status:</dt>
-                                <dd><span>Sale</span></dd>
-                                <dt class="area">Area:</dt>
-                                <dd><span>420m2</span></dd>
-                                <dt class="bed">Beds:</dt>
-                                <dd><span>4</span></dd>
-                                <dt class="bath">Baths:</dt>
-                                <dd><span>1</span></dd>
-                            </dl>
-                            <!-- /.detail -->
-                            <div class="footer">
-                                <a class="btn btn-reverse" href="property-detail.html">Read now</a>
-                            </div>
-                        </div>
-                        <!-- /.box-home .box-ads -->
-                    </div>
-                    <!-- ./col-md-4 -->
-                    <div class="col-md-4">
-                        <div class="box-ads box-home">
-                            <a class="hover-effect image image-fill" href="property-detail.html">
-                                <span class="cover"></span>
-                                <img alt="Sample images" src="http://placehold.it/1240x745/bbbbbb/ffffff">
-                                <h3 class="title">477 Jersey Ave</h3>
-                            </a>
-                            <!-- /.hover-effect -->
-                            <span class="price">$ 663.500,00</span>
-                            <span class="address"><i class="fa fa-map-marker"></i> Jersey City, NJ 07302</span>
-                            <span class="description">Nulla condimentum neque nulla. Sed at ornare lacus, id euismod felis. Aliquam et vulputate tortor. Nunc gravida nunc sed mi bibendum accumsan.</span>
-                            <dl class="detail">
-                                <dt class="status">Status:</dt>
-                                <dd><span>Sale</span></dd>
-                                <dt class="area">Area:</dt>
-                                <dd><span>333m2</span></dd>
-                                <dt class="bed">Beds:</dt>
-                                <dd><span>6</span></dd>
-                                <dt class="bath">Baths:</dt>
-                                <dd><span>2</span></dd>
-                            </dl>
-                            <!-- /.detail -->
-                            <div class="footer">
-                                <a class="btn btn-reverse" href="property-detail.html">Read now</a>
-                            </div>
-                        </div>
-                        <!-- /.box-home .box-ads -->
-                    </div>
-                    <!-- ./col-md-4 -->
-                </div>
-                <div class="list-box-title">
                     <span><i class="icon fa fa-plus-square"></i>Featured Properties</span>
                 </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="box-ads box-home">
-                            <a class="hover-effect image image-fill" href="property-detail.html">
-                                <span class="cover"></span>
-                                <img alt="Sample images" src="http://placehold.it/1240x745/bbbbbb/ffffff">
-                                <h3 class="title">403 Bloomfield St</h3>
-                            </a>
-                            <!-- /.hover-effect -->
-                            <span class="price">$ 772.000,00</span>
-                            <span class="address"><i class="fa fa-map-marker"></i> Hoboken, NJ 07030</span>
-                            <span class="description">Nunc gravida nunc sed mi bibendum accumsan, condimentum neque nulla. Sed at ornare lacus. Aliquam et vulputate tortor id euismod felis.</span>
-                            <dl class="detail">
-                                <dt class="status">Status:</dt>
-                                <dd><span>Sale</span></dd>
-                                <dt class="area">Area:</dt>
-                                <dd><span>165m2</span></dd>
-                                <dt class="bed">Beds:</dt>
-                                <dd><span>2</span></dd>
-                                <dt class="bath">Baths:</dt>
-                                <dd><span>1</span></dd>
-                            </dl>
-                            <!-- /.detail -->
-                            <div class="footer">
-                                <a class="btn btn-reverse" href="property-detail.html">Read now</a>
-                            </div>
-                        </div>
-                        <!-- /.box-home .box-ads -->
-                    </div>
-                    <!-- ./col-md-4 -->
-                    <div class="col-md-4">
-                        <div class="box-ads box-home">
-                            <a class="hover-effect image image-fill" href="property-detail.html">
-                                <span class="cover"></span>
-                                <img alt="Sample images" src="http://placehold.it/1240x745/bbbbbb/ffffff">
-                                <h3 class="title">339 Broadway</h3>
-                            </a>
-                            <!-- /.hover-effect -->
-                            <span class="price">$ 988.000,00</span>
-                            <span class="address"><i class="fa fa-map-marker"></i> New York, NY 10013</span>
-                            <span class="description">Proin egestas vitae mi eget commodo. Proin purus dignissim porttitous vel accumsan odio. Pulvinarut id . Proin dapibus mollis purus ac luctus.</span>
-                            <dl class="detail">
-                                <dt class="status">Status:</dt>
-                                <dd><span>Sale</span></dd>
-                                <dt class="area">Area:</dt>
-                                <dd><span>369m2</span></dd>
-                                <dt class="bed">Beds:</dt>
-                                <dd><span>4</span></dd>
-                                <dt class="bath">Baths:</dt>
-                                <dd><span>2</span></dd>
-                            </dl>
-                            <!-- /.detail -->
-                            <div class="footer">
-                                <a class="btn btn-reverse" href="property-detail.html">Read now</a>
-                            </div>
-                        </div>
-                        <!-- /.box-home .box-ads -->
-                    </div>
-                    <!-- ./col-md-4 -->
-                    <div class="col-md-4">
-                        <div class="box-ads box-home">
-                            <a class="hover-effect image image-fill" href="property-detail.html">
-                                <span class="cover"></span>
-                                <img alt="Sample images" src="http://placehold.it/1240x745/bbbbbb/ffffff">
-                                <h3 class="title">435 Newark Ave</h3>
-                            </a>
-                            <!-- /.hover-effect -->
-                            <span class="price">$ 631.000,00</span>
-                            <span class="address"><i class="fa fa-map-marker"></i> Jersey City, NJ 07302</span>
-                            <span class="description">Mut the majority have suffered alteration in. There are many variations of passages of Lorem Ipsum available, some form, by injected humour.</span>
-                            <dl class="detail">
-                                <dt class="status">Status:</dt>
-                                <dd><span>Sale</span></dd>
-                                <dt class="area">Area:</dt>
-                                <dd><span>658m2</span></dd>
-                                <dt class="bed">Beds:</dt>
-                                <dd><span>4</span></dd>
-                                <dt class="bath">Baths:</dt>
-                                <dd><span>5</span></dd>
-                            </dl>
-                            <!-- /.detail -->
-                            <div class="footer">
-                                <a class="btn btn-reverse" href="property-detail.html">Read now</a>
-                            </div>
-                        </div>
-                        <!-- /.box-home .box-ads -->
-                    </div>
-                    <!-- ./col-md-4 -->
+                <div class="row" id="featured-list"></div>
+                <div class="list-box-title">
+                    <span><i class="icon fa fa-plus-square"></i>Recently Listed</span>
                 </div>
+                <div class="row" id="recent-list"></div>
             </div>
         </section>
 
@@ -422,7 +258,7 @@
                     <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dolor, sagittis sed elementum dignissim, lobortis.<br />Dolor nunc vule putateulr ips dol consec.Donec semp ertet.</h2>
                 </div>
                 <div class="row text-center">
-                    <a href="new-property.html" class="btn btn-reverse button-large">Submit Property</a>
+                    <a href="submit/" class="btn btn-reverse button-large">Submit Property</a>
                 </div>
             </div>
         </section>
@@ -491,14 +327,14 @@
                 </div>
             </div>
         </section>
-            
+
         <footer id="footer-page" class="section-color">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12 col-md-3">
                         <span class="title with-icon">
 							<img class="logo-footer" src="images/mini-logo-x1.png" alt="logo" />
-							Shortly About Us
+							About Us
 						</span>
                         <span class="text">
 							There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration inble. If you are of going.
@@ -506,28 +342,22 @@
                     </div>
                     <div class="col-sm-6 col-md-3">
                         <span class="title">CALL US NOW</span>
-                        <span class="phone"><i class="fa fa-phone"></i> (011)-8800-555</span>
+                        <span class="phone"><i class="fa fa-phone"></i> (989)362-3300</span>
                         <span class="address">
-						</span> 339 Broadway Ave, <strong>New York</strong>
+						</span> 125 Birch Street <strong>Tawas City</strong>
                         <br />
-                        <i class="fa fa-map-marker"></i> NY 10013, USA
+                        <i class="fa fa-map-marker"></i> MI 48763, USA
                     </div>
                     <div class="hidden-xs hidden-sm col-md-3">
                         <span class="title">Extras</span>
                         <ul class="link-extra">
-                            <li><a href="#">ProHome Mobile Apps</a></li>
-                            <li><a href="#">Market Guide</a></li>
-                            <li><a href="#">ProHome&reg; Magazine</a></li>
-                            <li><a href="#">More Resources</a></li>
+                            <li><a href="idx/">IDX</a></li>
+                            <li><a href="browse/">Browse</a></li>
+                            <li><a href="submit/">Submit Property</a></li>
                         </ul>
                     </div>
                     <div class="col-sm-6 col-md-3">
-                        <span class="title">Our Newsletter</span> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eu condimentum neque.
-                        <div class="newsletter-box">
-                            <input type="text" class="form-control" placeholder="Your email">
-                            <button class="btn btn-default send" type="button"><i class="fa fa-envelope-o"></i></button>
-                        </div>
-                        <!-- /input-group -->
+                        <span class="title">Social Media</span> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eu condimentum neque.
                     </div>
                 </div>
             </div>
@@ -537,7 +367,7 @@
                         <div class="hidden-xs col-md-9 credits-text">Copyright
                             <script>
                                 document.write(new Date().getFullYear());
-                            </script> <b id="perfectlanding" gDoc="business"></b> | Developed By <b id="jadeallencook">Jade Allen Cook</b> | Template Designed By <b id="andylab">AndyLab</b></div>
+                            </script> <b id="perfectlanding">Perfect Landing</b> | Developed By <b id="jadeallencook">Jade Allen Cook</b> | UI Designed By <b id="andylab">AndyLab</b></div>
                         <div class="col-md-3">
                             <ul class="social-icons">
                                 <li><a gdoc="facebook" target="_blank" href="#"><i class="fa fa-facebook"></i></a></li>
@@ -722,6 +552,7 @@
     <script src="script/vendor/noui-slider/nouislider.all.min.js"></script>
     <!-- Range Slider -->
     <script src="script/custom.js"></script>
+    <script src="script/homepage.js"></script>
     <!-- Custom	Script -->
 
 </body>
