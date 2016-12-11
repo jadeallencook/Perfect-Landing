@@ -7,7 +7,7 @@
 							About Us
 						</span>
                 <span class="text">
-							There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration inble. If you are of going.
+							Perfect Landing Specializes in Vacation & Monthly Rentals, in addition to Real Estate Services, and Property Management.
 						</span>
             </div>
             <div class="col-sm-6 col-md-3">
