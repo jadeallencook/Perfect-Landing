@@ -131,7 +131,7 @@ $(function () {
                     var html = "";
                     html += "<div class=\"col-md-4\">";
                     html += "<div class=\"box-ads box-home\">";
-                    html += "<a class=\"hover-effect image image-fill\" href=\"property-detail.html\">";
+                    html += "<a class=\"hover-effect image image-fill\" href=\"property/#/" + property.id + "\">";
                     html += "<span class=\"cover\"><\/span>";
                     html += "<img alt=\"Sample images\" src=\"" + build.photosURL + property.photos[0] + "\">";
                     html += "<h3 class=\"title\">" + property.address + "<\/h3>";
@@ -150,7 +150,7 @@ $(function () {
                     html += "<dd><span>" + pets + "<\/span><\/dd>";
                     html += "<\/dl>";
                     html += "<div class=\"footer\">";
-                    html += "<a class=\"btn btn-reverse\" href=\"property-detail.html\">Read now<\/a>";
+                    html += "<a class=\"btn btn-reverse\" href=\"property/#/" + property.id + "\">Read now<\/a>";
                     html += "<\/div><\/div><\/div>";
                     return html;
                 }
@@ -193,9 +193,7 @@ $(function () {
                 var property = build.properties[MAX - i];
                 $('div#recent-list').append(build.property(property));
                 if (i === 2) {
-                    $(window).bind('load', function () {
-                        $('div#loading-container').delay(2200).fadeOut('slow');
-                    });
+                    $('div#loading-container').delay(2200).fadeOut('slow');
                 }
             }
         }

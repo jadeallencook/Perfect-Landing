@@ -111,8 +111,10 @@
                             </div>
                             <div class="right-box">
                                 <div class="row">
+                                    <input type="hidden" id="back" value="true">
+                                    <input type="hidden" id="browse-page" value="true">
                                     <div class="col-md-12 space-div" id="cities-dropdown">
-                                        
+
                                     </div>
                                     <div class="col-md-6 space-div">
                                         <label>Bathroom</label>
@@ -128,6 +130,7 @@
                                     <div class="col-md-6 space-div">
                                         <input class="form-control" type="text" name="checkout" id="checkout" value="Check Out" />
                                     </div>
+                                    <!--
                                     <div class="col-md-12 space-div">
                                         <label>Price</label>
                                         <div class="slider" id="price-range"></div>
@@ -137,8 +140,9 @@
                                             <span id="price-value-max"></span>
                                         </div>
                                     </div>
+                                    -->
                                     <div class="col-md-12 space-div">
-                                        <button type="button" class="btn btn-default search-button">SEARCH NOW</button>
+                                        <button type="button" class="btn btn-default search-button" id="find-rental">SEARCH NOW</button>
                                     </div>
                                     <!-- ./footer -->
                                 </div>
@@ -149,7 +153,7 @@
                                 <h3 class="title">Filter</h3>
                             </div>
                             <div id="filter-box">
-                                
+
                             </div>
                             <!-- ./vertical-search-container -->
                         </div>
@@ -164,8 +168,8 @@
                     <div class="row">
                         <div class="col-md-9 col-md-offset-3 text-right">
                             <ul class="pagination">
-                                <li><a href="#"><i class="fa fa-chevron-left"></i> LAST</a></li>
-                                <li><a href="#" style="margin-right: 5px;">NEXT <i class="fa fa-chevron-right"></i> </a></li>
+                                <li><a id="last-btn"><i class="fa fa-chevron-left"></i> LAST</a></li>
+                                <li><a id="next-btn" style="margin-right: 5px;">NEXT <i class="fa fa-chevron-right"></i> </a></li>
                             </ul>
                         </div>
                     </div>
@@ -208,6 +212,7 @@
     <script src="../script/custom.js"></script>
     <!-- Custom	Script -->
     <script src="../script/browse.js"></script>
+    <script src="../script/search.js"></script>
 </body>
 
 </html>

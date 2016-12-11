@@ -114,33 +114,58 @@ $(function () {
                 $properties = $('div#properties-container'),
                 $filters = $('div#filter-box'),
                 $cities = $('div#cities-dropdown');
+            // btn listers 
+            if ($('a#last-btn')) {
+                $('a#last-btn').click(function () {
+                    currentPage = currentPage - 10;
+                    displayProperties();
+                    $('html, body').scrollTop(0);
+                });
+            }
+            if ($('a#next-btn')) {
+                $('a#next-btn').click(function () {
+                    currentPage = currentPage + 10;
+                    displayProperties();
+                    $('html, body').scrollTop(0);
+                });
+            }
             // display properties for current view
             function displayProperties() {
+                if (currentPage <= 9) $('a#last-btn').hide();
+                else $('a#last-btn').show();
+                if ((currentPage + 10) > PROPERTIES.length) $('a#next-btn').hide();
+                else $('a#next-btn').show();
                 $properties.empty();
-                for (var i = currentPage, max = i + 10; i < max; i++) {
-                    var html = '<div class="box-ads box-list">' +
-                        '<a href="property-detail.html" class="hover-effect image image-fill">' +
-                        '<span class="cover"></span>' +
-                        '<img src="' + build.photosURL + PROPERTIES[i].photos[0] + '" alt="Sample images" />' +
-                        '<h3 class="title">' + PROPERTIES[i].address + '</h3>' +
-                        '</a>' +
-                        '<span class="price">$' + displayPrice(PROPERTIES[i].rate) + '/night</span>' +
-                        '<span class="address">' + PROPERTIES[i].name + '</span>' +
-                        '<span class="description">' + remove_tags(PROPERTIES[i].description) + '</span>' +
-                        '<dl class="detail">' +
-                        '<dt class="status">Status:</dt>' +
-                        '<dd><span>Available</span></dd>' +
-                        '<dt class="bed">Beds:</dt>' +
-                        '<dd><span>' + PROPERTIES[i].beds + '</span></dd>' +
-                        '<dt class="bath">Baths:</dt>' +
-                        '<dd><span>' + PROPERTIES[i].baths + '</span></dd>' +
-                        '</dl>' +
-                        '<div class="footer">' +
-                        '<i class="fa fa-map-marker"></i> ' + PROPERTIES[i].address + '' +
-                        '<a href="property-detail.html" class="btn btn-default">Read now</a>' +
-                        '</div>' +
-                        '</div>';
-                    $properties.append(html);
+                if (PROPERTIES.length > 0) {
+                    for (var i = currentPage, max = i + 10; i < max; i++) {
+                        if (PROPERTIES[i]) {
+                            var html = '<div class="box-ads box-list">' +
+                                '<a href="../property/#/' + PROPERTIES[i].id + '" class="hover-effect image image-fill">' +
+                                '<span class="cover"></span>' +
+                                '<img src="' + build.photosURL + PROPERTIES[i].photos[0] + '" alt="Sample images" />' +
+                                '<h3 class="title">' + PROPERTIES[i].address + '</h3>' +
+                                '</a>' +
+                                '<span class="price">$' + displayPrice(PROPERTIES[i].rate) + '/night</span>' +
+                                '<span class="address">' + PROPERTIES[i].name + '</span>' +
+                                '<span class="description">' + remove_tags(PROPERTIES[i].description) + '</span>' +
+                                '<dl class="detail">' +
+                                '<dt class="status">Status:</dt>' +
+                                '<dd><span>Available</span></dd>' +
+                                '<dt class="bed">Beds:</dt>' +
+                                '<dd><span>' + PROPERTIES[i].beds + '</span></dd>' +
+                                '<dt class="bath">Baths:</dt>' +
+                                '<dd><span>' + PROPERTIES[i].baths + '</span></dd>' +
+                                '</dl>' +
+                                '<div class="footer">' +
+                                '<i class="fa fa-map-marker"></i> ' + PROPERTIES[i].address + '' +
+                                '<a href="../property/#/' + PROPERTIES[i].id + '" class="btn btn-default">Read More</a>' +
+                                '</div>' +
+                                '</div>';
+                            $properties.append(html);
+                        }
+                    }
+                } else {
+                    $properties.append('<h1>No results found...</h1>');
                 }
             }
             // append all filters 
@@ -149,17 +174,65 @@ $(function () {
             });
             // append all cities
             function buildCities() {
-                var html = '<select class="dropdown" data-settings=\'{"cutOff": 5}\'>';
+                var html = '<select class="dropdown" id="cities" data-settings=\'{"cutOff": 5}\'>';
                 html += '<option value="">-- All Cities --</option>';
                 $.each(build.cities, function (x, val) {
                     html += '<option value="' + val + '">' + val + '</option>';
-                }); 
+                });
                 html += '</select>';
                 $cities.append(html);
             }
             buildCities();
             // browse all properties
             if (window.location.hash.length === 0) {
+                displayProperties();
+            } else {
+                // remove properties without criterea
+                var tempProperties = [];
+                // converts hash to object
+                function parseParms(str) {
+                    var pieces = str.split("&"),
+                        data = {},
+                        i, parts;
+                    // process each query pair
+                    for (var i = 0, max = pieces.length; i < max; i++) {
+                        parts = pieces[i].split("=");
+                        if (parts.length < 2) {
+                            parts.push("");
+                        }
+                        data[decodeURIComponent(parts[0])] = decodeURIComponent(parts[1]);
+                    }
+                    return data;
+                }
+                var hash = window.location.hash.substr(1);
+                hash = parseParms(hash);
+                // create {} for filters
+                var filters = {};
+                // set bath 
+                if (hash.bath.length > 0 && hash.bath.length < 10) filters.bath = parseInt(hash.bath);
+                else filters.bath = 1;
+                // set bed
+                if (hash.bed.length > 0 && hash.bed.length < 10) filters.bed = parseInt(hash.bed);
+                else filters.bed = 1;
+                // set checkin 
+                if (hash.checkin.length > 0) filters.checkin = new Date(hash.checkin);
+                else filters.checkin = 0;
+                // set checkout 
+                if (hash.checkout.length > 0) filters.checkout = new Date(hash.checkout);
+                else filters.checkout = 0;
+                // set city
+                if (hash.city.length > 0) filters.city = hash.city.replace('-', ' ');
+                else filters.city = 0;
+                // remove properties that don't match filter
+                $.each(build.properties, function (x, val) {
+                    var test = true;
+                    if (filters.city !== val.city) test = false;
+                    if (filters.city === 0) test = true;
+                    if (filters.bath > parseInt(val.baths)) test = false;
+                    if (filters.bed > parseInt(val.beds)) test = false;
+                    if (test) tempProperties.push(val);
+                });
+                PROPERTIES = tempProperties;
                 displayProperties();
             }
         }

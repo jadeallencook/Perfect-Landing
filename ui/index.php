@@ -178,11 +178,11 @@
                             </div>
                             <div class="col-sm-6 col-md-2 margin-bottom">
                                 <span id="label-checkin" data-text="Check In"></span>
-                                <input class="form-control" type="text" name="checkin" id="checkin" value="Check In" />
+                                <input class="form-control" type="text" name="checkin" id="checkin" placeholder="Check In" />
                             </div>
                             <div class="col-sm-6 col-md-2 margin-bottom">
                                 <span id="label-checkout" data-text="Check Out"></span>
-                                <input class="form-control" type="text" name="checkout" id="checkout" value="Check Out" />
+                                <input class="form-control" type="text" name="checkout" id="checkout" placeholder="Check Out" />
                             </div>
                             <div class="col-sm-6 col-md-2 margin-bottom">
                                 <span id="label-bathroom" data-text="Bathroom"></span>
@@ -209,7 +209,7 @@
                         <!-- ./filter -->
                         <div class="margin-div footer">
                             <button type="button" class="btn btn-default more-button hidden-xs hidden-sm">MORE FILTERS</button>
-                            <button type="button" class="btn btn-default search-button">Find Rental</button>
+                            <button type="button" class="btn btn-default search-button" id="find-rental">Find Rental</button>
                         </div>
                         <!-- ./footer -->
                     </div>
@@ -337,7 +337,7 @@
 							About Us
 						</span>
                         <span class="text">
-							There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration inble. If you are of going.
+							Perfect Landing Specializes in Vacation & Monthly Rentals, in addition to Real Estate Services, and Property Management.
 						</span>
                     </div>
                     <div class="col-sm-6 col-md-3">
@@ -553,6 +553,7 @@
     <!-- Range Slider -->
     <script src="script/custom.js"></script>
     <script src="script/homepage.js"></script>
+    <script src="script/search.js"></script>
     <!-- Custom	Script -->
 
 </body>
