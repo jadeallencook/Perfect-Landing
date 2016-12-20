@@ -5,6 +5,15 @@ $(function () {
         CALENDAR = [],
         CITIES = [];
 
+    // days between two dates
+    function getDays(date1, date2) {
+        date1Array = date1.split('/');
+        date2Array = date2.split('/');
+        date1 = new Date(date1Array[2], date1Array[0] - 1, date1Array[1]);
+        date2 = new Date(date2Array[2], date2Array[0] - 1, date2Array[1]);
+        return Math.round((date2 - date1) / (1000 * 60 * 60 * 24));
+    }
+
     // get data
     $.ajax({
         type: 'GET',
@@ -105,10 +114,6 @@ $(function () {
             build.getProperties();
             PROPERTIES = build.properties;
             CITIES = build.cities;
-            // verifier function
-            function verify() {
-
-            }
             // building variables
             var currentPage = 0,
                 $properties = $('div#properties-container'),
@@ -157,7 +162,7 @@ $(function () {
                                 '<dd><span>' + PROPERTIES[i].baths + '</span></dd>' +
                                 '</dl>' +
                                 '<div class="footer">' +
-                                '<i class="fa fa-map-marker"></i> ' + PROPERTIES[i].address + '' +
+                                '<i class="fa fa-map-marker"></i> ' + PROPERTIES[i].address + ', ' + PROPERTIES[i].city +
                                 '<a href="../property/#/' + PROPERTIES[i].id + '" class="btn btn-default">Read More</a>' +
                                 '</div>' +
                                 '</div>';
@@ -169,9 +174,11 @@ $(function () {
                 }
             }
             // append all filters 
+            /*
             $.each(build.amenities, function (x, val) {
                 $filters.append('<a href="#" class="filter">' + val + '</a>');
             });
+            */
             // append all cities
             function buildCities() {
                 var html = '<select class="dropdown" id="cities" data-settings=\'{"cutOff": 5}\'>';
@@ -207,7 +214,8 @@ $(function () {
                 var hash = window.location.hash.substr(1);
                 hash = parseParms(hash);
                 // create {} for filters
-                var filters = {};
+                var filters = {},
+                    availIDs = [];
                 // set bath 
                 if (hash.bath.length > 0 && hash.bath.length < 10) filters.bath = parseInt(hash.bath);
                 else filters.bath = 1;
@@ -230,9 +238,25 @@ $(function () {
                     if (filters.city === 0) test = true;
                     if (filters.bath > parseInt(val.baths)) test = false;
                     if (filters.bed > parseInt(val.beds)) test = false;
-                    if (test) tempProperties.push(val);
+                    if (test) {
+                        tempProperties.push(val);
+                        availIDs.push(val.id);
+                    }
                 });
                 PROPERTIES = tempProperties;
+                $.ajax({
+                    type: 'GET',
+                    url: '../vrp/ical.xml',
+                    dataType: 'xml',
+                    success: function (ical) {
+                        ical = xmlToJson(ical).data.xavail;
+                        $.each(ical, function (x, val) {
+                            if ($.inArray(val.propid['#text'], availIDs) !== -1) {
+                                console.log(val)
+                            }
+                        });
+                    }
+                });
                 displayProperties();
             }
         }
