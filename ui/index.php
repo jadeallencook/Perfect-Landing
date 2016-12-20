@@ -208,7 +208,7 @@
                         </div>
                         <!-- ./filter -->
                         <div class="margin-div footer">
-                            <button type="button" class="btn btn-default more-button hidden-xs hidden-sm">MORE FILTERS</button>
+                            <!-- <button type="button" class="btn btn-default more-button hidden-xs hidden-sm">MORE FILTERS</button> -->
                             <button type="button" class="btn btn-default search-button" id="find-rental">Find Rental</button>
                         </div>
                         <!-- ./footer -->
@@ -231,10 +231,11 @@
 				  <span>Rental</span>
 				</h1>
                 <ul id="spinner">
-                    <li>Adventurous</li>
-                    <li>Stylish</li>
-                    <li>Simple</li>
+                    <li>Charming</li>
+                    <li>Spacious</li>
+                    <li>Secluded</li>
                     <li>Unique</li>
+                    <li>Waterfront</li>
                 </ul>
                 <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dolor, sagittis sed elementum dignissim, lobortis.</h2>
             </div>
@@ -554,8 +555,6 @@
     <script src="script/custom.js"></script>
     <script src="script/homepage.js"></script>
     <script src="script/search.js"></script>
-    <!-- Custom	Script -->
-
 </body>
 
 </html>

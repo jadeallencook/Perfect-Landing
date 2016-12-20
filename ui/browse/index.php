@@ -148,14 +148,14 @@
                                 </div>
                                 <!-- ./row 2 -->
                             </div>
-                            <!-- ===================== filter ===================== -->
+                            <!-- 
                             <div class="section-title line-style no-margin">
                                 <h3 class="title">Filter</h3>
                             </div>
                             <div id="filter-box">
 
                             </div>
-                            <!-- ./vertical-search-container -->
+                            -->
                         </div>
                         <!-- ./col-md-3 -->
 
