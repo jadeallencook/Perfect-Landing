@@ -134,7 +134,7 @@ $(function () {
                     html += "<a class=\"hover-effect image image-fill\" href=\"property/#/" + property.id + "\">";
                     html += "<span class=\"cover\"><\/span>";
                     html += "<img alt=\"Sample images\" src=\"" + build.photosURL + property.photos[0] + "\">";
-                    html += "<h3 class=\"title\">" + property.address + "<\/h3>";
+                    html += "<h3 class=\"title\">" + property.name + "<\/h3>";
                     html += "<\/a>";
                     html += "<span class=\"price\">$" + displayPrice(property.rate) + "/night<\/span>";
                     html += "<span class=\"address\"><i class=\"fa fa-map-marker\"><\/i> " + property.city + ", " + property.zip + "<\/span>";
