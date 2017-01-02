@@ -148,10 +148,10 @@ $(function () {
                                 '<a href="../property/#/' + PROPERTIES[i].id + '" class="hover-effect image image-fill">' +
                                 '<span class="cover"></span>' +
                                 '<img src="' + build.photosURL + PROPERTIES[i].photos[0] + '" alt="Sample images" />' +
-                                '<h3 class="title">' + PROPERTIES[i].address + '</h3>' +
+                                '<h3 class="title">' + PROPERTIES[i].name + '</h3>' +
                                 '</a>' +
                                 '<span class="price">$' + displayPrice(PROPERTIES[i].rate) + '/night</span>' +
-                                '<span class="address">' + PROPERTIES[i].name + '</span>' +
+                                '<span class="address"><i class="fa fa-map-marker"></i> ' + PROPERTIES[i].city + '</span>' +
                                 '<span class="description">' + remove_tags(PROPERTIES[i].description) + '</span>' +
                                 '<dl class="detail">' +
                                 '<dt class="status">Status:</dt>' +
@@ -161,10 +161,6 @@ $(function () {
                                 '<dt class="bath">Baths:</dt>' +
                                 '<dd><span>' + PROPERTIES[i].baths + '</span></dd>' +
                                 '</dl>' +
-                                '<div class="footer">' +
-                                '<i class="fa fa-map-marker"></i> ' + PROPERTIES[i].address + ', ' + PROPERTIES[i].city +
-                                '<a href="../property/#/' + PROPERTIES[i].id + '" class="btn btn-default">Read More</a>' +
-                                '</div>' +
                                 '</div>';
                             $properties.append(html);
                         }
@@ -249,15 +245,63 @@ $(function () {
                     url: '../vrp/ical.xml',
                     dataType: 'xml',
                     success: function (ical) {
-                        ical = xmlToJson(ical).data.xavail;
-                        $.each(ical, function (x, val) {
-                            if ($.inArray(val.propid['#text'], availIDs) !== -1) {
-                                console.log(val)
+                        // days between two dates
+                        function getDays(date1, date2) {
+                            date1Array = date1.split('/');
+                            date2Array = date2.split('/');
+                            date1 = new Date(date1Array[2], date1Array[0] - 1, date1Array[1]);
+                            date2 = new Date(date2Array[2], date2Array[0] - 1, date2Array[1]);
+                            return Math.round((date2 - date1) / (1000 * 60 * 60 * 24));
+                        }
+                        // vrp start date
+                        var startDate = xmlToJson(ical).data['@attributes'].begdate;
+                        startDate = startDate.split('-');
+                        startDate = startDate[1] + '/' + startDate[2] + '/' + startDate[0];
+                        // today's date 
+                        var today = new Date();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDay = today.getDate();
+                        today = (todayMonth < 10 ? '0' : '') + todayMonth + '/' +
+                            (todayDay < 10 ? '0' : '') + todayDay + '/' +
+                            today.getFullYear();
+                        if (hash.checkin.length > 0) var startPosition = getDays(startDate, hash.checkin);
+                        else var startPosition = getDays(startDate, today);
+                        // get days between checkin/checkout
+                        if (hash.checkin.length > 0 && hash.checkout.length > 0) var days = getDays(hash.checkin, hash.checkout);
+                        else var days = 0;
+                        // check is schedule is open
+                        function validate(data) {
+                            var validator = true;
+                            if (hash.checkin.length > 0 && hash.checkout.length > 0) {
+                                for (var x = 0; x < days; x++) {
+                                    if (data[x] !== 'A') validator = false;
+                                }
                             }
-                        });
+                            return validator;
+                        }
+                        ical = xmlToJson(ical).data.xavail;
+                        // reset temp props for use 
+                        function removeUnavailable() {
+                            tempProperties = [];
+                            $.each(ical, function (x, val) {
+                                if ($.inArray(val.propid['#text'], availIDs) !== -1) {
+                                    if (validate(val.avlist['#text'])) {
+                                        tempProperties.push(val.propid['#text']);
+                                    }
+                                }
+                            });
+                            var tempProperties2 = [];
+                            $.each(PROPERTIES, function (x, val) {
+                                if ($.inArray(val.id, tempProperties) !== -1) {
+                                    tempProperties2.push(val);
+                                }
+                            });
+                            return tempProperties2;
+                        }
+                        PROPERTIES = removeUnavailable();
+                        displayProperties();
                     }
                 });
-                displayProperties();
             }
         }
     });
