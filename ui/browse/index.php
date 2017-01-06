@@ -125,10 +125,10 @@
                                         <input class="form-control" type="text" name="bedroom" id="bedroom" value="1" />
                                     </div>
                                     <div class="col-md-6 space-div">
-                                        <input class="form-control" type="text" name="checkin" id="checkin" value="Check In" />
+                                        <input class="form-control" type="text" name="checkin" id="checkin" placeholder="Check In" />
                                     </div>
                                     <div class="col-md-6 space-div">
-                                        <input class="form-control" type="text" name="checkout" id="checkout" value="Check Out" />
+                                        <input class="form-control" type="text" name="checkout" id="checkout" placeholder="Check Out" />
                                     </div>
                                     <!--
                                     <div class="col-md-12 space-div">

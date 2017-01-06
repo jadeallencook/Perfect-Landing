@@ -175,13 +175,6 @@ $(function () {
                 },
                 simpleSheet: false
             });
-            // init datepicker
-            $('input#checkin').datepicker({
-                minDate: 0
-            });
-            $('input#checkout').datepicker({
-                minDate: 0
-            });
             // init process
             if (build.hash) {
                 build.hash = parseInt(build.hash.match(/\d+$/)[0]);

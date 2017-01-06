@@ -1,3 +1,11 @@
+// init datepicker
+$('input#checkin').datepicker({
+    minDate: 0
+});
+$('input#checkout').datepicker({
+    minDate: 0
+});
+
 // building search functions
 $('button#find-rental').click(function () {
 
@@ -37,7 +45,7 @@ $('button#find-rental').click(function () {
         if (checkin.length === 0 && checkout.length === 0) {
             // browse all
             redirect();
-        } else if (checkin.length > 0 && checkout.length === 0) { 
+        } else if (checkin.length > 0 && checkout.length === 0) {
             // if checkout isn't set
             $('input#checkout').css('border', 'solid thin red');
         } else if (checkout.length > 0 && checkin.length === 0) {
@@ -52,7 +60,7 @@ $('button#find-rental').click(function () {
             }
         }
     }
-    
+
     // init date check
     dateCheck();
 });

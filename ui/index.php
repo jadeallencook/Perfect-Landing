@@ -91,7 +91,7 @@
                         <!-- /.logo -->
                         <div class="col-md-10 hidden-xs" id="login-pan">
                             <a href="call:1-989-362-3300"><i class="icon fa fa-phone"></i> (989)362-3300</a>
-                            <a class="hidden-sm" data-section="modal-contact" data-target="#modal-contact" data-toggle="modal" href="#"><i class="icon fa fa-envelope-o"></i> hello@perfectlanding.com</a>
+                            <a class="hidden-sm" href="contact/"><i class="icon fa fa-envelope-o"></i> hello@perfectlanding.com</a>
                         </div>
                     </div>
                 </div>
