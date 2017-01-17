@@ -68,10 +68,10 @@
             <br />
             <script>
                 var lines = new Array(
-                    'Shovelling coal into the server...',
-                    'Programming the flux capacitor...',
+                    'Loading your dream vacation...',
+                    'What a great choice you have made...',
                     'Sweeping off the welcome mat...',
-                    'Loading your dream vacation...'
+                    'Looking forward to your visit...'
                 );
                 document.write('<h2 style="color: #fff">' + lines[Math.round(Math.random() * (lines.length - 1))] + '</h2>');
             </script>
@@ -273,56 +273,23 @@
                 <div class="row">
                     <div class="col-md-4">
                         <div class="blog-list masonry-post">
-                            <h2 class="title"><a href="blog-detail.html">Praesent moleti ipsum</a></h2>
-                            <div class="image">
-                                <img class="img-responsive" alt="Image Sample" src="http://placehold.it/1280x850/bbbbbb/ffffff">
-                                <div class="social">
-                                    <span class="date">2<span>Apr</span></span>
-                                    <a href="#"><i class="fa fa-heart-o"></i><span>654</span></a>
-                                    <a href="#"><i class="fa fa-eye"></i><span>92435</span></a>
-                                    <a href="#"><i class="fa fa-comments"></i><span>69</span></a>
-                                </div>
-                            </div>
-                            <div class="text">
-                                <h3 class="subtitle">Internet tend to repeat prunks.</h3> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent molestie in ippulvinar libero enim, et finibus massa commodo vitae.
-                            </div>
-                            <a href="blog-detail.html" class="btn btn-default button-read">Read now</a>
+                            <div class="image blog-image" id="blog-image-1"></div>
+                            <div class="text" id="blog-desc-1"><h3 class="subtitle" id="blog-title-1"></h3></div>
+                            <a target="_blank" id="blog-link-1" class="btn btn-default button-read">Read now</a>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="blog-list masonry-post">
-                            <h2 class="title"><a href="blog-detail.html">Dolor sit amet</a></h2>
-                            <div class="image">
-                                <img class="img-responsive" alt="Image Sample" src="http://placehold.it/1280x850/bbbbbb/ffffff">
-                                <div class="social">
-                                    <span class="date">18<span>Mar</span></span>
-                                    <a href="#"><i class="fa fa-heart-o"></i><span>654</span></a>
-                                    <a href="#"><i class="fa fa-eye"></i><span>92435</span></a>
-                                    <a href="#"><i class="fa fa-comments"></i><span>69</span></a>
-                                </div>
-                            </div>
-                            <div class="text">
-                                <h3 class="subtitle">Internet tend to redefined chunks.</h3> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent molestie in ippulvinar libero enim, et finibus massa commodo vitae.
-                            </div>
-                            <a href="blog-detail-full.html" class="btn btn-default button-read">Read now</a>
+                            <div class="image blog-image" id="blog-image-2"></div>
+                            <div class="text" id="blog-desc-2"><h3 class="subtitle" id="blog-title-2"></h3></div>
+                            <a target="_blank" id="blog-link-2" class="btn btn-default button-read">Read now</a>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="blog-list masonry-post">
-                            <h2 class="title"><a href="blog-detail.html">Pepeat predefined chunks</a></h2>
-                            <div class="image">
-                                <img class="img-responsive" alt="Image Sample" src="http://placehold.it/1280x850/bbbbbb/ffffff">
-                                <div class="social">
-                                    <span class="date">15<span>Mar</span></span>
-                                    <a href="#"><i class="fa fa-heart-o"></i><span>654</span></a>
-                                    <a href="#"><i class="fa fa-eye"></i><span>92435</span></a>
-                                    <a href="#"><i class="fa fa-comments"></i><span>69</span></a>
-                                </div>
-                            </div>
-                            <div class="text">
-                                <h3 class="subtitle">Interno repeat predefined chunks.</h3> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent molestie in ippulvinar libero enim, et finibus massa commodo vitae.
-                            </div>
-                            <a href="blog-detail.html" class="btn btn-default button-read">Read now</a>
+                            <div class="image blog-image" id="blog-image-3"></div>
+                            <div class="text" id="blog-desc-3"><h3 class="subtitle" id="blog-title-3"></h3></div>
+                            <a target="_blank" id="blog-link-3" class="btn btn-default button-read">Read now</a>
                         </div>
                     </div>
                 </div>
@@ -372,7 +339,7 @@
                         <div class="col-md-3">
                             <ul class="social-icons">
                                 <li><a gdoc="facebook" target="_blank" href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a gdoc="twitter" target="_blank" href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a gdoc="pintrest" target="_blank" href="#"><i class="fa fa-pinterest"></i></a></li>
                                 <li><a gdoc="instagram" target="_blank" href="#"><i class="fa fa-instagram"></i></a></li>
                             </ul>
                         </div>
@@ -555,6 +522,7 @@
     <script src="script/custom.js"></script>
     <script src="script/homepage.js"></script>
     <script src="script/search.js"></script>
+    <script src="script/blog.js"></script>
 </body>
 
 </html>
