@@ -35,7 +35,7 @@ window.gDoc = function (data, sheet) {
                         var attribute = keys[i].substr(keys[i].indexOf(':') + 1);
                         var element = keys[i].substr(0, keys[i].indexOf(':'));
                         element = document.querySelector('[gDoc="' + element + '"]');
-                        element.setAttribute(attribute, values[i]);
+                        if (element !== null) element.setAttribute(attribute, values[i]);
                     } else {
                         // get elements that have gDocs set to column names
                         var element = document.querySelector('[gDoc="' + keys[i] + '"]');
