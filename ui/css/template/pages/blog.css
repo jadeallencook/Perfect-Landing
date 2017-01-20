@@ -72,14 +72,6 @@
     float: left;
 }
 
-#blog .blog-list.post-line .image,
-#blog .blog-list.post-line .title,
-#blog .blog-list.post-line .subtitle,
-#blog .blog-list.post-line .text,
-#blog .blog-list.post-line .button-read {
-    margin-left: 60px;
-}
-
 #blog .blog-list.post-line .subtitle {
     margin-top: 10px;
 }
