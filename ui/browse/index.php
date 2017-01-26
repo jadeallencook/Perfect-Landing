@@ -102,9 +102,6 @@
                         </div>
                         <!-- ./col-md-9 -->
                         <div class="col-md-3 col-md-pull-9">
-                            <a href="../submit/">
-                                <button id="add-property" class="btn btn-default" type="button"><i class="icon fa fa-plus-square"></i> Add Your Property</button>
-                            </a>
                             <!-- ===================== SEARCH ===================== -->
                             <div class="section-title line-style">
                                 <h3 class="title">Search Box</h3>

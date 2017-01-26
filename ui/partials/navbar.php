@@ -32,9 +32,6 @@
                     <a href="../idx/">IDX</a>
                 </li>
                 <li>
-                    <a href="../submit">Submit</a>
-                </li>
-                <li>
                     <a href="../contact">Contact</a>
                 </li>
         </nav>
