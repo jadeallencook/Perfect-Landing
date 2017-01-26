@@ -27,7 +27,7 @@
                 </ul>
             </div>
             <div class="col-sm-6 col-md-3">
-                <span class="title">Social Media</span> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eu condimentum neque.
+                <span class="title">Social Media</span> Happy to connect!
             </div>
         </div>
     </div>

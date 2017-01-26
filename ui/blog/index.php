@@ -78,7 +78,7 @@
                         <div>
                             <h1 class="title">Our Blogs</h1></div>
                         <div>
-                            <h2 class="sub-title">Lorem ipsum dolor sit ats adipiscing elit justo</h2></div>
+                            <h2 class="sub-title">Find out more here!</h2></div>
                     </div>
                 </div>
                 <div id="breadcrumb">

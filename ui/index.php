@@ -237,7 +237,7 @@
                     <li>Unique</li>
                     <li>Waterfront</li>
                 </ul>
-                <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dolor, sagittis sed elementum dignissim, lobortis.</h2>
+                <h2>Welcome to Perfect Landing Rentals!</h2>
             </div>
             <div class="container">
                 <div class="list-box-title">
@@ -255,11 +255,11 @@
             <span class="overlay"></span>
             <div class="container">
                 <div class="section-detail">
-                    <h1>Submit Property</h1>
-                    <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dolor, sagittis sed elementum dignissim, lobortis.<br />Dolor nunc vule putateulr ips dol consec.Donec semp ertet.</h2>
+                    <h1>About Us</h1>
+                    <h2>Perfect Landing Specializes in Vacation & Monthly Rentals, in addition to Real Estate Services, and Property Management.</h2>
                 </div>
                 <div class="row text-center">
-                    <a href="submit/" class="btn btn-reverse button-large">Submit Property</a>
+                    <a href="browse/" class="btn btn-reverse button-large">Browse Our Properties</a>
                 </div>
             </div>
         </section>
@@ -267,7 +267,7 @@
         <section id="recent-news">
             <div class="section-detail">
                 <h1>Recent News</h1>
-                <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dolor, sagittis sed elementum dignissim, lobortis.</h2>
+                <h2>If you need assistance in finding your ideal rental just give us a call!</h2>
             </div>
             <div class="container" id="blog">
                 <div class="row">
@@ -325,7 +325,7 @@
                         </ul>
                     </div>
                     <div class="col-sm-6 col-md-3">
-                        <span class="title">Social Media</span> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eu condimentum neque.
+                        <span class="title">Social Media</span> Happy to connect!
                     </div>
                 </div>
             </div>
