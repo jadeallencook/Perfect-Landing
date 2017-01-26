@@ -144,6 +144,9 @@ $(function () {
                 if (PROPERTIES.length > 0) {
                     for (var i = currentPage, max = i + 10; i < max; i++) {
                         if (PROPERTIES[i]) {
+                            var pets = PROPERTIES[i].pets;
+                            if (pets === 'true') pets = 'Allowed';
+                            else pets = 'Not Allowed';
                             var html = '<div class="box-ads box-list">' +
                                 '<a href="../property/#/' + PROPERTIES[i].id + '" class="hover-effect image image-fill">' +
                                 '<span class="cover"></span>' +
@@ -154,8 +157,8 @@ $(function () {
                                 '<span class="address"><i class="fa fa-map-marker"></i> ' + PROPERTIES[i].city + '</span>' +
                                 '<span class="description">' + remove_tags(PROPERTIES[i].description) + '</span>' +
                                 '<dl class="detail">' +
-                                '<dt class="status">Status:</dt>' +
-                                '<dd><span>Available</span></dd>' +
+                                '<dt class="area">Pets:</dt>' +
+                                '<dd><span>' + pets + '</span></dd>' +
                                 '<dt class="bed">Beds:</dt>' +
                                 '<dd><span>' + PROPERTIES[i].beds + '</span></dd>' +
                                 '<dt class="bath">Baths:</dt>' +
