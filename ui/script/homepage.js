@@ -160,9 +160,11 @@ $(function () {
             Tabletop.init({
                 key: '1jmx69ezkmKHqKb5MlUttTpL8pkt8i-ThFeXWMQzNRT4',
                 callback: function (data, tabletop) {
-                    var featured = data.featured.elements;
-                    var featuredArray = [];
-                    var allID = [];
+                    var featured = data.featured.elements,
+                        featuredArray = [],
+                        allID = [],
+                        urls = data.urls.elements,
+                        domain = document.domain;
                     $.each(featured, function (x, val) {
                         featuredArray.push(val.id);
                     });
@@ -172,6 +174,16 @@ $(function () {
                     $('div#featured-list').append(build.property(build.properties[allID.indexOf(featuredArray[0])]));
                     $('div#featured-list').append(build.property(build.properties[allID.indexOf(featuredArray[1])]));
                     $('div#featured-list').append(build.property(build.properties[allID.indexOf(featuredArray[2])]));
+                    console.log(urls)
+                    $.each(urls, function (x, val) {
+                        var url = val.url;
+                        if (url === domain) {
+                            $('div#featured-list').empty();
+                            $('div#featured-list').append(build.property(build.properties[allID.indexOf(val.prop1)]));
+                            $('div#featured-list').append(build.property(build.properties[allID.indexOf(val.prop2)]));
+                            $('div#featured-list').append(build.property(build.properties[allID.indexOf(val.prop3)]));
+                        }
+                    });
                 },
                 simpleSheet: false
             });

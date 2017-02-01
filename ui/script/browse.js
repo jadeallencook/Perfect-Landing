@@ -145,7 +145,7 @@ $(function () {
                     for (var i = currentPage, max = i + 10; i < max; i++) {
                         if (PROPERTIES[i]) {
                             var pets = PROPERTIES[i].pets;
-                            if (pets === 'true') pets = 'Allowed';
+                            if (pets !== 'true') pets = 'Allowed';
                             else pets = 'Not Allowed';
                             var html = '<div class="box-ads box-list">' +
                                 '<a href="../property/#/' + PROPERTIES[i].id + '" class="hover-effect image image-fill">' +
@@ -172,13 +172,6 @@ $(function () {
                     $properties.append('<h1>No results found...</h1>');
                 }
             }
-            // append all filters 
-            /*
-            $.each(build.amenities, function (x, val) {
-                $filters.append('<a href="#" class="filter">' + val + '</a>');
-            });
-            */
-            // append all cities
             function buildCities() {
                 var html = '<select class="dropdown" id="cities" data-settings=\'{"cutOff": 5}\'>';
                 html += '<option value="">-- All Cities --</option>';
@@ -230,6 +223,15 @@ $(function () {
                 // set city
                 if (hash.city.length > 0) filters.city = hash.city.replace('-', ' ');
                 else filters.city = 0;
+                // auto fill form data to match 
+                console.log(filters);
+                if (filters.city.length > 0) $('select#cities').val(filters.city);
+                $('input#bathroom').val(filters.bath);
+                $('input#bedroom').val(filters.bed);
+                if (filters.checkin > 0) $('input#checkin').val((filters.checkin.getMonth() + 1) + '/' + filters.checkin.getDate() + '/' + filters.checkin.getFullYear());
+                if (filters.checkout > 0) $('input#checkout').val((filters.checkout.getMonth() + 1) + '/' + filters.checkout.getDate() + '/' + filters.checkout.getFullYear());
+                $('#grid-content > div:nth-child(1) > div > div.col-md-3.col-md-pull-9 > div.right-box > div > div:nth-child(4) > span > span > span').text(filters.bath);
+                $('#grid-content > div:nth-child(1) > div > div.col-md-3.col-md-pull-9 > div.right-box > div > div:nth-child(5) > span > span > span').text(filters.bed);
                 // remove properties that don't match filter
                 $.each(build.properties, function (x, val) {
                     var test = true;
@@ -306,6 +308,35 @@ $(function () {
                     }
                 });
             }
+            // filter event listers
+            var activeFilters = [],
+                allProperties = PROPERTIES;
+            $('div.filter').click(function () {
+                var value = $(this).attr('data-value'),
+                    tmpProperties = [];
+                if ($(this).hasClass('active')) {
+                    $(this).removeClass('active').css({
+                        opacity: 1
+                    });
+                    activeFilters = $.grep(activeFilters, function (x) {
+                        return x != value;
+                    });
+                } else {
+                    $(this).addClass('active').css({
+                        opacity: 0.5
+                    });
+                    activeFilters.push(value);
+                }
+                $.each(allProperties, function(x, property) {
+                    var check = true;
+                    $.each(activeFilters, function(y, filter){
+                        if ($.inArray(filter, property.amenities) === -1) check = false;
+                    });
+                    if (check) tmpProperties.push(property);
+                });
+                PROPERTIES = tmpProperties;
+                displayProperties();
+            });
         }
     });
 

@@ -127,17 +127,6 @@
                                     <div class="col-md-6 space-div">
                                         <input class="form-control" type="text" name="checkout" id="checkout" placeholder="Check Out" />
                                     </div>
-                                    <!--
-                                    <div class="col-md-12 space-div">
-                                        <label>Price</label>
-                                        <div class="slider" id="price-range"></div>
-                                        <div class="price-slider price">
-                                            <span id="price-value-min"></span>
-                                            <span class="separator">$</span>
-                                            <span id="price-value-max"></span>
-                                        </div>
-                                    </div>
-                                    -->
                                     <div class="col-md-12 space-div">
                                         <button type="button" class="btn btn-default search-button" id="find-rental">SEARCH NOW</button>
                                     </div>
@@ -145,14 +134,21 @@
                                 </div>
                                 <!-- ./row 2 -->
                             </div>
-                            <!-- 
                             <div class="section-title line-style no-margin">
-                                <h3 class="title">Filter</h3>
+                                <h3 class="title">Filters</h3>
                             </div>
                             <div id="filter-box">
-
+                                <div class="filter" data-value="WiFi">WiFi</div>
+                                <div class="filter" data-value="Air Conditioning">Air Conditioning</div>
+                                <div class="filter" data-value="Pets/Dog Only">Pets/Dog Only</div>
+                                <div class="filter" data-value="Outdoor Grill- Charcoal">Outdoor Grill- Charcoal</div>
+                                <div class="filter" data-value="Washer/Dryer">Washer/Dryer</div>
+                                <div class="filter" data-value="Dishwasher">Dishwasher</div>
+                                <div class="filter" data-value="Fireplace Type-Gas">Fireplace Type-Gas</div>
+                                <div class="filter" data-value="Hot Tub">Hot Tub</div>
+                                <div class="filter" data-value="TV Type - Basic Cable">TV Type - Basic Cable</div>
+                                <div class="filter" data-value="Outdoor Shared Firepit">Outdoor Shared Firepit</div>
                             </div>
-                            -->
                         </div>
                         <!-- ./col-md-3 -->
 

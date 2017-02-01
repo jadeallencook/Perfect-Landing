@@ -36,6 +36,6 @@
                 </li>
         </nav>
     </div>
-    <a href="../#" class="fixed-button top"><i class="fa fa-chevron-up"></i></a>
-    <a href="../#" class="hidden-xs fixed-button email" data-toggle="modal" data-target="#modal-contact" data-section="modal-contact"><i class="fa fa-envelope-o"></i></a>
+    <a href="#" class="fixed-button top"><i class="fa fa-chevron-up"></i></a>
+    <a href="../contact/" class="hidden-xs fixed-button email"><i class="fa fa-envelope-o"></i></a>
 </header>

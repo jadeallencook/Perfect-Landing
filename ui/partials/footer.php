@@ -23,7 +23,7 @@
                 <ul class="link-extra">
                     <li><a href="../idx/">IDX</a></li>
                     <li><a href="../browse/">Browse</a></li>
-                    <li><a href="../submit">Submit Property</a></li>
+                    <li><a href="../contact/">Submit Property</a></li>
                 </ul>
             </div>
             <div class="col-sm-6 col-md-3">

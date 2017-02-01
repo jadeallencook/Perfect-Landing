@@ -118,7 +118,7 @@
                 </nav>
             </div>
             <a href="#" class="fixed-button top"><i class="fa fa-chevron-up"></i></a>
-            <a href="#" class="hidden-xs fixed-button email" data-toggle="modal" data-target="#modal-contact" data-section="modal-contact"><i class="fa fa-envelope-o"></i></a>
+            <a href="contact/" class="hidden-xs fixed-button email"><i class="fa fa-envelope-o"></i></a>
         </header>
 
         <section id="home-slide" class="header-margin-color-line">
@@ -318,7 +318,7 @@
                         <ul class="link-extra">
                             <li><a href="idx/">IDX</a></li>
                             <li><a href="browse/">Browse</a></li>
-                            <li><a href="submit/">Submit Property</a></li>
+                            <li><a href="contact/">Submit Property</a></li>
                         </ul>
                     </div>
                     <div class="col-sm-6 col-md-3">
@@ -451,39 +451,6 @@
         <div class="modal fade" id="modal-contact" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-close"></i></button>
-
-                <div class="form-container full-fixed">
-                    <form method="post" action="#">
-                        <div id="form-modal-contact" class="box active modal-contact">
-                            <h2 class="title">How can we help?</h2>
-                            <h3 class="sub-title">Please send us your thoughts by filling out the below form. Comments are solely for internal use. Your address will not be shared with outside parties or used for any other purpose than to respond to your comments.</h3>
-                            <ul class="object-contact">
-                                <li><a href="#"><i class="fa fa-code"></i>Suggestion</a></li>
-                                <li><a href="#"><i class="fa fa-question"></i>Question</a></li>
-                                <li><a href="#" class="active"><i class="fa fa-bug"></i>Problems</a></li>
-                                <li><a href="#"><i class="fa fa-comment-o"></i>Feedback</a></li>
-                            </ul>
-                            <div class="field">
-                                <textarea class="form-control" name="message" id="message" placeholder="Your message"></textarea>
-                            </div>
-                            <div class="field">
-                                <input id="short-summary" class="form-control" type="text" name="short-summary" placeholder="Short summary">
-                                <i class="fa fa-tag"></i>
-                            </div>
-                            <div class="field">
-                                <input id="email-help" class="form-control" type="text" name="email-help" placeholder="Your email">
-                                <i class="fa fa-envelope-o"></i>
-                            </div>
-                            <div class="field footer-form text-right">
-                                <button type="button" class="btn btn-reverse button-form">Cancel</button>
-                                <button type="button" class="btn btn-default button-form">Send</button>
-                            </div>
-
-                        </div>
-                    </form>
-                </div>
-
-
             </div>
             <!-- /.modal-dialog -->
         </div>
