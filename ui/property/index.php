@@ -127,6 +127,14 @@
                                         </div>
                                     </div>
                                     <!-- /.details -->
+                                    <div class="section-title line-style line-style">
+                                        <h3 class="title">Comment & Reviews</h3>
+                                    </div>
+                                    <div class="details">
+                                        <div class="row feedback" id="comments-container">
+                                            <h2 style="margin-left: 25px;">Loading...</h2>
+                                        </div>
+                                    </div>
 
                                 </div>
                             </div>

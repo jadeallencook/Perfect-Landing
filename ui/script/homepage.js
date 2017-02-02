@@ -174,7 +174,6 @@ $(function () {
                     $('div#featured-list').append(build.property(build.properties[allID.indexOf(featuredArray[0])]));
                     $('div#featured-list').append(build.property(build.properties[allID.indexOf(featuredArray[1])]));
                     $('div#featured-list').append(build.property(build.properties[allID.indexOf(featuredArray[2])]));
-                    console.log(urls)
                     $.each(urls, function (x, val) {
                         var url = val.url;
                         if (url === domain) {

@@ -94,6 +94,7 @@ $(function () {
                 $('h1#property-title').text(property.name);
                 $('h2#short-desc').text(property.short);
                 $('span#property-price').text('$' + displayPrice(property.rate) + '/night');
+
                 function createPhotos() {
                     var html = '<div class="fotorama" data-width="100%" data-fit="cover" data-max-width="100%" data-nav="thumbs" data-transition="crossfade" id="property-photos">';
                     $.each(property.photos, function (x, val) {
@@ -135,6 +136,32 @@ $(function () {
                 }
                 buildOther(1, other1);
                 buildOther(2, other2);
+                // place in reviews
+                Tabletop.init({
+                    key: '1wkiuWqORux27xf5nZOiI44G-IjVRQPzlL3yk3Xhx7yk',
+                    callback: function (data, tabletop) {
+                        data = data.comments.elements;
+                        var validComments = [],
+                            html = '';
+                        $.each(data, function (x, val) {
+                            if (val.id === id) {
+                                html += '<div class="user-feedback">' +
+                                    '<span class="name">' + val.name + '</span>' +
+                                    '<span class="text">' + val.review + '</span>' +
+                                    '<span class="vote">';
+                                    for (var y = 1; y <= 5; y++) {
+                                        if (y <= val.overall) html += '<i class="fa fa-star"></i>';
+                                        else html += '<i class="fa fa-star-o"></i>';
+                                    }
+                                html += '</span></div>';
+                            }
+                        });
+                        $('div#comments-container').empty();
+                        if (html.length > 0) $('div#comments-container').append(html);
+                        else $('div#comments-container').append('<h2 style="margin-left: 25px;">No reviews yet!</h2>');
+                    },
+                    simpleSheet: false
+                });
             }
         });
     }
