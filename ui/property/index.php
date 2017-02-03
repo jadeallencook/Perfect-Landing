@@ -30,11 +30,13 @@
     <link rel="stylesheet" href="../css/media-query.css">
     <link rel="stylesheet" href="../css/template/color/F1C40F.css">
     <!-- jQuery UI -->
-    <link rel="stylesheet" href="../css/jquery-ui.min.css">
+    
     <!-- Custom Styles -->
     <link rel="stylesheet" href="../css/custom-ui.css">
     <!-- idx css -->
     <link rel="stylesheet" href="../css/idx.css">
+    <!-- for custom calendar plugin -->
+    <link rel="stylesheet" href="../css/calendar.css">
     <!-- Use Iconifyer to generate all the favicons and touch icons you need: http://iconifier.net -->
     <link rel="shortcut icon" href="../images/favicon/favicon.png" type="image/x-icon" />
     <link rel="apple-touch-icon" href="../images/favicon/apple-touch-icon.png" />
@@ -160,23 +162,6 @@
                                         <label>Bedroom</label>
                                         <input class="form-control" type="text" name="bedroom" id="bedroom" value="1" />
                                     </div>
-                                    <div class="col-md-6 space-div">
-                                        <input class="form-control" type="text" name="checkin" id="checkin" value="Check In" />
-                                    </div>
-                                    <div class="col-md-6 space-div">
-                                        <input class="form-control" type="text" name="checkout" id="checkout" value="Check Out" />
-                                    </div>
-                                    <!--
-                                    <div class="col-md-12 space-div">
-                                        <label>Price</label>
-                                        <div class="slider" id="price-range"></div>
-                                        <div class="price-slider price">
-                                            <span id="price-value-min"></span>
-                                            <span class="separator">$</span>
-                                            <span id="price-value-max"></span>
-                                        </div>
-                                    </div>
-                                    -->
                                     <div class="col-md-12 space-div">
                                         <button type="button" class="btn btn-default search-button" id="find-rental">SEARCH NOW</button>
                                     </div>
@@ -215,6 +200,13 @@
                                 </div>
                             </div>
                             <!-- /.box-ads -->
+                            
+                            <!-- Other property -->
+                            <div class="section-title line-style line-style">
+                                <h3 class="title">Property Calendar</h3>
+                            </div>
+                            
+                            <div id="calendar-app"></div>
 
                         </div>
                     </div>

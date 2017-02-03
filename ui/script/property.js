@@ -149,10 +149,10 @@ $(function () {
                                     '<span class="name">' + val.name + '</span>' +
                                     '<span class="text">' + val.review + '</span>' +
                                     '<span class="vote">';
-                                    for (var y = 1; y <= 5; y++) {
-                                        if (y <= val.overall) html += '<i class="fa fa-star"></i>';
-                                        else html += '<i class="fa fa-star-o"></i>';
-                                    }
+                                for (var y = 1; y <= 5; y++) {
+                                    if (y <= val.overall) html += '<i class="fa fa-star"></i>';
+                                    else html += '<i class="fa fa-star-o"></i>';
+                                }
                                 html += '</span></div>';
                             }
                         });
@@ -169,6 +169,49 @@ $(function () {
     // get the hash and remove #
     var hash = window.location.hash;
     hash = hash.slice(2);
+
+    // build calendar module
+    $.ajax({
+        type: 'GET',
+        url: '../vrp/ical.xml',
+        dataType: 'xml',
+        success: function (xml) {
+            // cache json & xml
+            var json = xmlToJson(xml),
+                propID = hash[0],
+                startDate = new Date(json.data['@attributes'].begdate.replace(/-/g, '/')),
+                today = new Date(),
+                availability = '';
+            json = json.data.xavail;
+            $.each(json, function (x, property) {
+                if (property.propid['#text'] === propID) {
+                    availability = property.avlist['#text'];
+                    return false;
+                }
+            });
+            // get difference between today and startdate
+            function daysIn(day) {
+                return Math.round((day - startDate) / (1000 * 60 * 60 * 24));
+            }
+            $('div#calendar-app').datepicker({
+                inline: true,
+                firstDay: 1,
+                showOtherMonths: true,
+                dayNamesMin: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
+                beforeShowDay: function (date) {
+                    var position = daysIn(date);
+                    // check if date is in your array of dates
+                    if (availability[position] !== 'A' && availability[position] !== undefined) {
+                        // if it is return the following.
+                        return [true, 'highlight'];
+                    } else {
+                        // default
+                        return [true, ''];
+                    }
+                }
+            });
+        }
+    });
 
     // relocate if none - else display property
     if (!hash) {
