@@ -36,6 +36,7 @@ $(function () {
                     rate: data.grppgsum['#text'],
                     description: data.longdesc['#text'],
                     zip: parseInt(data.zip['#text']),
+                    max: parseInt(data.maxpersons['#text']),
                     amenities: [],
                     fees: [],
                     photos: [],
@@ -163,6 +164,8 @@ $(function () {
                                 '<dd><span>' + PROPERTIES[i].beds + '</span></dd>' +
                                 '<dt class="bath">Baths:</dt>' +
                                 '<dd><span>' + PROPERTIES[i].baths + '</span></dd>' +
+                                '<dt class="status">Max:</dt>' +
+                                '<dd><span>' + PROPERTIES[i].max + '</span></dd>' +
                                 '</dl>' +
                                 '</div>';
                             $properties.append(html);

@@ -138,17 +138,19 @@
                                 <h3 class="title">Filters</h3>
                             </div>
                             <div id="filter-box">
-                                <div class="filter" data-value="WiFi">WiFi</div>
+                                <div class="filter" data-value="Wi-Fi">Wi-Fi</div>
                                 <div class="filter" data-value="Air Conditioning">Air Conditioning</div>
-                                <div class="filter" data-value="Pets/Dog Only">Pets/Dog Only</div>
-                                <div class="filter" data-value="Outdoor Grill- Charcoal">Outdoor Grill- Charcoal</div>
+                                <div class="filter" data-value="Pets Allowed">Pets Allowed</div>
+                                <div class="filter" data-value="Outdoor Grill">Outdoor Grill</div>
                                 <div class="filter" data-value="Washer/Dryer">Washer/Dryer</div>
                                 <div class="filter" data-value="Dishwasher">Dishwasher</div>
-                                <div class="filter" data-value="Fireplace Type-Gas">Fireplace Type-Gas</div>
+                                <div class="filter" data-value="Fireplace">Fireplace</div>
                                 <div class="filter" data-value="Hot Tub">Hot Tub</div>
-                                <div class="filter" data-value="TV Type - Basic Cable">TV Type - Basic Cable</div>
-                                <div class="filter" data-value="Outdoor Shared Firepit">Outdoor Shared Firepit</div>
+                                <div class="filter" data-value="Sauna">Sauna</div>
+                                <div class="filter" data-value="Cable">Cable</div>
+                                <div class="filter" data-value="Fire Pit">Fire Pit</div>
                             </div>
+                            <small><b><i>Click Filter To Apply</i></b></small>
                         </div>
                         <!-- ./col-md-3 -->
 

@@ -318,11 +318,13 @@
                         <ul class="link-extra">
                             <li><a href="idx/">IDX</a></li>
                             <li><a href="browse/">Browse</a></li>
-                            <li><a href="contact/">Submit Property</a></li>
+                            <li><a href="contact/">Contact Us</a></li>
                         </ul>
                     </div>
                     <div class="col-sm-6 col-md-3">
-                        <span class="title">Social Media</span> Happy to connect!
+                        <span class="title">Social Media</span> Happy to connect!<br /><br />
+                        <b>Feel Free To Email Us!</b><br />
+                        rentals@perfectlanding.biz
                     </div>
                 </div>
             </div>

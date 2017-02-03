@@ -329,10 +329,7 @@
 }
 
 .box-ads .detail dd {
-    background: url(../../images/separator.png) no-repeat scroll left center;
-    float: right;
-    width: 64%;
-    padding-left: 18px;
+    margin-top: 5px;
 }
 
 .box-ads .detail dd span {
