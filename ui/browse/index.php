@@ -102,8 +102,7 @@
                         </div>
                         <!-- ./col-md-9 -->
                         <div class="col-md-3 col-md-pull-9">
-                            <!-- ===================== SEARCH ===================== -->
-                            <div class="section-title line-style">
+                            <div class="section-title line-style" style="margin-top: 0px;">
                                 <h3 class="title">Search Box</h3>
                             </div>
                             <div class="right-box">

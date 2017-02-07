@@ -30,7 +30,7 @@
     <link rel="stylesheet" href="../css/media-query.css">
     <link rel="stylesheet" href="../css/template/color/F1C40F.css">
     <!-- jQuery UI -->
-    
+
     <!-- Custom Styles -->
     <link rel="stylesheet" href="../css/custom-ui.css">
     <!-- idx css -->
@@ -144,6 +144,18 @@
 
                         </div>
                         <div class="col-md-3">
+                            <div class="section-title line-style line-style" style="margin-top: 0px;">
+                                <h3 class="title">RSVP</h3>
+                            </div>
+                            <div id="rsvp-wrapper">
+                                <input class="form-control" type="text" name="rsvp-name" id="rsvp-name" placeholder="John Smith" />
+                                <br />
+                                <input class="form-control" type="text" name="rsvp-number" id="rsvp-contact" placeholder="(989) 415-5555" />
+                                <br />
+                                <button id="rsvp-property" class="btn btn-default" type="button">
+                                    <i class="icon fa fa-plus-square"></i> Submit Request
+                                </button>
+                            </div>
                             <!-- 5. Search -->
                             <div class="section-title line-style line-style">
                                 <h3 class="title">Search</h3>
@@ -200,12 +212,12 @@
                                 </div>
                             </div>
                             <!-- /.box-ads -->
-                            
+
                             <!-- Other property -->
                             <div class="section-title line-style line-style">
                                 <h3 class="title">Property Calendar</h3>
                             </div>
-                            
+
                             <div id="calendar-app"></div>
 
                         </div>
@@ -242,11 +254,12 @@
     <script src="../script/vendor/carousel/responsiveCarousel.min.js"></script>
     <!-- Carousel Script -->
     <script src="../script/vendor/noui-slider/nouislider.all.min.js"></script>
-    
+
     <!-- Range Slider -->
     <script src="../script/custom.js"></script>
     <script src="../script/property.js"></script>
     <script src="../script/search.js"></script>
+    <script src="../script/rsvp.js"></script>
     <!-- Custom	Script -->
 </body>
 
