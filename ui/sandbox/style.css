@@ -1,0 +1,123 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    background-color: #fff;
+}
+
+TABLE.color {
+    border-collapse: collapse;
+    border: 3px double #F1C40F;
+}
+
+TD.color {
+    border: 3px double #F1C40F;
+}
+
+td {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}
+
+th {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}
+
+form {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}
+
+input {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}
+
+.search {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #F1C40F;
+    font-size: 12px;
+    color: #fff;
+    line-height: 14px;
+}
+
+textarea {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}
+
+select {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}
+
+ul {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    list-style-type: square;
+    list-style-position: outside;
+}
+
+li {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}
+
+ol {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    list-style-type: decimal;
+    list-style-position: outside;
+}
+
+.small {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 9px;
+}
+
+.big {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+}
+
+.bodystyle {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}
+
+.box1 {
+    padding: 3px;
+    border-width: thin;
+    border-style: solid;
+    border-color: #CCCCCC #666666 #666666 #CCCCCC;
+}
+
+.box2 {
+    border-width: 3px;
+    border-style: solid;
+    padding: 5px;
+}
+
+a:link {
+    color: #F1C40F;
+}
+
+a:visited {
+    color: #F1C40F;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:active {
+    color: #F1C40F;
+}
+
+input[type="submit"], input[type="reset"] {
+    background-color: #F1C40F;
+    color: #fff;
+    border: none;
+    padding: 3px 15px;
+    border-radius: 3px;
+}
