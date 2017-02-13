@@ -35,7 +35,7 @@
   text-transform: uppercase;
 }
 #footer-page .title.with-icon {
-  padding-left: 34px;
+  padding-left: 50px;
 }
 #footer-page .title.with-icon .logo-footer {
   position: absolute !important;
@@ -44,7 +44,8 @@
   bottom: auto;
   left: 0;
   z-index: 1;
-  width: 26px;
+  width: 65px;
+    margin-left: -10px;
 }
 #footer-page .text {
   display: block;

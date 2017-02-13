@@ -52,6 +52,8 @@ $(function () {
                     rate: data.grppgsum['#text'],
                     description: data.longdesc['#text'],
                     zip: parseInt(data.zip['#text']),
+                    max: parseInt(data.maxpersons['#text']),
+                    minNights: parseInt(data.minnights['#text']),
                     amenities: [],
                     fees: [],
                     photos: [],
@@ -140,14 +142,14 @@ $(function () {
                     html += "<span class=\"address\"><i class=\"fa fa-map-marker\"><\/i> " + property.city + ", " + property.zip + "<\/span>";
                     html += "<span class=\"description\">" + remove_tags(property.description) + "<\/span>";
                     html += "<dl class=\"detail\">";
-                    html += "<dt class=\"status\">Status:<\/dt>";
-                    html += "<dd><span>Available<\/span><\/dd>";
+                    html += "<dt class=\"status\">Sleeps:<\/dt>";
+                    html += "<dd><span>" + property.max + "<\/span><\/dd>";
                     html += "<dt class=\"bed\">Beds:<\/dt>";
                     html += "<dd><span>" + property.beds + "<\/span><\/dd>";
                     html += "<dt class=\"bath\">Baths:<\/dt>";
                     html += "<dd><span>" + property.baths + "<\/span><\/dd>";
-                    html += "<dt class=\"area\">Pets:<\/dt>";
-                    html += "<dd><span>" + pets + "<\/span><\/dd>";
+                    html += "<dt class=\"area\">Minimum Stay:<\/dt>";
+                    html += "<dd><span>" + property.minNights + "<\/span><\/dd>";
                     html += "<\/dl>";
                     html += "<div class=\"footer\">";
                     html += "<a class=\"btn btn-reverse\" href=\"property/#/" + property.id + "\">Read now<\/a>";

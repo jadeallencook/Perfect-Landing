@@ -28,7 +28,7 @@
     <link rel="stylesheet" href="css/custom.css">
     <!-- Custom Stylesheet -->
     <link rel="stylesheet" href="css/media-query.css">
-    <link rel="stylesheet" href="css/template/color/F1C40F.css">
+    <link rel="stylesheet" href="css/template/color/E37C19.css">
     <!-- jQuery UI -->
     <link rel="stylesheet" href="css/jquery-ui.min.css">
     <!-- Custom Styles -->
@@ -63,7 +63,7 @@
 
     <div id="loading-container">
         <div>
-            <img src="images/large-logo.png" id="loading-logo" />
+            <img src="images/logo-badge.png" id="loading-logo" />
             <br />
             <br />
             <script>
@@ -91,7 +91,7 @@
                         <!-- /.logo -->
                         <div class="col-md-10 hidden-xs" id="login-pan">
                             <a href="call:1-989-362-3300"><i class="icon fa fa-phone"></i> (989)362-3300</a>
-                            <a class="hidden-sm" href="contact/"><i class="icon fa fa-envelope-o"></i> hello@perfectlanding.com</a>
+                            <a class="hidden-sm" href="contact/"><i class="icon fa fa-envelope-o"></i> hello@perfectlandingrentals.com</a>
                         </div>
                     </div>
                 </div>
@@ -271,21 +271,24 @@
                     <div class="col-md-4">
                         <div class="blog-list masonry-post">
                             <div class="image blog-image" id="blog-image-1"></div>
-                            <div class="text" id="blog-desc-1"><h3 class="subtitle" id="blog-title-1"></h3></div>
+                            <div class="text" id="blog-desc-1">
+                                <h3 class="subtitle" id="blog-title-1"></h3></div>
                             <a target="_blank" id="blog-link-1" class="btn btn-default button-read">Read now</a>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="blog-list masonry-post">
                             <div class="image blog-image" id="blog-image-2"></div>
-                            <div class="text" id="blog-desc-2"><h3 class="subtitle" id="blog-title-2"></h3></div>
+                            <div class="text" id="blog-desc-2">
+                                <h3 class="subtitle" id="blog-title-2"></h3></div>
                             <a target="_blank" id="blog-link-2" class="btn btn-default button-read">Read now</a>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="blog-list masonry-post">
                             <div class="image blog-image" id="blog-image-3"></div>
-                            <div class="text" id="blog-desc-3"><h3 class="subtitle" id="blog-title-3"></h3></div>
+                            <div class="text" id="blog-desc-3">
+                                <h3 class="subtitle" id="blog-title-3"></h3></div>
                             <a target="_blank" id="blog-link-3" class="btn btn-default button-read">Read now</a>
                         </div>
                     </div>
@@ -317,19 +320,26 @@
                         <span class="title">Extras</span>
                         <ul class="link-extra">
                             <li><a href="idx/">IDX</a></li>
-                            <li><a href="browse/">Browse</a></li>
                             <li><a href="contact/">Contact Us</a></li>
+                            <li><a href="http://www.rentals4you.info/" target="_blank">Monthly Rentals</a></li>
                         </ul>
                     </div>
                     <div class="col-sm-6 col-md-3">
-                        <span class="title">Social Media</span> Happy to connect!<br /><br />
-                        <b>Feel Free To Email Us!</b><br />
-                        rentals@perfectlanding.biz
+                        <span class="title">Social Media</span> Happy to connect!
+                        <br />
+                        <br />
+                        <b>Feel Free To Email Us!</b>
+                        <br /> hello@perfectlandingrentals.com
                     </div>
                 </div>
             </div>
             <div class="credits">
                 <div class="container">
+                    <div id="badges-wrapper">
+                        <img src="images/bbb-badge.png" />
+                        <img src="images/pure-michigan.png" />
+                    </div>
+                    <br />
                     <div class="row">
                         <div class="hidden-xs col-md-9 credits-text">Copyright
                             <script>

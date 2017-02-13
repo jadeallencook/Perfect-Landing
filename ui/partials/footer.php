@@ -22,19 +22,26 @@
                 <span class="title">Extras</span>
                 <ul class="link-extra">
                     <li><a href="../idx/">IDX</a></li>
-                    <li><a href="../browse/">Browse</a></li>
                     <li><a href="../contact/">Contact Us</a></li>
+                    <li><a href="http://www.rentals4you.info/" target="_blank">Monthly Rentals</a></li>
                 </ul>
             </div>
             <div class="col-sm-6 col-md-3">
-                <span class="title">Social Media</span> Happy to connect!<br /><br />
-                        <b>Feel Free To Email Us!</b><br />
-                        rentals@perfectlanding.biz
+                <span class="title">Social Media</span> Happy to connect!
+                <br />
+                <br />
+                <b>Feel Free To Email Us!</b>
+                <br /> hello@perfectlandingrentals.com
             </div>
         </div>
     </div>
     <div class="credits">
         <div class="container">
+            <div id="badges-wrapper">
+                <img src="../images/bbb-badge.png" />
+                <img src="../images/pure-michigan.png" />
+            </div>
+            <br />
             <div class="row">
                 <div class="hidden-xs col-md-9 credits-text">Copyright
                     <script>

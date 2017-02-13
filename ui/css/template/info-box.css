@@ -310,6 +310,8 @@
     float: left;
     font-weight: 400 !important;
     padding-left: 36px;
+    width: 50%;
+    margin-top: 5px;
 }
 
 .box-ads .detail dt.status {
@@ -330,6 +332,8 @@
 
 .box-ads .detail dd {
     margin-top: 5px;
+    float: right;
+    width: 50%;
 }
 
 .box-ads .detail dd span {

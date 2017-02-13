@@ -1,7 +1,8 @@
 $('button#rsvp-property').click(function () {
     // cache values 
     let name = $('input#rsvp-name').val(),
-        contact = $('input#rsvp-contact').val();
+        contact = $('input#rsvp-contact').val(),
+        details = $('input#rsvp-details').val();
     // validator functions
     function phonenumber(inputtxt) {
         var phoneno = /^\+?([0-9]{2})\)?[-. ]?([0-9]{4})[-. ]?([0-9]{4})$/;
@@ -29,7 +30,8 @@ $('button#rsvp-property').click(function () {
                     data: {
                         name: name,
                         contact: contact,
-                        property: window.location.href
+                        property: window.location.href,
+                        details: details
                     }
                 }).success(function (data) {
                     $('div#rsvp-wrapper').empty().append(data);

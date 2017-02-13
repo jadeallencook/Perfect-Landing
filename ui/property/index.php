@@ -2,65 +2,8 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-    <title>Perfect Landing Vacation Rentals & Real Estate</title>
-
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="../css/vendor/font-awesom/css/font-awesome.min.css">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="../css/vendor/mmenu/jquery.mmenu.all.css" />
-    <!-- Menu Responsive -->
-    <link rel="stylesheet" href="../css/vendor/animate-wow/animate.css">
-    <!-- Animation WOW -->
-    <link rel="stylesheet" href="../css/vendor/labelauty/labelauty.css">
-    <link rel="stylesheet" href="../css/vendor/nouislider/nouislider.min.css">
-    <!-- Slider Price -->
-    <link rel="stylesheet" href="../css/vendor/easydropdown/easydropdown.css">
-    <!-- Select form Style -->
-    <link rel="stylesheet" href="../css/vendor/fotorama/fotorama.css">
-    <link rel="stylesheet" href="../css/ui-spinner.css">
-    <!-- Spinner -->
-    <link rel="stylesheet" href="../css/menu.css">
-    <!-- Include Menu stylesheet -->
-    <link rel="stylesheet" href="../css/custom.css">
-    <!-- Custom Stylesheet -->
-    <link rel="stylesheet" href="../css/media-query.css">
-    <link rel="stylesheet" href="../css/template/color/F1C40F.css">
-    <!-- jQuery UI -->
-
-    <!-- Custom Styles -->
-    <link rel="stylesheet" href="../css/custom-ui.css">
-    <!-- idx css -->
-    <link rel="stylesheet" href="../css/idx.css">
-    <!-- for custom calendar plugin -->
+    <?php require_once('../partials/includes.php'); ?>
     <link rel="stylesheet" href="../css/calendar.css">
-    <!-- Use Iconifyer to generate all the favicons and touch icons you need: http://iconifier.net -->
-    <link rel="shortcut icon" href="../images/favicon/favicon.png" type="image/x-icon" />
-    <link rel="apple-touch-icon" href="../images/favicon/apple-touch-icon.png" />
-    <link rel="apple-touch-icon" sizes="57x57" href="../images/favicon/apple-touch-icon-57x57.png" />
-    <link rel="apple-touch-icon" sizes="72x72" href="../images/favicon/apple-touch-icon-72x72.png" />
-    <link rel="apple-touch-icon" sizes="76x76" href="../images/favicon/apple-touch-icon-76x76.png" />
-    <link rel="apple-touch-icon" sizes="114x114" href="../images/favicon/apple-touch-icon-114x114.png" />
-    <link rel="apple-touch-icon" sizes="120x120" href="../images/favicon/apple-touch-icon-120x120.png" />
-    <link rel="apple-touch-icon" sizes="144x144" href="../images/favicon/apple-touch-icon-144x144.png" />
-    <link rel="apple-touch-icon" sizes="152x152" href="../images/favicon/apple-touch-icon-152x152.png" />
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="../https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="../https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <script src="../script/modernizr.min.js"></script>
-    <script src="../script/tabletop.js"></script>
-    <script src="../script/gDoc.js"></script>
-    <script src="../script/xml-to-json.js"></script>
-    <!-- Modernizr -->
-
 </head>
 
 <body class="fixed-header">
@@ -136,6 +79,7 @@
                                         <div class="row feedback" id="comments-container">
                                             <h2 style="margin-left: 25px;">Loading...</h2>
                                         </div>
+                                        <a href="../review/" class="btn btn-default">Click Here To Leave A Review</a>
                                     </div>
 
                                 </div>
@@ -145,12 +89,14 @@
                         </div>
                         <div class="col-md-3">
                             <div class="section-title line-style line-style" style="margin-top: 0px;">
-                                <h3 class="title">RSVP</h3>
+                                <h3 class="title">Request To Book</h3>
                             </div>
                             <div id="rsvp-wrapper">
-                                <input class="form-control" type="text" name="rsvp-name" id="rsvp-name" placeholder="John Smith" />
+                                <input class="form-control" type="text" name="rsvp-name" id="rsvp-name" placeholder="John Smith" required />
                                 <br />
-                                <input class="form-control" type="text" name="rsvp-number" id="rsvp-contact" placeholder="(989) 415-5555" />
+                                <input class="form-control" type="text" name="rsvp-number" id="rsvp-contact" placeholder="Phone or email" required />
+                                <br />
+                                <input class="form-control" type="text" name="rsvp-number" id="rsvp-details" placeholder="Details and dates" />
                                 <br />
                                 <button id="rsvp-property" class="btn btn-default" type="button">
                                     <i class="icon fa fa-plus-square"></i> Submit Request

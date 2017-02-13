@@ -1,4 +1,7 @@
 $(function () {
+    
+    var propertyCity = new String();
+    
     // relocated window
     function relocate(url) {
         window.location = url;
@@ -94,6 +97,9 @@ $(function () {
                 $('h1#property-title').text(property.name);
                 $('h2#short-desc').text(property.short);
                 $('span#property-price').text('$' + displayPrice(property.rate) + '/night');
+                
+                // set city for things to do 
+                propertyCity = property.city;
 
                 function createPhotos() {
                     var html = '<div class="fotorama" data-width="100%" data-fit="cover" data-max-width="100%" data-nav="thumbs" data-transition="crossfade" id="property-photos">';
@@ -159,6 +165,29 @@ $(function () {
                         $('div#comments-container').empty();
                         if (html.length > 0) $('div#comments-container').append(html);
                         else $('div#comments-container').append('<h2 style="margin-left: 25px;">No reviews yet!</h2>');
+                    },
+                    simpleSheet: false
+                });
+                // place in reviews
+                Tabletop.init({
+                    key: '11-4D1bHoBnzSAkd-BT8OAX0yXF3dQZr8PPPe9qKoYY0',
+                    callback: function (data, tabletop) {
+                        $.each(data, function(x, city){
+                            if (propertyCity === city.name) {
+                                var thingsToDoHTML = '<ul>';
+                                $.each(data[city.name].elements, function(y, thing){
+                                    thingsToDoHTML += '<li><a href="' + thing.link + '" target="_blank">' + thing.text + '</a></li>';
+                                });
+                                thingsToDoHTML += '<ul>';
+                                $('div#property-description').append(
+                                    '<br /><br />' +
+                                    '<b>Things To Do In ' + city.name + '</b>' +
+                                    '<br />' +
+                                    thingsToDoHTML
+                                );
+                            }
+                        });
+                        
                     },
                     simpleSheet: false
                 });

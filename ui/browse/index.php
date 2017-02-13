@@ -2,63 +2,7 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-    <title>Perfect Landing Vacation Rentals & Real Estate</title>
-
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="../css/vendor/font-awesom/css/font-awesome.min.css">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="../css/vendor/mmenu/jquery.mmenu.all.css" />
-    <!-- Menu Responsive -->
-    <link rel="stylesheet" href="../css/vendor/animate-wow/animate.css">
-    <!-- Animation WOW -->
-    <link rel="stylesheet" href="../css/vendor/labelauty/labelauty.css">
-    <!-- Checkbox form Style -->
-    <link rel="stylesheet" href="../css/vendor/nouislider/nouislider.min.css">
-    <!-- Slider Price -->
-    <link rel="stylesheet" href="../css/vendor/easydropdown/easydropdown.css">
-    <!-- Select form Style -->
-    <link rel="stylesheet" href="../css/ui-spinner.css">
-    <!-- Spinner -->
-    <link rel="stylesheet" href="../css/menu.css">
-    <!-- Include Menu stylesheet -->
-    <link rel="stylesheet" href="../css/custom.css">
-    <!-- Custom Stylesheet -->
-    <link rel="stylesheet" href="../css/media-query.css">
-    <link rel="stylesheet" href="../css/template/color/F1C40F.css">
-    <!-- jQuery UI -->
-    <link rel="stylesheet" href="../css/jquery-ui.min.css">
-    <!-- Custom Styles -->
-    <link rel="stylesheet" href="../css/custom-ui.css">
-    <!-- idx css -->
-    <link rel="stylesheet" href="../css/idx.css">
-    <!-- Use Iconifyer to generate all the favicons and touch icons you need: http://iconifier.net -->
-    <link rel="shortcut icon" href="../images/favicon/favicon.png" type="image/x-icon" />
-    <link rel="apple-touch-icon" href="../images/favicon/apple-touch-icon.png" />
-    <link rel="apple-touch-icon" sizes="57x57" href="../images/favicon/apple-touch-icon-57x57.png" />
-    <link rel="apple-touch-icon" sizes="72x72" href="../images/favicon/apple-touch-icon-72x72.png" />
-    <link rel="apple-touch-icon" sizes="76x76" href="../images/favicon/apple-touch-icon-76x76.png" />
-    <link rel="apple-touch-icon" sizes="114x114" href="../images/favicon/apple-touch-icon-114x114.png" />
-    <link rel="apple-touch-icon" sizes="120x120" href="../images/favicon/apple-touch-icon-120x120.png" />
-    <link rel="apple-touch-icon" sizes="144x144" href="../images/favicon/apple-touch-icon-144x144.png" />
-    <link rel="apple-touch-icon" sizes="152x152" href="../images/favicon/apple-touch-icon-152x152.png" />
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="../https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="../https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <script src="../script/modernizr.min.js"></script>
-    <script src="../script/tabletop.js"></script>
-    <script src="../script/gDoc.js"></script>
-    <script src="../script/xml-to-json.js"></script>
-    <!-- Modernizr -->
-
+    <?php require_once('../partials/includes.php'); ?>
 </head>
 
 <body class="fixed-header">
@@ -112,6 +56,9 @@
                                     <div class="col-md-12 space-div" id="cities-dropdown">
 
                                     </div>
+                                    <div class="col-md-12 space-div">
+                                        <input class="form-control" type="text" name="prop-name" id="prop-name" placeholder="Property Name" />
+                                    </div>
                                     <div class="col-md-6 space-div">
                                         <label>Bathroom</label>
                                         <input class="form-control" type="text" name="bathroom" id="bathroom" value="1" />
@@ -137,6 +84,9 @@
                                 <h3 class="title">Filters</h3>
                             </div>
                             <div id="filter-box">
+                                <div class="filter" data-value="Lake Huron Waterfront">Lake Huron Waterfront</div>
+                                <div class="filter" data-value="Lake Huron Access">Lake Huron Access</div>
+                                <div class="filter" data-value="Inland Lake">Inland Lake</div>
                                 <div class="filter" data-value="Wi-Fi">Wi-Fi</div>
                                 <div class="filter" data-value="Air Conditioning">Air Conditioning</div>
                                 <div class="filter" data-value="Pets Allowed">Pets Allowed</div>
@@ -146,7 +96,6 @@
                                 <div class="filter" data-value="Fireplace">Fireplace</div>
                                 <div class="filter" data-value="Hot Tub">Hot Tub</div>
                                 <div class="filter" data-value="Sauna">Sauna</div>
-                                <div class="filter" data-value="Cable">Cable</div>
                                 <div class="filter" data-value="Fire Pit">Fire Pit</div>
                             </div>
                             <small><b><i>Click Filter To Apply</i></b></small>

@@ -30,7 +30,7 @@ div#loading-container {
     width: 100%;
     height: 100%;
     z-index: 99;
-    background-color: #F1C40F;
+    background-color: #E37C19;
     text-align: center;
 }
 
@@ -40,9 +40,18 @@ img#loading-logo {
 }
 
 div#loading-container div {
-    transform: translateY(80%);
+    transform: translateY(50%);
 }
 
 ul.pagination {
     cursor: pointer;
+}
+
+#badges-wrapper {
+    text-align: left;
+}
+
+#badges-wrapper img {
+    width: 100px;
+    display: inline-block;
 }

@@ -34,7 +34,8 @@ $('button#find-rental').click(function () {
         checkout = $('input#checkout').val(),
         bathroom = $('input#bathroom').val(),
         bedroom = $('input#bedroom').val(),
-        hash = 'city=' + city + '&checkin=' + checkin + '&checkout=' + checkout + '&bath=' + bathroom + '&bed=' + bedroom;
+        name = $('input#prop-name').val(),
+        hash = 'city=' + city + '&checkin=' + checkin + '&checkout=' + checkout + '&bath=' + bathroom + '&bed=' + bedroom + '&name=' + name;
 
     // check the dates for useability
     function dateCheck() {

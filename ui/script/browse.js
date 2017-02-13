@@ -37,6 +37,7 @@ $(function () {
                     description: data.longdesc['#text'],
                     zip: parseInt(data.zip['#text']),
                     max: parseInt(data.maxpersons['#text']),
+                    minNights: parseInt(data.minnights['#text']),
                     amenities: [],
                     fees: [],
                     photos: [],
@@ -158,13 +159,13 @@ $(function () {
                                 '<span class="address"><i class="fa fa-map-marker"></i> ' + PROPERTIES[i].city + '</span>' +
                                 '<span class="description">' + remove_tags(PROPERTIES[i].description) + '</span>' +
                                 '<dl class="detail">' +
-                                '<dt class="area">Pets:</dt>' +
-                                '<dd><span>' + pets + '</span></dd>' +
+                                '<dt class="area">Minimum Stay:</dt>' +
+                                '<dd><span>' + PROPERTIES[i].minNights + '</span></dd>' +
                                 '<dt class="bed">Beds:</dt>' +
                                 '<dd><span>' + PROPERTIES[i].beds + '</span></dd>' +
                                 '<dt class="bath">Baths:</dt>' +
                                 '<dd><span>' + PROPERTIES[i].baths + '</span></dd>' +
-                                '<dt class="status">Max:</dt>' +
+                                '<dt class="status">Sleeps:</dt>' +
                                 '<dd><span>' + PROPERTIES[i].max + '</span></dd>' +
                                 '</dl>' +
                                 '</div>';
@@ -226,9 +227,12 @@ $(function () {
                 // set city
                 if (hash.city.length > 0) filters.city = hash.city.replace('-', ' ');
                 else filters.city = 0;
+                // set name
+                if (hash.name.length > 0) filters.name = hash.name.toLowerCase();
+                else filters.name = 0;
                 // auto fill form data to match 
-                console.log(filters);
                 if (filters.city.length > 0) $('select#cities').val(filters.city);
+                if (filters.name.length > 0) $('input#prop-name').val(hash.name);
                 $('input#bathroom').val(filters.bath);
                 $('input#bedroom').val(filters.bed);
                 if (filters.checkin > 0) $('input#checkin').val((filters.checkin.getMonth() + 1) + '/' + filters.checkin.getDate() + '/' + filters.checkin.getFullYear());
@@ -242,6 +246,10 @@ $(function () {
                     if (filters.city === 0) test = true;
                     if (filters.bath > parseInt(val.baths)) test = false;
                     if (filters.bed > parseInt(val.beds)) test = false;
+                    if (filters.name !== 0) {
+                        if (val.name.toLowerCase().includes(filters.name)) test = true;
+                        else test = false;
+                    }
                     if (test) {
                         tempProperties.push(val);
                         availIDs.push(val.id);
