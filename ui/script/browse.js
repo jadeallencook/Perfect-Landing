@@ -17,7 +17,7 @@ $(function () {
     // get data
     $.ajax({
         type: 'GET',
-        url: '../vrp/rentals.xml',
+        url: '../vrp/vrpexport/vrpexport_xprop.xml',
         dataType: 'xml',
         success: function (xml) {
             // cache json & xml
@@ -258,7 +258,7 @@ $(function () {
                 PROPERTIES = tempProperties;
                 $.ajax({
                     type: 'GET',
-                    url: '../vrp/ical.xml',
+                    url: '../vrp/vrpexport/vrpexport_xavail.xml',
                     dataType: 'xml',
                     success: function (ical) {
                         // days between two dates

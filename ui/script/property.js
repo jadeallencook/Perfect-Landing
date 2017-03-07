@@ -22,7 +22,7 @@ $(function () {
     function displayProperty(id) {
         $.ajax({
             type: 'GET',
-            url: '../vrp/rentals.xml',
+            url: '../vrp/vrpexport/vrpexport_xprop.xml',
             dataType: 'xml',
             success: function (xml) {
                 $('html, body').scrollTop(0);
@@ -202,7 +202,7 @@ $(function () {
     // build calendar module
     $.ajax({
         type: 'GET',
-        url: '../vrp/ical.xml',
+        url: '../vrp/vrpexport/vrpexport_xavail.xml',
         dataType: 'xml',
         success: function (xml) {
             // cache json & xml

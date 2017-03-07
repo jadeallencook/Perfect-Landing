@@ -23,7 +23,7 @@ $(function () {
     });
     $.ajax({
         type: 'GET',
-        url: 'vrp/rentals.xml',
+        url: '../vrp/vrpexport/vrpexport_xprop.xml',
         dataType: 'xml',
         success: function (xml) {
             // cache jquery
