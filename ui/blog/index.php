@@ -82,7 +82,7 @@
     <!-- Range Slider -->
     <script src="../script/custom.js"></script>
     <script src="../script/blog-full.js"></script>
-    <!-- Custom	Script -->
+    <?php include_once('../partials/ga.php') ?>
 </body>
 
 </html>

@@ -1,7 +1,7 @@
 $(function () {
-    
+
     var propertyCity = new String();
-    
+
     // relocated window
     function relocate(url) {
         window.location = url;
@@ -45,6 +45,7 @@ $(function () {
                         amenities: [],
                         fees: [],
                         photos: [],
+                        photoDesc: [],
                         short: data.shortdesc['#text']
                     };
                     $.each(data.photos['#text'].split(/\|/), function (i, val) {
@@ -53,17 +54,20 @@ $(function () {
                     $.each(data.amenlist['#text'].split(/\|/), function (i, val) {
                         object.amenities.push(val);
                     });
+                    $.each(data.photodescs['#text'].split(/\|/), function (i, val) {
+                        object.photoDesc.push(val);
+                    });
                     return object;
                 };
                 var build = {
-                        cities: [],
-                        amenities: [],
-                        max: json.length,
-                        properties: [],
-                        current: 0,
-                        photosURL: 'http://perfectlandingrentals.com/vrp/'
-                    }
-                    // gets each property
+                    cities: [],
+                    amenities: [],
+                    max: json.length,
+                    properties: [],
+                    current: 0,
+                    photosURL: 'http://perfectlandingrentals.com/vrp/'
+                }
+                // gets each property
                 for (var i = 0; i < build.max; i++) {
                     build.properties.push(createProperty(json[i]));
                     if ($.inArray(build.properties[i].city, build.cities) == -1) {
@@ -97,7 +101,8 @@ $(function () {
                 $('h1#property-title').text(property.name);
                 $('h2#short-desc').text(property.short);
                 $('span#property-price').text('$' + displayPrice(property.rate) + '/night');
-                
+                $('span#photo-description').empty().text(property.photoDesc[0]);
+
                 // set city for things to do 
                 propertyCity = property.city;
 
@@ -113,6 +118,16 @@ $(function () {
                 }
                 $('div#property-photos').append(createPhotos());
                 $('div#property-description').append(property.description);
+                // photo desciption functionality
+                var currentPhoto = 0;
+                $('div.fotorama__arr--next').click(function () {
+                    currentPhoto = currentPhoto + 1;
+                    $('span#photo-description').empty().text(property.photoDesc[currentPhoto]);
+                });
+                $('div.fotorama__arr--prev').click(function () {
+                    currentPhoto = currentPhoto - 1;
+                    $('span#photo-description').empty().text(property.photoDesc[currentPhoto]);
+                });
 
                 function createDetails() {
                     var html = '';
@@ -172,10 +187,10 @@ $(function () {
                 Tabletop.init({
                     key: '11-4D1bHoBnzSAkd-BT8OAX0yXF3dQZr8PPPe9qKoYY0',
                     callback: function (data, tabletop) {
-                        $.each(data, function(x, city){
+                        $.each(data, function (x, city) {
                             if (propertyCity === city.name) {
                                 var thingsToDoHTML = '<ul>';
-                                $.each(data[city.name].elements, function(y, thing){
+                                $.each(data[city.name].elements, function (y, thing) {
                                     thingsToDoHTML += '<li><a href="' + thing.link + '" target="_blank">' + thing.text + '</a></li>';
                                 });
                                 thingsToDoHTML += '<ul>';
@@ -187,7 +202,7 @@ $(function () {
                                 );
                             }
                         });
-                        
+
                     },
                     simpleSheet: false
                 });
@@ -249,4 +264,5 @@ $(function () {
         hash = hash.split('/');
         displayProperty(hash[0]);
     }
+
 });

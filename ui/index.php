@@ -43,6 +43,7 @@
     <link rel="apple-touch-icon" sizes="120x120" href="images/favicon/apple-touch-icon-120x120.png" />
     <link rel="apple-touch-icon" sizes="144x144" href="images/favicon/apple-touch-icon-144x144.png" />
     <link rel="apple-touch-icon" sizes="152x152" href="images/favicon/apple-touch-icon-152x152.png" />
+    <link rel="stylesheet" href="css/jquery-ui.min.css">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -110,7 +111,10 @@
                             <a href="blog/">Blog</a>
                         </li>
                         <li>
-                            <a href="idx/">IDX</a>
+                            <a href="idx/">Real Estate</a>
+                        </li>
+                        <li>
+                            <a href="http://www.rentals4you.info/" target="_blank">Monthly Rentals</a>
                         </li>
                         <li>
                             <a href="contact/">Contact</a>
@@ -127,31 +131,40 @@
                     <figure class="crsl-item" id="banner-1" data-image="">
                         <div class="container slider-box">
                             <div class="content">
-                                <h2></h2></div>
+                                <h2></h2>
+                            </div>
                             <div class="content">
-                                <h1></h1></div>
+                                <h1></h1>
+                            </div>
                             <div class="content">
-                                <h3></h3></div>
+                                <h3></h3>
+                            </div>
                         </div>
                     </figure>
                     <figure class="crsl-item" id="banner-2" data-image="">
                         <div class="container slider-box">
                             <div class="content">
-                                <h2></h2></div>
+                                <h2></h2>
+                            </div>
                             <div class="content">
-                                <h1></h1></div>
+                                <h1></h1>
+                            </div>
                             <div class="content">
-                                <h3></h3></div>
+                                <h3></h3>
+                            </div>
                         </div>
                     </figure>
                     <figure class="crsl-item" id="banner-3" data-image="">
                         <div class="container slider-box">
                             <div class="content">
-                                <h2></h2></div>
+                                <h2></h2>
+                            </div>
                             <div class="content">
-                                <h1></h1></div>
+                                <h1></h1>
+                            </div>
                             <div class="content">
-                                <h3></h3></div>
+                                <h3></h3>
+                            </div>
                         </div>
                     </figure>
                 </div>
@@ -170,7 +183,10 @@
                     <span class="botton-options"><i class="fa fa-chevron-down"></i> Hide Search Options</span>
                     <div class="searcher">
                         <div class="row margin-div" id="searcher-container">
-                            <div class="col-sm-12 col-md-4" id="cities-container">
+                            <div class="col-sm-6 col-md-2 margin-bottom">
+                                <input class="form-control" type="text" name="prop-name" id="prop-name" placeholder="Property Name" />
+                            </div>
+                            <div class="col-sm-12 col-md-2" id="cities-container">
 
                             </div>
                             <div class="col-sm-6 col-md-2 margin-bottom">
@@ -220,13 +236,13 @@
         <section id="recent-list">
             <div class="section-detail">
                 <h1>
-				  <span>Find Your </span>
-				  <span id="spinner-show">
+                    <span>Find Your </span>
+                    <span id="spinner-show">
 					  <em class="current">Perfect</em>
 					  <span class="next"><span></span></span>
-				  </span>
-				  <span>Rental</span>
-				</h1>
+                    </span>
+                    <span>Rental</span>
+                </h1>
                 <ul id="spinner">
                     <li>Charming</li>
                     <li>Spacious</li>
@@ -272,7 +288,8 @@
                         <div class="blog-list masonry-post">
                             <div class="image blog-image" id="blog-image-1"></div>
                             <div class="text" id="blog-desc-1">
-                                <h3 class="subtitle" id="blog-title-1"></h3></div>
+                                <h3 class="subtitle" id="blog-title-1"></h3>
+                            </div>
                             <a target="_blank" id="blog-link-1" class="btn btn-default button-read">Read now</a>
                         </div>
                     </div>
@@ -280,7 +297,8 @@
                         <div class="blog-list masonry-post">
                             <div class="image blog-image" id="blog-image-2"></div>
                             <div class="text" id="blog-desc-2">
-                                <h3 class="subtitle" id="blog-title-2"></h3></div>
+                                <h3 class="subtitle" id="blog-title-2"></h3>
+                            </div>
                             <a target="_blank" id="blog-link-2" class="btn btn-default button-read">Read now</a>
                         </div>
                     </div>
@@ -288,7 +306,8 @@
                         <div class="blog-list masonry-post">
                             <div class="image blog-image" id="blog-image-3"></div>
                             <div class="text" id="blog-desc-3">
-                                <h3 class="subtitle" id="blog-title-3"></h3></div>
+                                <h3 class="subtitle" id="blog-title-3"></h3>
+                            </div>
                             <a target="_blank" id="blog-link-3" class="btn btn-default button-read">Read now</a>
                         </div>
                     </div>
@@ -319,7 +338,7 @@
                     <div class="hidden-xs hidden-sm col-md-3">
                         <span class="title">Extras</span>
                         <ul class="link-extra">
-                            <li><a href="idx/">IDX</a></li>
+                            <li><a href="idx/">Real Estate</a></li>
                             <li><a href="contact/">Contact Us</a></li>
                             <li><a href="http://www.rentals4you.info/" target="_blank">Monthly Rentals</a></li>
                         </ul>
@@ -499,6 +518,23 @@
     <script src="script/homepage.js"></script>
     <script src="script/search.js"></script>
     <script src="script/blog.js"></script>
+
+    <script>
+        (function(b, o, i, l, e, r) {
+            b.GoogleAnalyticsObject = l;
+            b[l] || (b[l] =
+                function() {
+                    (b[l].q = b[l].q || []).push(arguments)
+                });
+            b[l].l = +new Date;
+            e = o.createElement(i);
+            r = o.getElementsByTagName(i)[0];
+            e.src = 'https://www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e, r)
+        }(window, document, 'script', 'ga'));
+        ga('create', 'UA-10724104-22', 'auto');
+        ga('send', 'pageview');
+    </script>
 </body>
 
 </html>

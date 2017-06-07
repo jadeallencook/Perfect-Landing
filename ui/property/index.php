@@ -51,6 +51,11 @@
                             <!-- 1. Images gallery -->
                             <div id="property-photos">
                             </div>
+                            
+                            <center>
+                                <br />
+                                <span style="background-color: #E37C19; padding: 5px 10px; border-radius: 3px; color: #FFF;"><b>Photo Description: </b><i><span id="photo-description"></span></i></span>
+                            </center>
 
                             <!-- /.Secondo Row -->
                             <div class="row">
@@ -87,6 +92,7 @@
 
 
                         </div>
+                        
                         <div class="col-md-3">
                             <div class="section-title line-style line-style" style="margin-top: 0px;">
                                 <h3 class="title">Request To Book</h3>
@@ -102,31 +108,14 @@
                                     <i class="icon fa fa-plus-square"></i> Submit Request
                                 </button>
                             </div>
-                            <!-- 5. Search -->
-                            <div class="section-title line-style line-style">
-                                <h3 class="title">Search</h3>
-                            </div>
-                            <div class="search-box-page">
-                                <div class="row">
-                                    <input type="hidden" id="back" value="true">
-                                    <div class="col-md-12 space-div" id="cities-container">
+                            
+                            <!-- calendar app -->
+                        <div class="section-title line-style line-style">
+                            <h3 class="title">Property Calendar</h3>
+                        </div>
 
-                                    </div>
-                                    <div class="col-md-6 space-div">
-                                        <label>Bathroom</label>
-                                        <input class="form-control" type="text" name="bathroom" id="bathroom" value="1" />
-                                    </div>
-                                    <div class="col-md-6 space-div">
-                                        <label>Bedroom</label>
-                                        <input class="form-control" type="text" name="bedroom" id="bedroom" value="1" />
-                                    </div>
-                                    <div class="col-md-12 space-div">
-                                        <button type="button" class="btn btn-default search-button" id="find-rental">SEARCH NOW</button>
-                                    </div>
-                                    <!-- ./footer -->
-                                </div>
-                                <!-- ./row 2 -->
-                            </div>
+                        <div id="calendar-app"></div>
+                            
 
                             <!-- Other property -->
                             <div class="section-title line-style line-style">
@@ -158,13 +147,32 @@
                                 </div>
                             </div>
                             <!-- /.box-ads -->
-
-                            <!-- Other property -->
+                            
+                             <!-- 5. Search -->
                             <div class="section-title line-style line-style">
-                                <h3 class="title">Property Calendar</h3>
+                                <h3 class="title">Search</h3>
                             </div>
+                            <div class="search-box-page">
+                                <div class="row">
+                                    <input type="hidden" id="back" value="true">
+                                    <div class="col-md-12 space-div" id="cities-container">
 
-                            <div id="calendar-app"></div>
+                                    </div>
+                                    <div class="col-md-6 space-div">
+                                        <label>Bathroom</label>
+                                        <input class="form-control" type="text" name="bathroom" id="bathroom" value="1" />
+                                    </div>
+                                    <div class="col-md-6 space-div">
+                                        <label>Bedroom</label>
+                                        <input class="form-control" type="text" name="bedroom" id="bedroom" value="1" />
+                                    </div>
+                                    <div class="col-md-12 space-div">
+                                        <button type="button" class="btn btn-default search-button" id="find-rental">SEARCH NOW</button>
+                                    </div>
+                                    <!-- ./footer -->
+                                </div>
+                                <!-- ./row 2 -->
+                            </div>
 
                         </div>
                     </div>
@@ -206,7 +214,7 @@
     <script src="../script/property.js"></script>
     <script src="../script/search.js"></script>
     <script src="../script/rsvp.js"></script>
-    <!-- Custom	Script -->
+    <?php include_once('../partials/ga.php') ?>
 </body>
 
 </html>

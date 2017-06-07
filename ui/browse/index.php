@@ -3,6 +3,7 @@
 
 <head>
     <?php require_once('../partials/includes.php'); ?>
+    <link rel="stylesheet" href="../css/jquery-ui.min.css">
 </head>
 
 <body class="fixed-header">
@@ -84,19 +85,20 @@
                                 <h3 class="title">Filters</h3>
                             </div>
                             <div id="filter-box">
-                                <div class="filter" data-value="Lake Huron Waterfront">Lake Huron Waterfront</div>
+                                <div class="filter" data-value="On Lake Huron">On Lake Huron</div>
                                 <div class="filter" data-value="Lake Huron Access">Lake Huron Access</div>
+                                <div class="filter" data-value="River">River</div>
+                                <div class="filter" data-value="Near Public Beach">Near Public Beach</div>
                                 <div class="filter" data-value="Inland Lake">Inland Lake</div>
+                                <div class="filter" data-value="Pets Considered">Pets Considered</div>
                                 <div class="filter" data-value="Wi-Fi">Wi-Fi</div>
                                 <div class="filter" data-value="Air Conditioning">Air Conditioning</div>
-                                <div class="filter" data-value="Pets Allowed">Pets Allowed</div>
-                                <div class="filter" data-value="Outdoor Grill">Outdoor Grill</div>
                                 <div class="filter" data-value="Washer/Dryer">Washer/Dryer</div>
                                 <div class="filter" data-value="Dishwasher">Dishwasher</div>
                                 <div class="filter" data-value="Fireplace">Fireplace</div>
+                                <div class="filter" data-value="Fire pit">Fire pit</div>
                                 <div class="filter" data-value="Hot Tub">Hot Tub</div>
                                 <div class="filter" data-value="Sauna">Sauna</div>
-                                <div class="filter" data-value="Fire Pit">Fire Pit</div>
                             </div>
                             <small><b><i>Click Filter To Apply</i></b></small>
                         </div>
@@ -112,6 +114,7 @@
                         <div class="col-md-9 col-md-offset-3 text-right">
                             <ul class="pagination">
                                 <li><a id="last-btn"><i class="fa fa-chevron-left"></i> LAST</a></li>
+                                <small><b>Page: </b><span id="page-number">1</span></small>
                                 <li><a id="next-btn" style="margin-right: 5px;">NEXT <i class="fa fa-chevron-right"></i> </a></li>
                             </ul>
                         </div>
@@ -154,8 +157,9 @@
     <!-- Range Slider -->
     <script src="../script/custom.js"></script>
     <!-- Custom	Script -->
-    <script src="../script/browse.js"></script>
     <script src="../script/search.js"></script>
+    <script src="../script/browse.js"></script>
+    <?php include_once('../partials/ga.php') ?>
 </body>
 
 </html>

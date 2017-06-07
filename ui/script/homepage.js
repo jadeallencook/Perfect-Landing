@@ -23,7 +23,7 @@ $(function () {
     });
     $.ajax({
         type: 'GET',
-        url: '../vrp/vrpexport/vrpexport_xprop.xml',
+        url: 'vrp/vrpexport/vrpexport_xprop.xml',
         dataType: 'xml',
         success: function (xml) {
             // cache jquery
@@ -144,9 +144,9 @@ $(function () {
                     html += "<dl class=\"detail\">";
                     html += "<dt class=\"status\">Sleeps:<\/dt>";
                     html += "<dd><span>" + property.max + "<\/span><\/dd>";
-                    html += "<dt class=\"bed\">Beds:<\/dt>";
+                    html += "<dt class=\"bed\">Bedrooms:<\/dt>";
                     html += "<dd><span>" + property.beds + "<\/span><\/dd>";
-                    html += "<dt class=\"bath\">Baths:<\/dt>";
+                    html += "<dt class=\"bath\">Bathrooms:<\/dt>";
                     html += "<dd><span>" + property.baths + "<\/span><\/dd>";
                     html += "<dt class=\"area\">Minimum Stay:<\/dt>";
                     html += "<dd><span>" + property.minNights + "<\/span><\/dd>";

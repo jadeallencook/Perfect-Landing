@@ -29,7 +29,10 @@
                     <a href="../blog">Blog</a>
                 </li>
                 <li>
-                    <a href="../idx/">IDX</a>
+                    <a href="../idx/">Real Estate</a>
+                </li>
+                <li>
+                    <a href="http://www.rentals4you.info/" target="_blank">Monthly Rentals</a>
                 </li>
                 <li>
                     <a href="../contact">Contact</a>

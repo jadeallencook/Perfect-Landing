@@ -1,5 +1,4 @@
 $(function () {
-
     // main variables
     var PROPERTIES = [],
         CALENDAR = [],
@@ -13,7 +12,6 @@ $(function () {
         date2 = new Date(date2Array[2], date2Array[0] - 1, date2Array[1]);
         return Math.round((date2 - date1) / (1000 * 60 * 60 * 24));
     }
-
     // get data
     $.ajax({
         type: 'GET',
@@ -142,6 +140,8 @@ $(function () {
                 else $('a#last-btn').show();
                 if ((currentPage + 10) > PROPERTIES.length) $('a#next-btn').hide();
                 else $('a#next-btn').show();
+                if (currentPage === 0) $('span#page-number').empty().text(1);
+                else $('span#page-number').empty().text((currentPage / 10) + 1);
                 $properties.empty();
                 if (PROPERTIES.length > 0) {
                     for (var i = currentPage, max = i + 10; i < max; i++) {
@@ -161,7 +161,7 @@ $(function () {
                                 '<dl class="detail">' +
                                 '<dt class="area">Minimum Stay:</dt>' +
                                 '<dd><span>' + PROPERTIES[i].minNights + '</span></dd>' +
-                                '<dt class="bed">Beds:</dt>' +
+                                '<dt class="bed">Bedrooms:</dt>' +
                                 '<dd><span>' + PROPERTIES[i].beds + '</span></dd>' +
                                 '<dt class="bath">Baths:</dt>' +
                                 '<dd><span>' + PROPERTIES[i].baths + '</span></dd>' +
@@ -317,6 +317,9 @@ $(function () {
                         PROPERTIES = removeUnavailable();
                         displayProperties();
                     }
+                }).fail(function(){
+                    console.log('Failed To Load Calendar XML...');
+                    displayProperties();
                 });
             }
             // filter event listers

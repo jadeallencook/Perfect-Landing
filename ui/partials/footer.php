@@ -21,7 +21,7 @@
             <div class="hidden-xs hidden-sm col-md-3">
                 <span class="title">Extras</span>
                 <ul class="link-extra">
-                    <li><a href="../idx/">IDX</a></li>
+                    <li><a href="../idx/">Real Estate</a></li>
                     <li><a href="../contact/">Contact Us</a></li>
                     <li><a href="http://www.rentals4you.info/" target="_blank">Monthly Rentals</a></li>
                 </ul>

@@ -135,7 +135,7 @@
 
 
 td.highlight {
-	background-color: #ddd;
+	background-color: #aaa;
 }
 
 td.highlight a.ui-state-default {
@@ -143,4 +143,11 @@ td.highlight a.ui-state-default {
 }
 
 /* Other Months Days*/
-.ui-datepicker-other-month .ui-state-default { color: #565656; }
+.ui-datepicker-other-month .ui-state-default { 
+    color: #565656; 
+    visibility: hidden; 
+}
+
+.ui-datepicker-other-month.highlight {
+    background-color: #fff!important;
+}
