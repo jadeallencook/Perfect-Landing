@@ -55,3 +55,9 @@ ul.pagination {
     width: 100px;
     display: inline-block;
 }
+
+div.user-feedback span.date {
+  font-weight: bold;
+  font-size: 0.75em;
+  padding-top: 25px;
+}
