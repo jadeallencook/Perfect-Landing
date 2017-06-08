@@ -132,10 +132,11 @@ $(function () {
           currentPhoto = currentPhoto - 1;
           $('span#photo-description').empty().text(property.photoDesc[currentPhoto]);
         });
-        $('div.fotorama__thumb').click(function() {
+        $('div.fotorama__thumb').click(function () {
           currentPhoto = this.id;
           $('span#photo-description').empty().text(property.photoDesc[currentPhoto]);
         });
+
         function createDetails() {
           var html = '';
           $.each(property.amenities, function (x, val) {
@@ -226,6 +227,33 @@ $(function () {
 
           },
           simpleSheet: false
+        });
+        // add map 
+        var mapMarker = '../images/map-pin.png';
+        var geocoder = new google.maps.Geocoder();
+        var address = property.address + ' ' + property.city + ', MI ' + property.zip;
+        $('span#property-address').text(address);
+        geocoder.geocode({
+          'address': address
+        }, function (results, status) {
+
+          if (status == google.maps.GeocoderStatus.OK) {
+            var latitude = results[0].geometry.location.lat();
+            var longitude = results[0].geometry.location.lng();
+            var uluru = {
+              lat: latitude,
+              lng: longitude
+            };
+            var map = new google.maps.Map(document.getElementById('map-canvas'), {
+              zoom: 15,
+              center: uluru
+            });
+            var marker = new google.maps.Marker({
+              position: uluru,
+              map: map,
+              icon: mapMarker
+            });
+          }
         });
       }
     });
