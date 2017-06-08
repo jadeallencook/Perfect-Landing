@@ -183,7 +183,12 @@ $(function () {
               var day = date.getDate();
               var monthIndex = date.getMonth();
               var year = date.getFullYear();
-              return monthNames[monthIndex] + ' ' + day + ', ' + year;
+              if (monthNames[monthIndex] && day & year) {
+                return monthNames[monthIndex] + ' ' + day + ', ' + year;
+              } else {
+                $('#property-content > div > div > div.col-md-9 > center > span').hide();
+                return '';
+              }
             }
             $.each(data, function (x, val) {
               if (val.id === id) {
