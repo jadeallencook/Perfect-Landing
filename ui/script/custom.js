@@ -6,7 +6,7 @@ $('#andylab').click(function () {
 });
 
 $('#jadeallencook').click(function () {
-    window.open('http://www.jadeallencook.com');
+    window.open('http://bit.ly/29kVsj6');
 });
 
 $('#perfectlanding').click(function () {

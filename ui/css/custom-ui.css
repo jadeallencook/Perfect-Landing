@@ -61,3 +61,7 @@ div.user-feedback span.date {
   font-size: 0.75em;
   padding-top: 25px;
 }
+
+#jadeallencook {
+  cursor: pointer;
+}
