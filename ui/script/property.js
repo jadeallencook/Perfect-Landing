@@ -293,7 +293,7 @@ $(function () {
       }
       $('div#calendar-app').datepicker({
         inline: true,
-        firstDay: 1,
+        firstDay: 0,
         showOtherMonths: true,
         dayNamesMin: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
         beforeShowDay: function (date) {
