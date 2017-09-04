@@ -18,7 +18,7 @@ $(function () {
     return price;
   }
 
-  // formatting property 
+  // formatting property
   function displayProperty(id) {
     $.ajax({
       type: 'GET',
@@ -93,7 +93,7 @@ $(function () {
         var property = $.grep(build.properties, function (properties) {
           return properties.id == id;
         });
-        // set url and property 
+        // set url and property
         property = property[0];
         if (property === undefined) relocate('../browse');
         else window.location.hash = '/' + property.id + '/' + property.name.split(' ').join('-') + '/' + property.address.split(' ').join('-') + '/' + property.city.split(' ').join('-');
@@ -103,7 +103,7 @@ $(function () {
         $('span#property-price').text('$' + displayPrice(property.rate) + '/night');
         $('span#photo-description').empty().text(property.photoDesc[0]);
 
-        // set city for things to do 
+        // set city for things to do
         propertyCity = property.city;
 
         function createPhotos() {
@@ -112,7 +112,7 @@ $(function () {
             html += '<img src="' + build.photosURL + val + '" />';
           });
           html += '</div>';
-          // prevent script error 
+          // prevent script error
           html += '<script src="../script/vendor/fotorama/fotorama.min.js"></script>';
           return html;
         }
@@ -183,7 +183,7 @@ $(function () {
               var day = date.getDate();
               var monthIndex = date.getMonth();
               var year = date.getFullYear();
-              if (monthNames[monthIndex] && day & year) {
+              if (monthNames[monthIndex] && day && year) {
                 return monthNames[monthIndex] + ' ' + day + ', ' + year;
               } else {
                 $('#property-content > div > div > div.col-md-9 > center > span').hide();
@@ -233,7 +233,7 @@ $(function () {
           },
           simpleSheet: false
         });
-        // add map 
+        // add map
         var mapMarker = '../images/map-pin.png';
         var geocoder = new google.maps.Geocoder();
         var address = property.address + ' ' + property.city + ', MI ' + property.zip;

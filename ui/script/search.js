@@ -1,7 +1,5 @@
 $(function(){
 
-    console.log('Applying Search...');
-    
     // init datepicker
     $('input#checkin').datepicker({
         minDate: 0
@@ -63,7 +61,7 @@ $(function(){
                 // if checkin isn't set
                 $('input#checkin').css('border', 'solid thin red');
             } else {
-                // if both are set check days apart 
+                // if both are set check days apart
                 if (getDays(checkin, checkout) < 1) {
                     $('input#checkout').css('border', 'solid thin red');
                 } else { // if positive amount of days execute
@@ -75,5 +73,5 @@ $(function(){
         // init date check
         dateCheck();
     });
-    
+
 });
