@@ -192,9 +192,15 @@ $(function () {
             }
             $.each(data, function (x, val) {
               if (val.id === id) {
+                let reviewHTML = val.review;
+                if (val.response) {
+                  reviewHTML += '<br /><br />';
+                  reviewHTML += '<b>Perfect Landing (Response): </b>';
+                  reviewHTML += val.response;
+                }
                 html += '<div class="user-feedback">' +
                   '<span class="name">' + val.name + '</span>' +
-                  '<span class="text">' + val.review + '</span>' +
+                  '<span class="text">' + reviewHTML + '</span>' +
                   '<span class="date">' + formatDate(new Date(val['date_time'])) + '</span>' +
                   '<span class="vote">';
                 for (var y = 1; y <= 5; y++) {
