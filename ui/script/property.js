@@ -46,7 +46,8 @@ $(function () {
             fees: [],
             photos: [],
             photoDesc: [],
-            short: data.shortdesc['#text']
+            short: data.shortdesc['#text'],
+            meta: data.shortsum['#text']
           };
           $.each(data.photos['#text'].split(/\|/), function (i, val) {
             object.photos.push(val);
@@ -99,7 +100,8 @@ $(function () {
         else window.location.hash = '/' + property.id + '/' + property.name.split(' ').join('-') + '/' + property.address.split(' ').join('-') + '/' + property.city.split(' ').join('-');
         // after propery is found and url has been set..
         $('h1#property-title').text(property.name);
-        $('h2#short-desc').text(property.short);
+        console.log(property);
+        $('h2#short-desc').text(property.meta);
         $('span#property-price').text('$' + displayPrice(property.rate) + '/night');
         $('span#photo-description').empty().text(property.photoDesc[0]);
 
