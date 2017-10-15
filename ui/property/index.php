@@ -103,28 +103,25 @@
           </div>
 
           <div class="col-md-3">
-            <div class="section-title line-style line-style" style="margin-top: 0px;">
-              <h3 class="title">Request To Book</h3>
-            </div>
-            <div id="rsvp-wrapper">
-              <input class="form-control" type="text" name="rsvp-name" id="rsvp-name" placeholder="John Smith" required />
-              <br />
-              <input class="form-control" type="text" name="rsvp-number" id="rsvp-contact" placeholder="Phone or email" required />
-              <br />
-              <input class="form-control" type="text" name="rsvp-number" id="rsvp-details" placeholder="Details and dates" />
-              <br />
-              <button id="rsvp-property" class="btn btn-default" type="button">
-                                    <i class="icon fa fa-plus-square"></i> Submit Request
-                                </button>
-            </div>
 
             <!-- calendar app -->
-            <div class="section-title line-style line-style">
+            <div class="section-title line-style line-style" style="margin-top: 0px;">
               <h3 class="title">Property Calendar</h3>
             </div>
 
-            <div id="calendar-app"></div>
-
+            <div style="width:172px;">
+		          <div id="aoImageButtons" align="center" style="margin-right:auto;margin=left:auto;">
+                <a id="previousMonth" href="#calendartop">&lt;&lt; <font size="2">Previous</a> | <a id="nextMonth" href="#calendartop"><font size="2">Next &gt;></a></font></font>
+              </div>
+              <div id="aoLoader" class="aoLoading"></div>
+            </div>
+            <br />
+            <form method="post" action="https://www.availabilityonline.com/reservation_form.php" id="ao_aoform4" name="ao_aoform4">
+              <input type="hidden" name="un" value="perfectlanding" />
+              <input type="hidden" name="assoc_referrer" value="" />
+              <input type="hidden" name="referring_url" value="" />
+              <input type="submit" value="Request a Reservation" id="submit3" name="submit3" class="reservebtn btn btn-default" />
+    	      </form>
 
             <!-- Other property -->
             <div class="section-title line-style line-style">

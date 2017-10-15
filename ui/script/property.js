@@ -100,7 +100,6 @@ $(function () {
         else window.location.hash = '/' + property.id + '/' + property.name.split(' ').join('-') + '/' + property.address.split(' ').join('-') + '/' + property.city.split(' ').join('-');
         // after propery is found and url has been set..
         $('h1#property-title').text(property.name);
-        console.log(property);
         $('h2#short-desc').text(property.meta);
         $('span#property-price').text('$' + displayPrice(property.rate) + '/night');
         $('span#photo-description').empty().text(property.photoDesc[0]);
@@ -276,49 +275,6 @@ $(function () {
   var hash = window.location.hash;
   hash = hash.slice(2);
 
-  // build calendar module
-  $.ajax({
-    type: 'GET',
-    url: '../vrp/vrpexport/vrpexport_xavail.xml',
-    dataType: 'xml',
-    success: function (xml) {
-      // cache json & xml
-      var json = xmlToJson(xml),
-        propID = hash[0],
-        startDate = new Date(json.data['@attributes'].begdate.replace(/-/g, '/')),
-        today = new Date(),
-        availability = '';
-      json = json.data.xavail;
-      $.each(json, function (x, property) {
-        if (property.propid['#text'] === propID) {
-          availability = property.avlist['#text'];
-          return false;
-        }
-      });
-      // get difference between today and startdate
-      function daysIn(day) {
-        return Math.round((day - startDate) / (1000 * 60 * 60 * 24));
-      }
-      $('div#calendar-app').datepicker({
-        inline: true,
-        firstDay: 0,
-        showOtherMonths: true,
-        dayNamesMin: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
-        beforeShowDay: function (date) {
-          var position = daysIn(date);
-          // check if date is in your array of dates
-          if (availability[position] !== 'A' && availability[position] !== undefined) {
-            // if it is return the following.
-            return [true, 'highlight'];
-          } else {
-            // default
-            return [true, ''];
-          }
-        }
-      });
-    }
-  });
-
   // relocate if none - else display property
   if (!hash) {
     relocate('../browse');
@@ -326,5 +282,90 @@ $(function () {
     hash = hash.split('/');
     displayProperty(hash[0]);
   }
+
+  // build calendar module
+  $.ajax({
+    type: 'GET',
+    url: '../script/availablity-online.json',
+    dataType: 'json',
+    success: function (propertyNums) {
+      var aoUsername = 'perfectlanding';
+      var roomId = propertyNums[hash[0]];
+      var objDate = new Date();
+      var cachePreventor = Math.floor(Math.random() * 100001);
+      var currentMonth = objDate.getMonth() + 1;
+      var currentYear = objDate.getFullYear();
+      var month = currentMonth;
+      var year = currentYear;
+      var strMonth = '';
+      var strYear = '';
+
+      $('#nextMonth').click(function () {
+        month = month + 1;
+        strMonth = validateMonth();
+        if (!strMonth) {
+          return false;
+        }
+        loadImage();
+      });
+
+      $('#previousMonth').click(function() {
+        month = month - 1;
+        strMonth = validateMonth();
+        if (!strMonth) {
+          return false;
+        }
+        loadImage();
+      });
+
+      function validateMonth() {
+        // Adjust the year if the month goes above 12 or below 1
+        if (month > 12) {
+          year = year + 1;
+          month = month - 12;
+        } else if (month < 1) {
+          year = year - 1;
+          month = 12;
+        }
+        // Make sure that the month selected isn't in the past
+        if (year < currentYear || (year == currentYear && month < currentMonth)) {
+          year = currentYear;
+          month = currentMonth;
+          return false;
+        }
+        // Make sure month is two digits
+        if (month.length < 2) {
+          strMonth = '0' + strMonth;
+        } else {
+          strMonth = month;
+        }
+        return strMonth;
+      }
+
+      $(function () {
+        loadImage();
+      });
+
+
+      function loadImage() {
+
+        $('#aoLoader').addClass('aoLoading');
+        $('#aoLoader').html('');
+
+        // cachePreventor = Math.floor(Math.random()*100001); // this line will cause the images to be refreshed on every click instead of once per load of the page
+        var url = 'http://images.availabilityonline.com/api/gcal/index.php?un=' + aoUsername + '&year=' + year + '&month=' + strMonth + '&roomId=' + roomId + '&cachePreventor=' + cachePreventor;
+
+        var aoCalendarImage = new Image();
+        $(aoCalendarImage).load(function () {
+          $(this).hide();
+          $('#aoLoader').removeClass('aoLoading').append(this);
+          $(this).fadeIn();
+        }).error(function () {
+          // the image wasn't received so display a placeholder
+        }).attr('src', url);
+      }
+      
+    }
+  });
 
 });
