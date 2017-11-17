@@ -55,3 +55,5 @@
 <script src="../script/gDoc.js"></script>
 <script src="../script/xml-to-json.js"></script>
 <!-- Modernizr -->
+
+<?php include_once('../partials/ga.php'); ?>
