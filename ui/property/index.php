@@ -120,7 +120,7 @@
               <input type="hidden" name="un" value="perfectlanding" />
               <input type="hidden" name="assoc_referrer" value="" />
               <input type="hidden" name="referring_url" value="" />
-              <input type="submit" value="Request a Reservation" id="submit3" name="submit3" class="reservebtn btn btn-default" />
+              <input type="image" src="../images/booknow-blue.png" style="cursor: pointer;" border="0" alt="Submit" />
     	      </form>
 
             <!-- Other property -->
