@@ -3,7 +3,6 @@ $(function () {
     var PROPERTIES = [],
         CALENDAR = [],
         CITIES = [];
-
     // days between two dates
     function getDays(date1, date2) {
         date1Array = date1.split('/');
@@ -176,6 +175,7 @@ $(function () {
                     $properties.append('<h1>No results found...</h1>');
                 }
             }
+
             function buildCities() {
                 var html = '<select class="dropdown" id="cities" data-settings=\'{"cutOff": 5}\'>';
                 html += '<option value="">-- All Cities --</option>';
@@ -287,10 +287,12 @@ $(function () {
                         else var days = 0;
                         // check is schedule is open
                         function validate(data) {
-                            var validator = true;
+                            var validator = true,
+                                difference = getDays(startDate, hash.checkin);
+                            if (difference < 0) difference = 0;
                             if (hash.checkin.length > 0 && hash.checkout.length > 0) {
                                 for (var x = 0; x < days; x++) {
-                                    if (data[x] !== 'A') validator = false;
+                                    if (data[x + difference] !== 'A') validator = false;
                                 }
                             }
                             return validator;
@@ -317,7 +319,7 @@ $(function () {
                         PROPERTIES = removeUnavailable();
                         displayProperties();
                     }
-                }).fail(function(){
+                }).fail(function () {
                     console.log('Failed To Load Calendar XML...');
                     displayProperties();
                 });
@@ -341,9 +343,9 @@ $(function () {
                     });
                     activeFilters.push(value);
                 }
-                $.each(allProperties, function(x, property) {
+                $.each(allProperties, function (x, property) {
                     var check = true;
-                    $.each(activeFilters, function(y, filter){
+                    $.each(activeFilters, function (y, filter) {
                         if ($.inArray(filter, property.amenities) === -1) check = false;
                     });
                     if (check) tmpProperties.push(property);
