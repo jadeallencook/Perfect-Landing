@@ -489,6 +489,10 @@
     </div>
     <!-- /#page-container -->
 
+    <!-- firebase -->
+    <script src="https://www.gstatic.com/firebasejs/5.4.0/firebase.js"></script>
+    <script src="script/firebase-connect.js"></script>
+
     <script src="script/jquery.min.js"></script>
     <!-- jQuery	(necessary for Bootstrap's JavaScript plugins) -->
     <script src="script/jquery-ui.min.js"></script>
