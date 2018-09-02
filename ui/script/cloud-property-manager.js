@@ -23,7 +23,7 @@
                     (function () {
                         var ids = ['big-text', 'description', 'image', 'top-text'],
                             banners = firebaseUserData.banners;
-                        for (var x = 0; x < banners.length; x++) {
+                        for (var x = 0, max = banners.length; x < max; x++) {
                             var banner = banners[x];
                             for (var y = 0; y < ids.length; y++) {
                                 var id = ids[y],
@@ -45,7 +45,29 @@
                     })();
                 }
                 // blogs
-                if (firebaseUserData.blogs) {}
+                if (firebaseUserData.blogs) {
+                    (function() {
+                        var blogs = firebaseUserData.blogs,
+                            ids = ['blog-image', 'blog-description', 'blog-title', 'blog-link'];
+                        for (var x = 0, max = blogs.length; x < max; x++) {
+                            var blog = blogs[x];
+                            for (var y = 0, max2 = ids.length; y < max2; y++) {
+                                var id = ids[y] + '-' + (x + 1),
+                                    elem = document.getElementById(id);
+                                if (elem) {
+                                    id = id.replace('blog-', '').replace('-' + (x + 1), '');
+                                    if (id.indexOf('image') !== -1) {
+                                        elem.style.backgroundImage = 'url(' + blog[id] + ')';
+                                    } else if (id.indexOf('link') !== -1) {
+                                        elem.setAttribute('href', blog[id]);
+                                    } else {
+                                        elem.innerText = blog[id];
+                                    }
+                                }
+                            }
+                        }
+                    })();
+                }
                 // links
                 if (firebaseUserData.links) {}
                 // featured

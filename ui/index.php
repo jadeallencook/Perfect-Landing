@@ -290,6 +290,7 @@
                             <div class="image blog-image" id="blog-image-1"></div>
                             <div class="text" id="blog-desc-1">
                                 <h3 class="subtitle" id="blog-title-1"></h3>
+                                <span id="blog-description-1"></span>
                             </div>
                             <a target="_blank" id="blog-link-1" class="btn btn-default button-read">Read now</a>
                         </div>
@@ -299,6 +300,7 @@
                             <div class="image blog-image" id="blog-image-2"></div>
                             <div class="text" id="blog-desc-2">
                                 <h3 class="subtitle" id="blog-title-2"></h3>
+                                <span id="blog-description-2"></span>
                             </div>
                             <a target="_blank" id="blog-link-2" class="btn btn-default button-read">Read now</a>
                         </div>
@@ -308,6 +310,7 @@
                             <div class="image blog-image" id="blog-image-3"></div>
                             <div class="text" id="blog-desc-3">
                                 <h3 class="subtitle" id="blog-title-3"></h3>
+                                <span id="blog-description-3"></span>
                             </div>
                             <a target="_blank" id="blog-link-3" class="btn btn-default button-read">Read now</a>
                         </div>
@@ -421,7 +424,6 @@
     <script src="script/custom.js"></script>
     <script src="script/homepage.js"></script>
     <script src="script/search.js"></script>
-    <script src="script/blog.js"></script>
 
 </body>
 
