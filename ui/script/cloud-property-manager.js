@@ -69,7 +69,22 @@
                     })();
                 }
                 // links
-                if (firebaseUserData.links) {}
+                if (firebaseUserData.links) {
+                    (function() {
+                        var links = firebaseUserData.links;
+                        for (var x = 0, max = Object.keys(links).length; x < max; x++) {
+                            var social = Object.keys(links)[x],
+                                link = links[social],
+                                elems = document.getElementsByClassName(social);
+                            for (var y = 0, max2 = elems.length; y < max2; y++) {
+                                var elem = elems[y];
+                                if (elem.tagName === 'A') {
+                                    elem.setAttribute('href', link);
+                                }
+                            }
+                        }
+                    })();
+                }
                 // featured
                 if (firebaseUserData.featured) {}
             }

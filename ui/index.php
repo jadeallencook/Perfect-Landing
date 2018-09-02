@@ -371,9 +371,9 @@
                             <b id="perfectlanding">Perfect Landing</b> | Developed By <b id="jadeallencook">Jade Allen Cook</b> | UI Designed By <b id="andylab">AndyLab</b></div>
                         <div class="col-md-3">
                             <ul class="social-icons">
-                                <li><a gdoc="facebook" target="_blank" href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a gdoc="pintrest" target="_blank" href="#"><i class="fa fa-pinterest"></i></a></li>
-                                <li><a gdoc="instagram" target="_blank" href="#"><i class="fa fa-instagram"></i></a></li>
+                                <li><a target="_blank" href="#" class="facebook"><i class="fa fa-facebook"></i></a></li>
+                                <li><a target="_blank" href="#" class="pinterest"><i class="fa fa-pinterest"></i></a></li>
+                                <li><a target="_blank" href="#" class="instagram"><i class="fa fa-instagram"></i></a></li>
                             </ul>
                         </div>
                     </div>
