@@ -93,6 +93,10 @@ window.cpm = {
                             for (var x = 0, max = featured.length; x <= max; x++) {
                                 var feature = featured[x],
                                     property = properties[feature.id];
+                                if (!property) {
+                                    feature.id = Object.keys(properties)[Object.keys(properties).length * Math.random() << 0];
+                                    property = properties[feature.id];
+                                }
                                 for (var y = 0, max2 = Object.keys(property).length; y < max2; y++) {
                                     var key = Object.keys(property)[y],
                                         id = 'featured-property-' + key + '-' + (x + 1);
