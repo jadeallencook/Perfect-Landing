@@ -136,36 +136,6 @@ $.ajax({
             }
         };
         build.getProperties();
-        // set homepage banner info
-        Tabletop.init({
-            key: '1jmx69ezkmKHqKb5MlUttTpL8pkt8i-ThFeXWMQzNRT4',
-            callback: function (data, tabletop) {
-                var featured = data.featured.elements,
-                    featuredArray = [],
-                    allID = [],
-                    urls = data.urls.elements,
-                    domain = document.domain;
-                $.each(featured, function (x, val) {
-                    featuredArray.push(val.id);
-                });
-                $.each(build.properties, function (x, val) {
-                    allID.push(val.id);
-                });
-                $('div#featured-list').append(build.property(build.properties[allID.indexOf(featuredArray[0])]));
-                $('div#featured-list').append(build.property(build.properties[allID.indexOf(featuredArray[1])]));
-                $('div#featured-list').append(build.property(build.properties[allID.indexOf(featuredArray[2])]));
-                $.each(urls, function (x, val) {
-                    var url = val.url;
-                    if (url === domain) {
-                        $('div#featured-list').empty();
-                        $('div#featured-list').append(build.property(build.properties[allID.indexOf(val.prop1)]));
-                        $('div#featured-list').append(build.property(build.properties[allID.indexOf(val.prop2)]));
-                        $('div#featured-list').append(build.property(build.properties[allID.indexOf(val.prop3)]));
-                    }
-                });
-            },
-            simpleSheet: false
-        });
         // init process
         if (build.hash) {
             build.hash = parseInt(build.hash.match(/\d+$/)[0]);
