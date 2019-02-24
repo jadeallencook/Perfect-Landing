@@ -2,7 +2,6 @@
     Cloud Property Manager v1.0 2018
     Developed by Onflo (www.onflo.io)
 */
-
 window.cpm = {
     init: function (properties, callback) {
         if (!firebase) {
@@ -58,6 +57,7 @@ window.cpm = {
                                     if (elem) {
                                         id = id.replace('blog-', '').replace('-' + (x + 1), '');
                                         if (id.indexOf('image') !== -1) {
+                                            console.log(blog[id]);
                                             elem.style.backgroundImage = 'url(' + blog[id] + ')';
                                         } else if (id.indexOf('link') !== -1) {
                                             elem.setAttribute('href', blog[id]);
@@ -120,12 +120,10 @@ window.cpm = {
                                 }
                             }
                         })();
-                    } else if (!properties) {
-                        console.warn('CPM: No properties passed...');
                     }
                 }
                 // complete
-                callback();
+                if (callback) callback();
             });
         }
     }

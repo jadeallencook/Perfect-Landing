@@ -2,13 +2,16 @@
 <html lang="en">
 
 <head>
-    <?php require_once('../partials/includes.php'); ?>
+    <?php require_once '../partials/includes.php';?>
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-database.js"></script>
+    <script src="../script/firebase-connect.js"></script>
 </head>
 
 <body class="fixed-header">
 
     <div id="page-container">
-        <?php include_once('../partials/navbar.php') ?>
+        <?php include_once '../partials/navbar.php'?>
             <!-- insert here -->
 
             <section id="header-page" class="header-margin-base">
@@ -43,15 +46,34 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-12 col-md-12" id="blogs-container">
-                            <h1>Loading...</h1>
+                            <div class="blog-list post-line">
+                                <h2 class="title" id="blog-title-1"></h2>
+                                <div class="image image-fill" id="blog-image-1" style="background-size: cover; background-position: center;"></div>
+                                <div class="text" id="blog-description-1"></div>
+                                <a href=""target="_blank" class="btn btn-default button-read" id="blog-link-1">Read More</a>
+                            </div>
+                        </div> <div class="col-sm-12 col-md-12" id="blogs-container">
+                            <div class="blog-list post-line">
+                                <h2 class="title" id="blog-title-2"></h2>
+                                <div class="image image-fill" id="blog-image-2" style="background-size: cover; background-position: center;"></div>
+                                <div class="text" id="blog-description-2"></div>
+                                <a href=""target="_blank" class="btn btn-default button-read" id="blog-link-2">Read More</a>
+                            </div>
+                        </div> <div class="col-sm-12 col-md-12" id="blogs-container">
+                            <div class="blog-list post-line">
+                                <h2 class="title" id="blog-title-3"></h2>
+                                <div class="image image-fill" id="blog-image-3" style="background-size: cover; background-position: center;"></div>
+                                <div class="text" id="blog-description-3"></div>
+                                <a href=""target="_blank" class="btn btn-default button-read" id="blog-link-3">Read More</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-                
+
             </section>
 
-            <?php include_once('../partials/footer.php') ?>
-                <?php include_once('../partials/modals.php') ?>
+            <?php include_once '../partials/footer.php'?>
+                <?php include_once '../partials/modals.php'?>
 
     </div>
     <!-- /#page-container -->
@@ -81,8 +103,11 @@
     <script src="../script/vendor/noui-slider/nouislider.all.min.js"></script>
     <!-- Range Slider -->
     <script src="../script/custom.js"></script>
-    <script src="../script/blog-full.js"></script>
-    <?php include_once('../partials/ga.php') ?>
+    <script src="../script/cloud-property-manager.js"></script>
+    <script>
+        window.cpm.init();
+    </script>
+    <?php include_once '../partials/ga.php'?>
 </body>
 
 </html>
