@@ -1,0 +1,10 @@
+{
+    "phone": "(989) 362-3300",
+    "email": "hello@perfectlandingrentals.com",
+    "address": {
+        "street": "125 Birch Street",
+        "city": "Tawas City",
+        "state": "Michigan",
+        "zipcode": 48763
+    }
+}

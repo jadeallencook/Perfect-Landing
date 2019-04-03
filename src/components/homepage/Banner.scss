@@ -1,0 +1,13 @@
+section.Banner {
+    div {
+        div {
+            figure#banner-image {
+                background-image: url('/assets/images/trees.jpg');
+            }
+        }
+    }
+}
+
+@media only screen and (max-device-width: 480px) {
+    section.Banner {}
+}

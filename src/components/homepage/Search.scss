@@ -1,0 +1,21 @@
+section.Search {
+    label {
+        font-size: 0.75em;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    section#search-box {
+        div.searcher {
+            margin-top: 0px !important;
+        }
+    }
+}
+
+@media only screen and (max-device-width: 480px) {
+    section.Search {
+        div.searcher {
+            padding-top: 0px;
+        }
+    }
+}

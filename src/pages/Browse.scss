@@ -1,0 +1,11 @@
+div.Browse {
+    div > label {
+        font-size: 0.75em;
+    }
+}
+
+@media only screen and (max-device-width: 480px) {
+    div.Browse {
+        
+    }
+}
