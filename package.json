@@ -1,8 +1,8 @@
 {
-  "name": "perfect-landing-rentals",
+  "name": "perfect-landing",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://jadeallencook.github.io/perfect-landing-rentals/build/",
+  "homepage": "https://jadeallencook.github.io/Perfect-Landing/build/",
   "dependencies": {
     "firebase": "^5.9.1",
     "node-sass": "^4.11.0",
