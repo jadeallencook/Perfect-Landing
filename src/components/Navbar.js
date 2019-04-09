@@ -10,7 +10,7 @@ const Navbar = props => (
                 <div className="row">
                     <a id="mobile-menu-button" href="#mobile-menu" className="visible-xs"><i className="fa fa-bars"></i></a>
                     <div className="col-md-2 logo-withe">
-                        <Link to="/"><img src="assets/images/logo_x1_w.png" alt="Perfect Landing Rentals Logo" /></Link>
+                        <Link to="/"><img src="/assets/images/logo_x1_w.png" alt="Perfect Landing Rentals Logo" /></Link>
                     </div>
                     <div className="col-md-10 hidden-xs" id="login-pan">
                         <a href="call:1-989-362-3300">

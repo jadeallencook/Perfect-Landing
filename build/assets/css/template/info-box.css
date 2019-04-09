@@ -455,7 +455,10 @@
 .box-featured.box-list .detail {
     border-bottom: 1px solid #E5E5E5;
     float: none;
-    margin: 0 0 0 260px;
+    display: grid;
+    grid-template-columns: repeat(4, 3fr 1fr);
+    overflow-x: hidden;
+    margin: 0 -2px -1px 260px;
     min-height: 30px;
 }
 
@@ -463,7 +466,6 @@
 .box-featured.box-list .detail dt {
     float: none;
     width: auto;
-    display: inline-block;
     border-bottom: none;
     padding-right: 4px;
 }
@@ -471,6 +473,10 @@
 .box-featured.box-list .detail dd {
     border-right: 1px solid #e5e5e5;
     padding-right: 8px;
+}
+
+.detail dd:last-child {
+    border-right: none!important;
 }
 
 .box-featured.box-list .detail dd span {

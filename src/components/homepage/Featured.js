@@ -46,7 +46,7 @@ class Featured extends Component {
                                     return (
                                         <div className="col-md-4" key={propid}>
                                             <div className="box-featured box-home">
-                                                <Link to="/property/test" className="hover-effect image image-fill">
+                                                <Link to={`/property/${propid}`} className="hover-effect image image-fill">
                                                     <span className="cover"></span>
                                                     <img alt={property.shortdesc['_text']} src={property.htppostdir['_text'] + profile(property.photos['_text'])} />
                                                     <h3 className="title">{property.propname['_text']}</h3>
@@ -68,7 +68,7 @@ class Featured extends Component {
                                                     <dd><span>{property.minnights['_text']}</span></dd>
                                                 </dl>
                                                 <div className="footer">
-                                                    <Link to="/property/test" className="btn btn-reverse">Read now</Link>
+                                                    <Link to={`/property/${propid}`} className="btn btn-reverse">Read now</Link>
                                                 </div>
                                             </div>
                                         </div>
@@ -92,7 +92,7 @@ class Featured extends Component {
                                     return (
                                         <div className="col-md-4" key={propid}>
                                             <div className="box-featured box-home">
-                                                <Link to="/property/test" className="hover-effect image image-fill">
+                                                <Link to={`/property/${propid}`} className="hover-effect image image-fill">
                                                     <span className="cover"></span>
                                                     <img alt={property.shortdesc['_text']} src={image} />
                                                     <h3 className="title">{property.propname['_text']}</h3>
@@ -114,7 +114,7 @@ class Featured extends Component {
                                                     <dd><span>{property.minnights['_text']}</span></dd>
                                                 </dl>
                                                 <div className="footer">
-                                                    <Link to="/property/test" className="btn btn-reverse">Read now</Link>
+                                                    <Link to={`/property/${propid}`} className="btn btn-reverse">Read now</Link>
                                                 </div>
                                             </div>
                                         </div>

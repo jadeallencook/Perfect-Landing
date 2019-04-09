@@ -15,16 +15,16 @@ const Results = props => (
                     <div className="box-featured box-list" key={key}>
                         <Link to={`/property/${key}`} className="hover-effect image image-fill">
                             <span className="cover"></span>
-                            <img src={property.htppostdir['_text'] + profile(property.photos['_text'])} alt="Sample images" />
+                            <img src={property.htppostdir['_text'] + profile(property.photos['_text'])} alt={`${property.propname['_text']}`} />
                             <h3 className="title">{property.propname['_text']}</h3>
                         </Link>
                         <span className="price">{rate(property.grppgsum['_text'])}</span>
                         <span className="address"><i className="fa fa-map-marker"></i> {property.city['_text']}</span>
                         <span className="description">{clean(property.longdesc['_text'])}</span>
                         <dl className="detail">
-                            <dt className="area">Minimum Stay:</dt>
+                            <dt className="area">Nights:</dt>
                             <dd><span>{property.minnights['_text']}</span></dd>
-                            <dt className="bed">Bedrooms:</dt>
+                            <dt className="bed">Beds:</dt>
                             <dd><span>{property.numbedrms['_text']}</span></dd>
                             <dt className="bath">Baths:</dt>
                             <dd><span>{property.numbaths['_text']}</span></dd>

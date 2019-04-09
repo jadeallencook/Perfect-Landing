@@ -44,9 +44,9 @@ class App extends Component {
                     <Route path="/browse" render={() => (
                         <Browse properties={this.props.properties} filters={this.state.filters} search={this.search.bind(this)} />
                     )} />
-                    <Route path="/property/:id" render={() => (
-                        <Property properties={this.props.properties} />
-                    )} />
+                    <Route path="/property/:id" render={route => {
+                        return <Property property={this.props.properties[Number(route.match.params.id)]} />
+                    }} />
                     <Route path="/contact" render={() => (
                         <Contact />
                     )} />
