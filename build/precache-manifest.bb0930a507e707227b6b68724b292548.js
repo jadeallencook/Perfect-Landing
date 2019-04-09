@@ -16,7 +16,7 @@ self.__precacheManifest = [
     "url": "/Perfect-Landing/build/static/css/main.6d027f73.chunk.css"
   },
   {
-    "revision": "d7e578ddaee5a536fa9fa9288d61da36",
+    "revision": "23a0db3ddb435207decb5d30130f5c57",
     "url": "/Perfect-Landing/build/index.html"
   }
 ];
