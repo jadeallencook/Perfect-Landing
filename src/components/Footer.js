@@ -9,7 +9,7 @@ const Footer = props => (
             <div className="row">
                 <div className="col-sm-12 col-md-3">
                     <span className="title with-icon">
-                        <img className="logo-footer" src="assets/images/mini-logo-x1.png" alt="logo" />
+                        <img className="logo-footer" src="/assets/images/mini-logo-x1.png" alt="logo" />
                         About Us
             </span>
                     <span className="text">
@@ -47,8 +47,8 @@ const Footer = props => (
         <div className="credits">
             <div className="container">
                 <div id="badges-wrapper">
-                    <img src="assets/images/bbb-badge.png" alt="Better Business Bureau Logo" />
-                    <img src="assets/images/pure-michigan.png" alt="Pure Michigan Logo" />
+                    <img src="/assets/images/bbb-badge.png" alt="Better Business Bureau Logo" />
+                    <img src="/assets/images/pure-michigan.png" alt="Pure Michigan Logo" />
                 </div>
                 <br />
                 <div className="row">

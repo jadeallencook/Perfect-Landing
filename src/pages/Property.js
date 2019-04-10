@@ -9,6 +9,11 @@ class Property extends Component {
         super(props);
         window.scrollTo(0, 0);
     }
+
+    componentDidMount() {
+        window.$('.fotorama').fotorama();
+    }
+
     render() {
         const property = this.props.property;
         return (
@@ -47,7 +52,14 @@ class Property extends Component {
                         <div className="row">
                             <div className="col-md-9">
                                 <span className="large-price" id="property-price">{rate(property.grppgsum['_text'])}</span>
+
                                 <div id="property-photos">
+                                    <div className="fotorama" data-auto="false" data-width="100%" data-fit="cover" data-max-width="100%" data-nav="thumbs" data-transition="crossfade">
+                                        <img src="http://perfectlandingrentals.com/vrp/prop1019_img_1919_1920w.jpg" alt="Home" />
+                                        <img src="http://perfectlandingrentals.com/vrp/prop1019_img_1919_1920w.jpg" alt="Home" />
+                                        <img src="http://perfectlandingrentals.com/vrp/prop1019_img_1919_1920w.jpg" alt="Home" />
+                                        <img src="http://perfectlandingrentals.com/vrp/prop1019_img_1919_1920w.jpg" alt="Home" />
+                                    </div>
                                 </div>
 
                                 <center>
@@ -72,11 +84,7 @@ class Property extends Component {
                                         <div className="details">
                                             <div className="row" id="property-amenities">
                                                 {
-                                                    property.amenlist['_text'].split('|').map((amenity, x) => {
-                                                        if (amenity[amenity.length - 1] !== ':') {
-                                                            return <div class="col-sm-4 col-xs-6"><span class="detail"><i class="fa fa-square"></i> {amenity}</span></div>
-                                                        }
-                                                    })
+                                                    property.amenlist['_text'].split('|').map((amenity, x) => (amenity[amenity.length - 1] !== ':') ? (<div className="col-sm-4 col-xs-6" key={`amenity-${x}`}><span className="detail"><i className="fa fa-square"></i> {amenity}</span></div>) : null)
                                                 }
                                             </div>
                                         </div>
@@ -129,50 +137,27 @@ class Property extends Component {
                                     <h3 className="title">Other Property</h3>
                                 </div>
 
-                                <div className="box-ads box-grid mini">
-                                    <a className="hover-effect image image-fill other-1-link">
+                                <div className="box-featured box-grid mini">
+                                    <Link className="hover-effect image image-fill other-1-link" to="/property">
                                         <span className="cover"></span>
-                                        <img id="other-1-image" />
-                                        <h3 className="title" id="other-1-city"></h3>
-                                    </a>
-                                    <span className="price" id="other-1-price"></span>
+                                        <img alt="home" src="http://perfectlandingrentals.com/vrp/prop1019_img_1919_1920w.jpg" />
+                                        <h3 className="title">Property</h3>
+                                    </Link>
+                                    <span className="price" id="other-1-price">$100</span>
                                     <div className="footer">
-                                        <a className="btn btn-default other-1-link">Read More</a>
+                                        <Link className="btn btn-default" to="/property">Read More</Link>
                                     </div>
                                 </div>
 
-                                <div className="box-ads box-grid mini">
-                                    <a className="hover-effect image image-fill other-2-link">
+                                <div className="box-featured box-grid mini">
+                                    <Link className="hover-effect image image-fill other-1-link" to="/property">
                                         <span className="cover"></span>
-                                        <img id="other-2-image" />
-                                        <h3 className="title" id="other-2-city"></h3>
-                                    </a>
-                                    <span className="price" id="other-2-price"></span>
+                                        <img alt="home" src="http://perfectlandingrentals.com/vrp/prop1019_img_1919_1920w.jpg" />
+                                        <h3 className="title">Property</h3>
+                                    </Link>
+                                    <span className="price" id="other-2-price">$100</span>
                                     <div className="footer">
-                                        <a className="btn btn-default other-2-link">Read More</a>
-                                    </div>
-                                </div>
-
-                                <div className="section-title line-style line-style">
-                                    <h3 className="title">Search</h3>
-                                </div>
-                                <div className="search-box-page">
-                                    <div className="row">
-                                        <input type="hidden" id="back" value="true" />
-                                        <div className="col-md-12 space-div" id="cities-container">
-
-                                        </div>
-                                        <div className="col-md-6 space-div">
-                                            <label>Bathroom</label>
-                                            <input className="form-control" type="text" name="bathroom" id="bathroom" value="1" />
-                                        </div>
-                                        <div className="col-md-6 space-div">
-                                            <label>Bedroom</label>
-                                            <input className="form-control" type="text" name="bedroom" id="bedroom" value="1" />
-                                        </div>
-                                        <div className="col-md-12 space-div">
-                                            <button type="button" className="btn btn-default search-button" id="find-rental">SEARCH NOW</button>
-                                        </div>
+                                        <Link className="btn btn-default" to="/property">Read More</Link>
                                     </div>
                                 </div>
                             </div>
