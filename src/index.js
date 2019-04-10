@@ -17,7 +17,7 @@ function render(xml) {
 fetch('./vrp/vrpexport/vrpexport_xprop.xml')
     .then(response => response.text())
     .then(render).catch(error => {
-        fetch('/vrp/vrpexport/vrpexport_xprop.xml')
+        fetch('https://jadeallencook.github.io/Perfect-Landing/build/vrp/vrpexport/vrpexport_xprop.xml')
             .then(response => response.text())
             .then(render)
             .catch(error => console.error(error));

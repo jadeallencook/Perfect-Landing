@@ -4,19 +4,19 @@ self.__precacheManifest = [
     "url": "/Perfect-Landing/build/static/js/runtime~main.46396dd8.js"
   },
   {
-    "revision": "f24542fbadfa805eff6c",
-    "url": "/Perfect-Landing/build/static/js/main.f24542fb.chunk.js"
+    "revision": "a0431eb08aed63bc7733",
+    "url": "/Perfect-Landing/build/static/js/main.a0431eb0.chunk.js"
   },
   {
     "revision": "9dc745a882daa6bc8617",
     "url": "/Perfect-Landing/build/static/js/2.9dc745a8.chunk.js"
   },
   {
-    "revision": "f24542fbadfa805eff6c",
+    "revision": "a0431eb08aed63bc7733",
     "url": "/Perfect-Landing/build/static/css/main.815572d7.chunk.css"
   },
   {
-    "revision": "ce88cc17fa59e30dada21948899d7d11",
+    "revision": "098eed65c97dee104528c00d8b34742a",
     "url": "/Perfect-Landing/build/index.html"
   }
 ];
