@@ -3,19 +3,55 @@ import './Property.scss';
 import { Link } from 'react-router-dom';
 import rate from '../services/rate';
 import clean from '../services/clean';
+import AOIds from '../information/availability-online.json';
 
 class Property extends Component {
     constructor(props) {
         super(props);
         window.scrollTo(0, 0);
+        const date = new Date();
+        this.state = {
+            photo: 0,
+            calendarURL: ``,
+            calendarYear: date.getFullYear(),
+            calendarMonth: date.getMonth() + 1,
+        };
+    }
+
+    setCalendar(year, month) {
+        this.setState({
+            calendarURL: `http://images.availabilityonline.com/api/gcal/index.php?un=perfectlanding&year=${year}&month=${month}&roomId=${AOIds[this.props.property.propid['_text']]}`,
+            calendarYear: year,
+            calendarMonth: month
+        });
     }
 
     componentDidMount() {
         window.$('.fotorama').fotorama();
+        document.onclick = event => {
+            const element = event.path[0];
+            const isImage = (element.classList[0] === 'fotorama__img');
+            const hasNum = (element.getAttribute('data-num'));
+            const isArrow = (element.classList[0] === 'fotorama__arr');
+            if (isImage && hasNum) {
+                const num = Number(element.getAttribute('data-num'));
+                this.setState({
+                    photo: num
+                });
+            } else if (isArrow) {
+                let num = (element.classList[1] === 'fotorama__arr--next') ? 1 : -1;
+                this.setState({
+                    photo: this.state.photo + num
+                });
+            }
+        }
+        this.setCalendar(this.state.calendarYear, this.state.calendarMonth);
     }
 
     render() {
         const property = this.props.property;
+        const photos = this.props.property.photos['_text'].split('|').filter(photo => (photo && photo !== undefined) ? true : false);
+        const descriptions = this.props.property.photodescs['_text'].split('|').filter(photo => (photo && photo !== undefined) ? true : false);
         return (
             <div className="Property">
                 <section id="header-page" className="header-margin-base">
@@ -55,16 +91,15 @@ class Property extends Component {
 
                                 <div id="property-photos">
                                     <div className="fotorama" data-auto="false" data-width="100%" data-fit="cover" data-max-width="100%" data-nav="thumbs" data-transition="crossfade">
-                                        <img src="https://perfectlandingrentals.com/vrp/prop1019_img_1919_1920w.jpg" alt="Home" />
-                                        <img src="https://perfectlandingrentals.com/vrp/prop1019_img_1919_1920w.jpg" alt="Home" />
-                                        <img src="https://perfectlandingrentals.com/vrp/prop1019_img_1919_1920w.jpg" alt="Home" />
-                                        <img src="https://perfectlandingrentals.com/vrp/prop1019_img_1919_1920w.jpg" alt="Home" />
+                                        {
+                                            photos.map((photo, x) => (<img src={`${this.props.property.htppostdir['_text']}${photo}`} key={x} alt={descriptions[x]} />))
+                                        }
                                     </div>
                                 </div>
 
                                 <center>
                                     <br />
-                                    <span><b>Photo Description: </b><i><span id="photo-description"></span></i>
+                                    <span><b>Photo Description: </b><i><span id="photo-description">{descriptions[this.state.photo]}</span></i>
                                     </span>
                                 </center>
 
@@ -117,30 +152,41 @@ class Property extends Component {
                                 </div>
 
                                 <div>
-                                    <div id="aoImageButtons" align="center">
-                                        <a id="previousMonth" href="#calendartop">
-                                            <font size="2">&lt;&lt; Previous</font></a> |
-                                            <a id="nextMonth" href="#calendartop"><font size="2">Next &gt;</font>
-                                        </a>
+                                    <div id="aoImageButtons" align="left">
+                                        <span id="previousMonth" onClick={() => {
+                                            const month = (this.state.calendarMonth === 1) ? 12 : this.state.calendarMonth - 1;
+                                            const year = (this.state.calendarMonth === 1) ? this.state.calendarYear - 1 : this.state.calendarYear;
+                                            this.setCalendar(year, month);
+                                        }}>
+                                            <font size="2">&lt;&lt; Previous</font>
+                                        </span> | <span id="nextMonth" onClick={() => {
+                                            const month = (this.state.calendarMonth === 12) ? 1 : this.state.calendarMonth + 1;
+                                            const year = (month === 1) ? this.state.calendarYear + 1 : this.state.calendarYear;
+                                            this.setCalendar(year, month);
+                                        }}>
+                                            <font size="2"> Next &gt;</font>
+                                        </span>
                                     </div>
-                                    <div id="aoLoader" className="aoLoading"></div>
+                                    <div id="aoLoader" className="aoLoading">
+                                        <img src={this.state.calendarURL} alt="Property Availibity Calendar" />
+                                    </div>
                                 </div>
                                 <br />
                                 <form method="post" action="https://www.availabilityonline.com/reservation_form.php" id="ao_aoform4" name="ao_aoform4">
                                     <input type="hidden" name="un" value="perfectlanding" />
                                     <input type="hidden" name="assoc_referrer" value="" />
                                     <input type="hidden" name="referring_url" value="" />
-                                    <input type="image" src="../images/booknow-blue.png" border="0" alt="Submit" />
+                                    <input type="image" src="https://perfectlandingrentals.com/images/booknow-blue.png" border="0" alt="Submit" />
                                 </form>
 
                                 <div className="section-title line-style line-style">
-                                    <h3 className="title">Other Property</h3>
+                                    <h3 className="title">Other Properties</h3>
                                 </div>
 
                                 <div className="box-featured box-grid mini">
                                     <Link className="hover-effect image image-fill other-1-link" to="/property">
                                         <span className="cover"></span>
-                                        <img alt="home" src="http://perfectlandingrentals.com/vrp/prop1019_img_1919_1920w.jpg" />
+                                        <img alt="home" src="https://perfectlandingrentals.com/vrp/prop1019_img_1919_1920w.jpg" />
                                         <h3 className="title">Property</h3>
                                     </Link>
                                     <span className="price" id="other-1-price">$100</span>
