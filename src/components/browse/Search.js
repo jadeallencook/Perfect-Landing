@@ -61,10 +61,19 @@ const Search = props => (
         <div id="filter-box">
             {
                 filters.map(filter => {
-                    return <div className="filter" key={filter} data-value={filter}>{filter}</div>
+                    return <div className="filter" key={filter} data-value={filter} onClick={event => {
+                        const filter = event.target.getAttribute('data-value');
+                        let amenities = (props.filters.amenities.length > 0) ? props.filters.amenities : [];
+                        amenities = (amenities.indexOf(filter) === -1) ? [...amenities, filter] : amenities.filter(amenity => (amenity !== filter) ? true : false);
+                        props.search('amenities', amenities);
+                    }} style={(props.filters.amenities.indexOf(filter) === -1) ? {
+                            opacity: '0.75'
+                        } :{
+                            opacity: '1'
+                        }
+                    }>{filter}</div>
                 })
             }
-            <div className="filter" data-value="On Lake Huron">On Lake Huron</div>
         </div>
         <small><b><i>Click Filter To Apply</i></b></small>
     </div>

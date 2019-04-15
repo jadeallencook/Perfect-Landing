@@ -9,6 +9,8 @@ import Browse from './pages/Browse';
 import Property from './pages/Property';
 import Contact from './pages/Contact';
 
+import filter from './services/filter';
+
 class App extends Component {
     constructor(props) {
         super(props);
@@ -39,14 +41,25 @@ class App extends Component {
                 <Router>
                     <Navbar />
                     <Route exact path="/" render={() => (
-                        <Home properties={this.props.properties} search={this.search.bind(this)} filters={this.state.filters} />
+                        <Home 
+                            properties={this.props.properties} 
+                            search={this.search.bind(this)} 
+                            filters={this.state.filters} 
+                        />
                     )} />
                     <Route path="/browse" render={() => (
-                        <Browse properties={this.props.properties} filters={this.state.filters} search={this.search.bind(this)} />
+                        <Browse 
+                            properties={this.props.properties} 
+                            filters={this.state.filters} 
+                            search={this.search.bind(this)} 
+                        />
                     )} />
                     <Route path="/property/:id" render={route => {
-                        return <Property property={this.props.properties[Number(route.match.params.id)]} />
-                    }} />
+                        return <Property 
+                            property={this.props.properties[Number(route.match.params.id)]} 
+                            filters={this.state.filters} 
+                            properties={Object.keys(this.props.properties).filter(key => filter(this.props.properties[key], this.state.filters)).map(key => this.props.properties[key])} />
+                        }} />
                     <Route path="/contact" render={() => (
                         <Contact />
                     )} />

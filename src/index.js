@@ -14,7 +14,7 @@ function render(xml) {
     ReactDOM.render(<App properties={properties} />, document.getElementById('root'));
 }
 
-fetch('./vrp/vrpexport/vrpexport_xprop.xml')
+fetch('/vrp/vrpexport/vrpexport_xprop.xml')
     .then(response => response.text())
     .then(render).catch(error => {
         fetch('https://jadeallencook.github.io/Perfect-Landing/build/vrp/vrpexport/vrpexport_xprop.xml')

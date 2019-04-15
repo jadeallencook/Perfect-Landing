@@ -3,6 +3,7 @@ import './Property.scss';
 import { Link } from 'react-router-dom';
 import rate from '../services/rate';
 import clean from '../services/clean';
+import profile from '../services/profile';
 import AOIds from '../information/availability-online.json';
 
 class Property extends Component {
@@ -27,7 +28,9 @@ class Property extends Component {
     }
 
     componentDidMount() {
+        // photo gallery
         window.$('.fotorama').fotorama();
+        // photo descriptions
         document.onclick = event => {
             const element = event.path[0];
             const isImage = (element.classList[0] === 'fotorama__img');
@@ -45,7 +48,35 @@ class Property extends Component {
                 });
             }
         }
+        // ao calendar
         this.setCalendar(this.state.calendarYear, this.state.calendarMonth);
+        // map
+        if (window.map) {
+            const mapMarker = '/assets/images/map-pin.png';
+            const geocoder = new window.google.maps.Geocoder();
+            const address = `${this.props.property.addr1['_text']} ${this.props.property.city['_text']}, MI ${this.props.property.zip['_text']}`;
+            geocoder.geocode({
+                'address': address
+            }, (results, status) => {
+                if (status === window.google.maps.GeocoderStatus.OK) {
+                    const latitude = results[0].geometry.location.lat();
+                    const longitude = results[0].geometry.location.lng();
+                    const uluru = {
+                        lat: latitude,
+                        lng: longitude
+                    };
+                    const map = new window.google.maps.Map(document.getElementById('map-canvas'), {
+                        zoom: 15,
+                        center: uluru
+                    });
+                    new window.google.maps.Marker({
+                        position: uluru,
+                        map: map,
+                        icon: mapMarker
+                    });
+                }
+            });
+        }
     }
 
     render() {
@@ -90,10 +121,8 @@ class Property extends Component {
                                 <span className="large-price" id="property-price">{rate(property.grppgsum['_text'])}</span>
 
                                 <div id="property-photos">
-                                    <div className="fotorama" data-auto="false" data-width="100%" data-fit="cover" data-max-width="100%" data-nav="thumbs" data-transition="crossfade">
-                                        {
-                                            photos.map((photo, x) => (<img src={`${this.props.property.htppostdir['_text']}${photo}`} key={x} alt={descriptions[x]} />))
-                                        }
+                                    <div className="fotorama" id="fotorama" data-auto="false" data-width="100%" data-fit="cover" data-max-width="100%" data-nav="thumbs" data-transition="crossfade">
+                                        { photos.map((photo, x) => (<img src={`${this.props.property.htppostdir['_text']}${photo}`} key={x} alt={descriptions[x]} />)) }
                                     </div>
                                 </div>
 
@@ -182,30 +211,23 @@ class Property extends Component {
                                 <div className="section-title line-style line-style">
                                     <h3 className="title">Other Properties</h3>
                                 </div>
-
-                                <div className="box-featured box-grid mini">
-                                    <Link className="hover-effect image image-fill other-1-link" to="/property">
-                                        <span className="cover"></span>
-                                        <img alt="home" src="https://perfectlandingrentals.com/vrp/prop1019_img_1919_1920w.jpg" />
-                                        <h3 className="title">Property</h3>
-                                    </Link>
-                                    <span className="price" id="other-1-price">$100</span>
-                                    <div className="footer">
-                                        <Link className="btn btn-default" to="/property">Read More</Link>
-                                    </div>
-                                </div>
-
-                                <div className="box-featured box-grid mini">
-                                    <Link className="hover-effect image image-fill other-1-link" to="/property">
-                                        <span className="cover"></span>
-                                        <img alt="home" src="http://perfectlandingrentals.com/vrp/prop1019_img_1919_1920w.jpg" />
-                                        <h3 className="title">Property</h3>
-                                    </Link>
-                                    <span className="price" id="other-2-price">$100</span>
-                                    <div className="footer">
-                                        <Link className="btn btn-default" to="/property">Read More</Link>
-                                    </div>
-                                </div>
+                                {
+                                    [...[0, 1, 2, 3].map(num => this.props.properties[num])].map((property, x) => {
+                                        return (property) ? (
+                                            <div className="box-featured box-grid mini" key={`property-${x}`}>
+                                                <Link className="hover-effect image image-fill other-1-link" onClick={this.forceUpdate} to={`/property/${property.propid['_text']}`}>
+                                                    <span className="cover"></span>
+                                                    <img alt="home" src={`${property.htppostdir['_text']}${profile(property.photos['_text'])}`} />
+                                                    <h3 className="title">{property.propname['_text']}</h3>
+                                                </Link>
+                                                <span className="price" id="other-1-price">{rate(property.grppgsum['_text'])}</span>
+                                                <div className="footer">
+                                                    <Link className="btn btn-default" onClick={this.forceUpdate} to={`/property/${property.propid['_text']}`}>Read More</Link>
+                                                </div>
+                                            </div>
+                                        ) : null
+                                    })
+                                }
                             </div>
                         </div>
                     </div>
