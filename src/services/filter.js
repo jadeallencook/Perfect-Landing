@@ -1,4 +1,16 @@
-export default function(property, filters) {
+/*
+    false: property meets search criterea
+    true: property does not match filters
+    (return true if criterea is met)
+*/
+
+import available from './available';
+
+export default function(property, filters, calendar, start) {
+    const isBooked = (
+        (filters.checkin && filters.checkout) &&
+        !available(filters.checkin, filters.checkout, calendar, start)
+    ) ? true : false;
     const amenlist = property.amenlist['_text'].split('|');
     return (
         (
@@ -16,6 +28,6 @@ export default function(property, filters) {
         ) || (
             filters.amenities.length > 0 &&
             filters.amenities.map(amenity => amenlist.indexOf(amenity)).indexOf(-1) !== -1
-        )
+        ) || isBooked
     ) ? false : true;
 }

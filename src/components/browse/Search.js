@@ -47,11 +47,11 @@ const Search = props => (
                 </div>
                 <div className="col-md-12 space-div">
                     <label>Check In</label>
-                    <input className="form-control" type="date" name="checkin" id="checkin" placeholder="Check In" />
+                    <input className="form-control" type="date" name="checkin" id="checkin" placeholder="Check In" onChange={event => props.search('checkin', event.target.value)} value={props.filters.checkin}  />
                 </div>
                 <div className="col-md-12 space-div">
                     <label>Check Out</label>
-                    <input className="form-control" type="date" name="checkout" id="checkout" placeholder="Check Out" />
+                    <input className="form-control" type="date" name="checkout" id="checkout" placeholder="Check Out" onChange={event => props.search('checkout', event.target.value)} value={props.filters.checkout}  />
                 </div>
             </div>
         </div>

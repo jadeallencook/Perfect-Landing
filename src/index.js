@@ -4,23 +4,48 @@ import * as serviceWorker from './serviceWorker';
 import convert from 'xml-js';
 import App from './App';
 
-function render(xml) {
-    xml = convert.xml2json(xml, { compact: true, spaces: 0 });
-    xml = JSON.parse(xml).data.xprop;
+function render(vrp, ical) {
+    // get properties from vrp xml
     let properties = {};
-    xml.forEach(property => {
+    vrp = convert.xml2json(vrp, { compact: true, spaces: 0 });
+    vrp = JSON.parse(vrp).data.xprop;
+    vrp.forEach(property => {
         properties[property.propid['_text']] = property;
     });
-    ReactDOM.render(<App properties={properties} />, document.getElementById('root'));
+    // get calendars from ical xml
+    let calendars = {};
+    ical= convert.xml2json(ical, { compact: true, spaces: 0 })
+    ical = JSON.parse(ical).data;
+    calendars.start = ical['_attributes'].begdate;
+    ical = ical.xavail;
+    ical.forEach(calendar => {
+        calendars[calendar.propid['_text']] = calendar.avlist['_text'];
+    });
+    // react app rendeer
+    ReactDOM.render(<App properties={properties} calendars={calendars} />, document.getElementById('root'));
 }
 
+// local & public fetches
 fetch('/vrp/vrpexport/vrpexport_xprop.xml')
-    .then(response => response.text())
-    .then(render).catch(error => {
-        fetch('https://jadeallencook.github.io/Perfect-Landing/build/vrp/vrpexport/vrpexport_xprop.xml')
-            .then(response => response.text())
-            .then(render)
-            .catch(error => console.error(error));
-    });
+.then(vrp => vrp.text())
+.then(vrp => {
+    fetch('/vrp/vrpexport/vrpexport_xavail.xml')
+    .then(ical => ical.text())
+    .then(ical => {
+        render(vrp, ical);
+    })
+})
+.catch(error => {
+    // github environment
+    fetch('https://jadeallencook.github.io/Perfect-Landing/build/vrp/vrpexport/vrpexport_xprop.xml')
+        .then(vrp => vrp.text())
+        .then(vrp => {
+            fetch('https://jadeallencook.github.io/Perfect-Landing/build/vrp/vrpexport/vrpexport_xavail.xml')
+            .then(ical => ical.text())
+            .then(ical => {
+                render(vrp, ical);
+            })
+        })
+});
 
 serviceWorker.unregister();

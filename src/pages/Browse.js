@@ -17,7 +17,7 @@ class Browse extends Component {
                 <section id="grid-content">
                     <div className="container">
                         <div className="row">
-                            <Results properties={this.props.properties} filters={this.props.filters}></Results>
+                            <Results properties={this.props.properties} calendars={this.props.calendars} filters={this.props.filters}></Results>
                             <Search search={this.props.search} filters={this.props.filters}></Search>
                         </div>
                     </div>

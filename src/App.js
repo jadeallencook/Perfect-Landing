@@ -50,6 +50,7 @@ class App extends Component {
                     <Route path="/browse" render={() => (
                         <Browse 
                             properties={this.props.properties} 
+                            calendars={this.props.calendars} 
                             filters={this.state.filters} 
                             search={this.search.bind(this)} 
                         />

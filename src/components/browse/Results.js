@@ -10,8 +10,9 @@ const Results = props => (
     <div className="col-md-9 col-md-push-3" id="properties-container">
         {
             Object.keys(props.properties).map(key => {
+                const calendar = props.calendars[key];
                 const property = props.properties[key];
-                return (filter(property, props.filters)) ? (
+                return (filter(property, props.filters, calendar, props.calendars['start'])) ? (
                     <div className="box-featured box-list" key={key}>
                         <Link to={`/property/${key}`} className="hover-effect image image-fill">
                             <span className="cover"></span>
