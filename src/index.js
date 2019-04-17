@@ -25,27 +25,18 @@ function render(vrp, ical) {
     ReactDOM.render(<App properties={properties} calendars={calendars} />, document.getElementById('root'));
 }
 
-// local & public fetches
-fetch('/vrp/vrpexport/vrpexport_xprop.xml')
+const github = (window.location.host === 'jadeallencook.github.io');
+const xprop = (github) ? 'https://jadeallencook.github.io/Perfect-Landing/build/vrp/vrpexport/vrpexport_xprop.xml' : '/vrp/vrpexport/vrpexport_xprop.xml';
+const xavail = (github) ? 'https://jadeallencook.github.io/Perfect-Landing/build/vrp/vrpexport/vrpexport_xavail.xml' : '/vrp/vrpexport/vrpexport_xavail.xml';
+
+fetch(xprop)
 .then(vrp => vrp.text())
 .then(vrp => {
-    fetch('/vrp/vrpexport/vrpexport_xavail.xml')
+    fetch(xavail)
     .then(ical => ical.text())
     .then(ical => {
         render(vrp, ical);
     })
 })
-.catch(error => {
-    // github environment
-    fetch('https://jadeallencook.github.io/Perfect-Landing/build/vrp/vrpexport/vrpexport_xprop.xml')
-        .then(vrp => vrp.text())
-        .then(vrp => {
-            fetch('https://jadeallencook.github.io/Perfect-Landing/build/vrp/vrpexport/vrpexport_xavail.xml')
-            .then(ical => ical.text())
-            .then(ical => {
-                render(vrp, ical);
-            })
-        })
-});
 
 serviceWorker.unregister();
