@@ -1,0 +1,25 @@
+div.Login {
+    text-align: center;
+    padding: 5% 0px 25% 0px;
+    input,
+    button,
+    span {
+        width: 75%;
+        max-width: 300px;
+        display: block;
+        margin: 0px auto 25px auto;
+    }
+    span {
+        margin-bottom: 15px;
+        color: red;
+    }
+    button {
+        margin-bottom: 25px;
+    }
+}
+
+@media only screen and (max-device-width: 480px) {
+    div.Login {
+        
+    }
+}

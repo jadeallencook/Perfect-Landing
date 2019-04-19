@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import firebase from 'firebase/app';
+import config from './information/firebase.json';
 
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -8,6 +10,7 @@ import Home from './pages/Home';
 import Browse from './pages/Browse';
 import Property from './pages/Property';
 import Contact from './pages/Contact';
+import Dashboard from './pages/Admin';
 
 import filter from './services/filter';
 
@@ -25,6 +28,7 @@ class App extends Component {
                 amenities: []
             }
         };
+        firebase.initializeApp(config);
     }
 
     search(key, value) {
@@ -63,6 +67,9 @@ class App extends Component {
                         }} />
                     <Route path="/contact" render={() => (
                         <Contact />
+                    )} />
+                    <Route path="/dashboard" render={() => (
+                        <Dashboard />
                     )} />
                     <Footer />
                 </Router>

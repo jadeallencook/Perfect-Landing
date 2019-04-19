@@ -1,0 +1,17 @@
+div.Admin {
+    padding: 150px 50px 50px 50px;
+    box-sizing: border-box;
+    input,
+    textarea,
+    button {
+        max-width: 350px;
+        margin-bottom: 15px;
+    }
+}
+
+@media only screen and (max-device-width: 480px) {
+    div.Admin {
+        padding: 100px 15px 50px 15px;
+        box-sizing: border-box;
+    }
+}
