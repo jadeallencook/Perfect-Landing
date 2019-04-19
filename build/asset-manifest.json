@@ -1,13 +1,13 @@
 {
-  "main.css": "/Perfect-Landing/build/static/css/main.907f065c.chunk.css",
-  "main.js": "/Perfect-Landing/build/static/js/main.9e20bc60.chunk.js",
-  "main.js.map": "/Perfect-Landing/build/static/js/main.9e20bc60.chunk.js.map",
+  "main.css": "/Perfect-Landing/build/static/css/main.73cbb2f4.chunk.css",
+  "main.js": "/Perfect-Landing/build/static/js/main.ca9adacc.chunk.js",
+  "main.js.map": "/Perfect-Landing/build/static/js/main.ca9adacc.chunk.js.map",
   "runtime~main.js": "/Perfect-Landing/build/static/js/runtime~main.46396dd8.js",
   "runtime~main.js.map": "/Perfect-Landing/build/static/js/runtime~main.46396dd8.js.map",
-  "static/js/2.730204f7.chunk.js": "/Perfect-Landing/build/static/js/2.730204f7.chunk.js",
-  "static/js/2.730204f7.chunk.js.map": "/Perfect-Landing/build/static/js/2.730204f7.chunk.js.map",
+  "static/js/2.1cbcd4c2.chunk.js": "/Perfect-Landing/build/static/js/2.1cbcd4c2.chunk.js",
+  "static/js/2.1cbcd4c2.chunk.js.map": "/Perfect-Landing/build/static/js/2.1cbcd4c2.chunk.js.map",
   "index.html": "/Perfect-Landing/build/index.html",
-  "precache-manifest.dfb99d9c9f9a07b19759b101cae936f2.js": "/Perfect-Landing/build/precache-manifest.dfb99d9c9f9a07b19759b101cae936f2.js",
+  "precache-manifest.a1c4635f131831314839e233255e202e.js": "/Perfect-Landing/build/precache-manifest.a1c4635f131831314839e233255e202e.js",
   "service-worker.js": "/Perfect-Landing/build/service-worker.js",
-  "static/css/main.907f065c.chunk.css.map": "/Perfect-Landing/build/static/css/main.907f065c.chunk.css.map"
+  "static/css/main.73cbb2f4.chunk.css.map": "/Perfect-Landing/build/static/css/main.73cbb2f4.chunk.css.map"
 }
