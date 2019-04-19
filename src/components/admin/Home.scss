@@ -1,0 +1,33 @@
+$orange: #E37C18;
+
+div.Home {
+    h2 {
+        span {
+            cursor: pointer;
+            color: $orange;
+        }
+    }
+    ul {
+        list-style: none;
+        padding: 0px;
+        li {
+            display: inline-block;
+            margin: 5px;
+            background-color: $orange;
+            padding: 5px 15px;
+            cursor: pointer;
+            a {
+                color: #FFF;
+            }
+        }
+        li:hover {
+            opacity: 0.5;
+        }
+    }
+}
+
+@media only screen and (max-device-width: 480px) {
+    div.Home {
+        
+    }
+}
