@@ -34,7 +34,7 @@ const Footer = props => (
                         <li><a href="idx/">Real Estate</a></li>
                         <li><a href="contact/">Contact Us</a></li>
                         <li><a href="http://www.rentals4you.info/" target="_blank"  rel="noopener noreferrer">Monthly Rentals</a></li>
-                        <li><Link to="dashboard">Dashboard</Link></li>
+                        <li><Link to="/dashboard">Dashboard</Link></li>
                     </ul>
                 </div>
                 <div className="col-sm-6 col-md-3">
