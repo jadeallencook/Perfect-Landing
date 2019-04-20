@@ -1,5 +1,9 @@
 div.Reviews {
-
+    span.error {
+        color: red;
+        display: block;
+        margin-bottom: 15px;
+    }
 }
 
 @media only screen and (max-device-width: 480px) {
