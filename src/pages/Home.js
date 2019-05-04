@@ -11,12 +11,12 @@ class Home extends Component {
         window.scrollTo(0, 0);
     }
     
-    render() {
+    render() { 
         return (
         <div className="Home">
-            <Banner />
+            <Banner banner={this.props.banner} />
             <Search search={this.props.search} filters={this.props.filters} />
-            <Featured properties={this.props.properties} />
+            <Featured properties={this.props.properties} featured={this.props.featured} />
         </div>
         );
     }

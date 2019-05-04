@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import firebase from 'firebase/app';
+import 'firebase/database';
 import config from './information/firebase.json';
 
 import Navbar from './components/Navbar';
@@ -29,6 +30,16 @@ class App extends Component {
             }
         };
         firebase.initializeApp(config);
+        firebase.database().ref('/').on('value', snapshot => {
+            this.setState({
+                ...this.state,
+                ...snapshot.val()
+            });
+            console.log({
+                ...this.state,
+                ...snapshot.val()
+            });
+        })
     }
 
     search(key, value) {
@@ -49,6 +60,8 @@ class App extends Component {
                             properties={this.props.properties} 
                             search={this.search.bind(this)} 
                             filters={this.state.filters} 
+                            banner={this.state.banner}
+                            featured={this.state.featured}
                         />
                     )} />
                     <Route path="/browse" render={() => (
@@ -63,13 +76,18 @@ class App extends Component {
                         return <Property 
                             property={this.props.properties[Number(route.match.params.id)]} 
                             filters={this.state.filters} 
+                            reviews={(this.state.reviews) ? this.state.reviews[Number(route.match.params.id)] : {}}
                             properties={Object.keys(this.props.properties).filter(key => filter(this.props.properties[key], this.state.filters)).map(key => this.props.properties[key])} />
                         }} />
                     <Route path="/contact" render={() => (
                         <Contact />
                     )} />
                     <Route path="/dashboard" render={() => (
-                        <Dashboard />
+                        <Dashboard 
+                            banner={this.state.banner} 
+                            featured={this.state.featured} 
+                            blogs={this.state.blogs}
+                        />
                     )} />
                     <Footer />
                 </Router>

@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/Perfect-Landing/build/precache-manifest.1997ade00afdf49d48c1649d9a22ee9a.js"
+  "/Perfect-Landing/build/precache-manifest.a147054208e5815823f362de7fa7cf7e.js"
 );
 
 workbox.clientsClaim();

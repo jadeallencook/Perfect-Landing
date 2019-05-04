@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import rate from '../../services/rate';
 import clean from '../../services/clean';
 import profile from '../../services/profile';
-import featured from '../../information/featured';
 
 class Featured extends Component {
     constructor(props) {
@@ -17,8 +16,16 @@ class Featured extends Component {
         }
         this.state = {
             num: 0,
-            random: array
+            random: array,
+            featured: (this.props.featured) ? this.props.featured : []
         }
+    }
+
+    componentWillReceiveProps(props) {
+        this.setState({
+            ...this.state,
+            featured: [...props.featured]
+        });
     }
 
     render() {
@@ -40,8 +47,8 @@ class Featured extends Component {
                     </div>
                     <div className="row" id="featured-list">
                         {
-                            featured.map(propid => {
-                                const property = this.props.properties[propid];
+                            (this.state.featured.length) ? this.state.featured.map((propid, x) => {
+                                const property = (this.props.properties[propid]) ? this.props.properties[propid] : this.props.properties[Object.keys(this.props.properties)[x]];
                                 if (property) {
                                     return (
                                         <div className="col-md-4" key={propid}>
@@ -76,7 +83,7 @@ class Featured extends Component {
                                 } else {
                                     return null;
                                 }
-                            })
+                            }) : (<div className="col-md-12"><p>Loading...</p></div>)
                         }
                     </div>
                     <div className="list-box-title">

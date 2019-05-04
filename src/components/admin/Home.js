@@ -11,12 +11,12 @@ class Home extends Component {
         return (
         <div className="Home">
             <h1>Dashboard</h1>
-            <h2>Perfect Landing Rentals <span onClick={this.props.signout}>(Logout)</span></h2>
             <ul>
-                <li><Link to="/dashboard/banner">Banner</Link></li>
-                <li><Link to="/dashboard/featured">Featured</Link></li>
-                <li><Link to="/dashboard/blogs">Blogs</Link></li>
-                <li><Link to="/dashboard/reviews">Reviews</Link></li>
+                <Link to="/dashboard/banner" className="btn btn-primary"><li>Banner</li></Link>
+                <Link to="/dashboard/featured" className="btn btn-primary"><li>Featured</li></Link>
+                <Link to="/dashboard/blogs" className="btn btn-primary"><li>Blogs</li></Link>
+                <Link to="/dashboard/reviews" className="btn btn-primary"><li>Reviews</li></Link>
+                <a onClick={this.props.signout} className="btn"><li>Logout</li></a>
             </ul>
         </div>
         );

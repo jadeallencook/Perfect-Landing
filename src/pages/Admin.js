@@ -11,8 +11,8 @@ import Blogs from '../components/admin/Blogs';
 import Reviews from '../components/admin/Reviews';
 
 class Admin extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             error: false,
             auth: false
@@ -58,16 +58,16 @@ class Admin extends Component {
                         <Router>
                             <Home signout={this.signout.bind(this)} />
                             <Route exact path="/dashboard" render={() => {
-                                return (<Banner />)
+                                return (<Banner banner={this.props.banner} />)
                             }}></Route>
                             <Route path="/dashboard/banner" render={() => {
-                                return (<Banner />)
+                                return (<Banner banner={this.props.banner} />)
                             }}></Route>
                             <Route path="/dashboard/featured" render={() => {
-                                return (<Featured />)
+                                return (<Featured featured={this.props.featured} />)
                             }}></Route>
                             <Route path="/dashboard/blogs" render={() => {
-                                return (<Blogs />)
+                                return (<Blogs blogs={this.props.blogs} />)
                             }}></Route>
                             <Route path="/dashboard/reviews" render={() => {
                                 return (<Reviews />)

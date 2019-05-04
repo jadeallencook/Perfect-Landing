@@ -10,15 +10,19 @@ div.Home {
     ul {
         list-style: none;
         padding: 0px;
+        margin-bottom: 15px;
+        a:visited {
+            background-color: $orange;
+        }
+        a.btn-primary {
+            color: #FFF;
+            background-color: $orange;
+            border: none;
+            margin-right: 5px;
+        }
         li {
             display: inline-block;
-            margin: 5px;
-            background-color: $orange;
-            padding: 5px 15px;
             cursor: pointer;
-            a {
-                color: #FFF;
-            }
         }
         li:hover {
             opacity: 0.5;

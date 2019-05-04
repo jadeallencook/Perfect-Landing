@@ -5,6 +5,7 @@ import rate from '../services/rate';
 import clean from '../services/clean';
 import profile from '../services/profile';
 import AOIds from '../information/availability-online.json';
+import Reviews from '../components/property/Reviews';
 
 class Property extends Component {
     constructor(props) {
@@ -26,7 +27,7 @@ class Property extends Component {
             calendarMonth: month
         });
     }
-
+    
     componentDidMount() {
         // photo gallery
         window.$('.fotorama').fotorama();
@@ -162,10 +163,9 @@ class Property extends Component {
                                             <h3 className="title">Reviews</h3>
                                         </div>
                                         <div className="details">
-                                            <div className="row feedback" id="comments-container">
-                                                <h2>Loading...</h2>
+                                            <div className="row" id="comments-container">
+                                                <Reviews reviews={this.props.reviews} />
                                             </div>
-                                            <a href="../review/" className="btn btn-default">Click Here To Leave A Review</a>
                                         </div>
 
                                     </div>
