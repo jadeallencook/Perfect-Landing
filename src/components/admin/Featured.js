@@ -76,6 +76,8 @@ class Featured extends Component {
         return (
             <div className="Featured">
                 <h3>Featured</h3>
+                <p>Update the property IDs to change the properties displayed on the homepage!</p>
+                <br />
                 {
                     (this.props.featured) ? (
                         <form onSubmit={this.submit.bind(this)}>

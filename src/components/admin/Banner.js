@@ -76,6 +76,8 @@ class Banner extends Component {
         return (
             <div className="Banner">
                 <h3>Banner</h3>
+                <p>Update this form to change text and images on the homepage!</p>
+                <br />
                 {
                     (this.props.banner) ? (
                         <form onSubmit={this.submit.bind(this)}>
@@ -103,6 +105,7 @@ class Banner extends Component {
                                 data-key="image"
                                 onChange={this.handler.bind(this)}
                             />
+                            <p>Free image hosting available at <a href="https://imgbb.com/" target="_blank" rel="noopener noreferrer">ImgBB</a></p>
                             {(this.state.success) ? <span className="success">{this.state.success}</span> : null}
                             {(this.state.error) ? <span className="error">{this.state.error}</span> : null}
                             <input type="submit" className="btn btn-primary" value="Save" />

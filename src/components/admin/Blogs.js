@@ -96,6 +96,8 @@ class Blogs extends Component {
         return (
             <div className="Blogs">
                 <h3>Blogs</h3>
+                <p>Add blogs by using the form below and clicking add!</p>
+                <br />
                 <form onSubmit={this.submit.bind(this)}>
                     <input 
                         type="text" 
@@ -124,6 +126,7 @@ class Blogs extends Component {
                         onChange={this.handler.bind(this)} 
                         required 
                     />
+                    <p>Free image hosting available at <a href="https://imgbb.com/" target="_blank" rel="noopener noreferrer">ImgBB</a></p>
                     <textarea 
                         className="form-control" 
                         placeholder="Description" 
@@ -136,7 +139,10 @@ class Blogs extends Component {
                     {(this.state.success) ? <p>{this.state.success}</p> : null}
                     <input type="submit" className="btn btn-primary" value="Add" />
                 </form>
+                <br />
                 <h3>Recent</h3>
+                <p>You can delete a post by clicking the delete button!</p>
+                <br />
                 <ul>
                 {
                     (this.props.blogs && Object.keys(this.props.blogs).length) ? Object.keys(this.props.blogs).map((key, x) => {
@@ -146,13 +152,13 @@ class Blogs extends Component {
                                 <h4><b>{blog.title}</b></h4>
                                 <p>{blog.description}</p>
                                 <a rel="noopener noreferrer" href={blog.link} target="_blank">{blog.link}</a>
-                                <img src={blog.photo} alt={`blog photo ${x + 1}`} />
+                                <img src={blog.photo} alt={`blog ${x + 1}`} />
                                 <div>
                                     <button className="btn btn-danger" onClick={() => this.remove(key)}>Delete</button>
                                 </div>
                             </li>
                         )
-                    }) : <li>No blogs found...</li>
+                    }) : <li><b>No blogs found...</b></li>
                 }
                 </ul>
             </div>

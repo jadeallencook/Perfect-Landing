@@ -132,6 +132,8 @@ class Reviews extends Component {
         return (
             <div className="Reviews">
                 <h3>Reviews</h3>
+                <p>Manually add reviews by using the form below!</p>
+                <br />
                 <form onSubmit={this.add.bind(this)}>
                     <input type="text" className="form-control" data-key="name" placeholder="Name" onChange={event => this.handler('name', event.target.value)} value={this.state.review.name} required />
                     <input type="date" className="form-control" data-key="date" placeholder="Date" onChange={event => this.handler('date', event.target.value)} value={this.state.review.date} required />
@@ -139,12 +141,19 @@ class Reviews extends Component {
                     <input type="number" className="form-control" data-key="overall" placeholder="Overall (0-5)" onChange={event => this.handler('overall', event.target.value)} value={this.state.review.overall} required />
                     <textarea type="text" className="form-control" data-key="review" placeholder="Description" onChange={event => this.handler('review', event.target.value)} value={this.state.review.review} required></textarea>
                     <textarea type="text" className="form-control" data-key="response" placeholder="Response" onChange={event => this.handler('response', event.target.value)} value={this.state.review.response} ></textarea>
-                    <input type="submit" className="btn-primary" />
+                    <input type="submit" className="btn btn-primary" />
                 </form>
+                <br />
                 <h3>Pending</h3>
-                <h4>No reviews pending...</h4>
+                <p>This is where you can find reviews that are ready to be approved!</p>
+                <br />
+                <p><b>No pending reviews...</b></p>
+                <br />
                 <h3>Search</h3>
+                <p>Use the input below to search reviews by property ID!</p>
+                <br />
                 <input type="number" className="form-control" placeholder="Property ID" onChange={event => this.search(event.target.value)} value={this.state.property} />
+                <br />
                 {
                     (this.state.error.search) ? <span className="error">{this.state.error.search}</span> : null
                 } {
@@ -160,15 +169,15 @@ class Reviews extends Component {
                                         (result.response) ? <h5><b>Response: </b>{result.response}</h5> : null
                                     } {
                                         (this.state.delete !== result.id) ?
-                                            <button className="btn-danger" onClick={() => this.delete(result.id)}>Delete</button> :
+                                            <button className="btn btn-danger" onClick={() => this.delete(result.id)}>Delete</button> :
                                             <div>
-                                                <button className="btn-danger" onClick={() => this.delete(result.id, true)}>Yes I'm Sure</button>
-                                                <button className="btn-primary" onClick={() => this.delete(false)}>No Keep It</button>
+                                                <button className="btn btn-danger" onClick={() => this.delete(result.id, true)}>Yes I'm Sure</button>
+                                                <button className="btn btn-primary" onClick={() => this.delete(false)}>No Keep It</button>
                                             </div>
                                     }
                                 </div>
                             );
-                        }) : <h4>No results...</h4>
+                        }) : <p><b>No results...</b></p>
                 }
             </div>
         )

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Reviews.scss';
+import format from '../../services/format';
 
 class Reviews extends Component {
     constructor(props) {
@@ -17,6 +18,14 @@ class Reviews extends Component {
                                 <div className="user-feedback" key={key}>
                                     <span className="name">{review.name}</span>
                                     <span className="text">{review.review}</span>
+                                    { 
+                                        (review.response) ? (
+                                            <span className="text response">
+                                                <br />
+                                                <b>@PerfectLandingRentals:</b> {review.response}
+                                            </span>
+                                        ) : null 
+                                    }
                                     <span className="vote">
                                         {
                                             new Array(5).fill(0).map((num, x) => {
@@ -27,7 +36,7 @@ class Reviews extends Component {
                                             })
                                         }
                                     </span>
-                                    <span className="date">{review.date}</span>
+                                    <span className="date">{format(review.date)}</span>
                                 </div>
                             )
                         }) : (

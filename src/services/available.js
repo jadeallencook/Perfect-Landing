@@ -1,3 +1,11 @@
+/*
+    checks if prop is avail dates
+    checkin: checkin date string
+    checkout: checkout date string
+    calendar: array is property schedule
+    start: date the calendar array starts
+*/
+
 function days(start, end) {
     var day = 24 * 60 * 60 * 1000;
     return Math.round(Math.abs((start.getTime() - end.getTime()) / (day)));

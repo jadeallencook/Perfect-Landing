@@ -35,10 +35,6 @@ class App extends Component {
                 ...this.state,
                 ...snapshot.val()
             });
-            console.log({
-                ...this.state,
-                ...snapshot.val()
-            });
         })
     }
 

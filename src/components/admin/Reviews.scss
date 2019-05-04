@@ -4,6 +4,13 @@ div.Reviews {
         display: block;
         margin-bottom: 15px;
     }
+    > div {
+        > div {
+            > button:first-child {
+                margin-right: 15px;
+            }
+        }
+    }
 }
 
 @media only screen and (max-device-width: 480px) {
