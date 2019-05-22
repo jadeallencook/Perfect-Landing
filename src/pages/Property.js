@@ -18,6 +18,7 @@ class Property extends Component {
             calendarYear: date.getFullYear(),
             calendarMonth: date.getMonth() + 1,
         };
+        window.ga('send', 'event', 'Property Viewed', this.props.property.city['_text'], this.props.property.propid['_text']);
     }
 
     setCalendar(year, month) {
