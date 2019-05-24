@@ -10,7 +10,6 @@ import Reviews from '../components/property/Reviews';
 class Property extends Component {
     constructor(props) {
         super(props);
-        window.scrollTo(0, 0);
         const date = new Date();
         this.state = {
             photo: 0,
@@ -30,6 +29,7 @@ class Property extends Component {
     }
     
     componentDidMount() {
+        window.scrollTo(0, 0);
         // photo gallery
         window.$('.fotorama').fotorama();
         // photo descriptions
@@ -216,14 +216,14 @@ class Property extends Component {
                                     [...[0, 1, 2, 3].map(num => this.props.properties[num])].map((property, x) => {
                                         return (property) ? (
                                             <div className="box-featured box-grid mini" key={`property-${x}`}>
-                                                <Link className="hover-effect image image-fill other-1-link" onClick={this.forceUpdate} to={`/property/${property.propid['_text']}`}>
+                                                <Link className="hover-effect image image-fill other-1-link" to={`/#${property.propid['_text']}`}>
                                                     <span className="cover"></span>
                                                     <img alt="home" src={`${property.htppostdir['_text']}${profile(property.photos['_text'])}`} />
                                                     <h3 className="title">{property.propname['_text']}</h3>
                                                 </Link>
                                                 <span className="price" id="other-1-price">{rate(property.grppgsum['_text'])}</span>
                                                 <div className="footer">
-                                                    <Link className="btn btn-default" onClick={this.forceUpdate} to={`/property/${property.propid['_text']}`}>Read More</Link>
+                                                    <Link className="btn btn-default" to={`/#${property.propid['_text']}`}>Read More</Link>
                                                 </div>
                                             </div>
                                         ) : null
