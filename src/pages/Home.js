@@ -4,6 +4,8 @@ import './Home.scss';
 import Banner from '../components/homepage/Banner';
 import Featured from '../components/homepage/Featured';
 import Search from '../components/homepage/Search';
+import About from '../components/homepage/About';
+import Blog from '../components/homepage/Blog';
 
 class Home extends Component {
     constructor() {
@@ -17,6 +19,8 @@ class Home extends Component {
             <Banner banner={this.props.banner} />
             <Search search={this.props.search} filters={this.props.filters} />
             <Featured properties={this.props.properties} featured={this.props.featured} />
+            <About />
+            <Blog blogs={this.props.blogs} />
         </div>
         );
     }

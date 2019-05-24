@@ -30,12 +30,15 @@ class App extends Component {
             }
         };
         firebase.initializeApp(config);
+    }
+
+    componentDidMount() {
         firebase.database().ref('/').on('value', snapshot => {
             this.setState({
                 ...this.state,
                 ...snapshot.val()
             });
-        })
+        });
     }
 
     search(key, value) {
@@ -58,6 +61,7 @@ class App extends Component {
                             filters={this.state.filters} 
                             banner={this.state.banner}
                             featured={this.state.featured}
+                            blogs={this.state.blogs}
                         />
                     )} />
                     <Route path="/browse" render={() => (
