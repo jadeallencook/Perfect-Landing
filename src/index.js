@@ -25,14 +25,10 @@ function render(vrp, ical) {
     ReactDOM.render(<App properties={properties} calendars={calendars} />, document.getElementById('root'));
 }
 
-const github = (window.location.host === 'jadeallencook.github.io');
-const xprop = (github) ? 'https://jadeallencook.github.io/Perfect-Landing/build/vrp/vrpexport/vrpexport_xprop.xml' : '/vrp/vrpexport/vrpexport_xprop.xml';
-const xavail = (github) ? 'https://jadeallencook.github.io/Perfect-Landing/build/vrp/vrpexport/vrpexport_xavail.xml' : '/vrp/vrpexport/vrpexport_xavail.xml';
-
-fetch(xprop)
+fetch('/vrp/vrpexport/vrpexport_xprop.xml')
 .then(vrp => vrp.text())
 .then(vrp => {
-    fetch(xavail)
+    fetch('/vrp/vrpexport/vrpexport_xavail.xml')
     .then(ical => ical.text())
     .then(ical => {
         render(vrp, ical);

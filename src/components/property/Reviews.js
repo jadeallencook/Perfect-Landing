@@ -7,36 +7,36 @@ class Reviews extends Component {
         super(props);
         this.state = {};
     }
+
     render() {
         return (
             <div className="Reviews details">
                 <div className="row feedback">
                     {
-                        (Object.keys(this.props.reviews).length) ? Object.keys(this.props.reviews).map(key => {
-                            const review = this.props.reviews[key];
+                        (this.props.reviews && Object.keys(this.props.reviews).length > 0) ? Object.keys(this.props.reviews).map(key => {
+                            const { name, review, response, overall, date } = this.props.reviews[key];
                             return (
                                 <div className="user-feedback" key={key}>
-                                    <span className="name">{review.name}</span>
-                                    <span className="text">{review.review}</span>
+                                    <span className="name">{(name) ? name : 'anonymous'}</span>
+                                    <span className="text">{review}</span>
                                     { 
-                                        (review.response) ? (
+                                        (response) ? (
                                             <span className="text response">
                                                 <br />
-                                                <b>@PerfectLandingRentals:</b> {review.response}
+                                                <b>@PerfectLandingRentals:</b> {response}
                                             </span>
                                         ) : null 
                                     }
                                     <span className="vote">
                                         {
                                             new Array(5).fill(0).map((num, x) => {
-                                                const { overall } = review;
                                                 return (x < Number(overall)) ?
                                                     (<i key={`review-${key}-${x}`} className="fa fa-star"></i>) :
                                                     (<i key={`review-${key}-${x}`} className="fa fa-star-o"></i>);
                                             })
                                         }
                                     </span>
-                                    <span className="date">{format(review.date)}</span>
+                                    <span className="date">{format(date)}</span>
                                 </div>
                             )
                         }) : (
