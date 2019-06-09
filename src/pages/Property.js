@@ -53,7 +53,7 @@ class Property extends Component {
         // ao calendar
         this.setCalendar(this.state.calendarYear, this.state.calendarMonth);
         // map
-        if (window.map) {
+        if (window.Map) {
             const mapMarker = '/assets/images/map-pin.png';
             const geocoder = new window.google.maps.Geocoder();
             const address = `${this.props.property.addr1['_text']} ${this.props.property.city['_text']}, MI ${this.props.property.zip['_text']}`;

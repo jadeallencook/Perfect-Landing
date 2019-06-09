@@ -1,5 +1,18 @@
 div.Contact {
-
+    padding: 50px 50px;
+    h1 {
+        margin-top: 100px;
+    }
+    form {
+        input {
+            margin-bottom: 15px;
+            max-width: 350px;
+        }
+        textarea {
+            max-width: 500px;
+            margin-bottom: 15px;
+        }
+    }
 }
 
 @media only screen and (max-device-width: 480px) {
