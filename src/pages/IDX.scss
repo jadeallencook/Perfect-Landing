@@ -1,0 +1,15 @@
+div.IDX {
+    padding-top: 125px;
+    iframe {
+        width: 100%;
+        border: none;
+        min-height: 600px;
+    }
+
+}
+
+@media only screen and (max-device-width: 480px) {
+    div.IDX {
+        
+    }
+}

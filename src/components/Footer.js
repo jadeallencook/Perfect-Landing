@@ -31,8 +31,8 @@ const Footer = props => (
                 <div className="hidden-xs hidden-sm col-md-3">
                     <span className="title">Extras</span>
                     <ul className="link-extra">
-                        <li><a href="idx/">Real Estate</a></li>
-                        <li><a href="contact/">Contact Us</a></li>
+                        <li><Link to="/idx">Real Estate</Link></li>
+                        <li><Link to="/browse">Browse</Link></li>
                         <li><a href="http://www.rentals4you.info/" target="_blank"  rel="noopener noreferrer">Monthly Rentals</a></li>
                         <li><Link to="/dashboard">Dashboard</Link></li>
                     </ul>

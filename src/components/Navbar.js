@@ -35,6 +35,9 @@ const Navbar = props => (
                         <Link to="/browse">Browse</Link>
                     </li>
                     <li>
+                        <Link to="/IDX">Real Estate</Link>
+                    </li>
+                    <li>
                         <a href="http://www.rentals4you.info/" rel="noopener noreferrer" target="_blank">Monthly Rentals</a>
                     </li>
                     <li>

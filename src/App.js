@@ -12,6 +12,7 @@ import Browse from './pages/Browse';
 import Property from './pages/Property';
 import Contact from './pages/Contact';
 import Dashboard from './pages/Admin';
+import IDX from './pages/IDX';
 
 import filter from './services/filter';
 
@@ -82,6 +83,7 @@ class App extends Component {
                     <Route path="/contact" render={() => (
                         <Contact />
                     )} />
+                    <Route path="/IDX" render={IDX} />
                     <Route path="/dashboard" render={() => (
                         <Dashboard 
                             banner={this.state.banner} 
