@@ -3,12 +3,14 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './Admin.scss';
 import firebase from 'firebase/app';
 import 'firebase/auth';
+
 import Login from '../components/admin/Login';
 import Home from '../components/admin/Home';
 import Banner from '../components/admin/Banner';
 import Featured from '../components/admin/Featured';
 import Blogs from '../components/admin/Blogs';
 import Reviews from '../components/admin/Reviews';
+import Messages from '../components/admin/Messages';
 
 class Admin extends Component {
     constructor(props) {
@@ -71,6 +73,9 @@ class Admin extends Component {
                             }}></Route>
                             <Route path="/dashboard/reviews" render={() => {
                                 return (<Reviews />)
+                            }}></Route>
+                            <Route path="/dashboard/messages" render={() => {
+                                return (<Messages />)
                             }}></Route>
                         </Router>
                         : <Login signin={this.signin.bind(this)} error={this.state.error} />

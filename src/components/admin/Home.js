@@ -16,6 +16,7 @@ class Home extends Component {
                 <Link to="/dashboard/featured" className="btn btn-primary"><li>Featured</li></Link>
                 <Link to="/dashboard/blogs" className="btn btn-primary"><li>Blogs</li></Link>
                 <Link to="/dashboard/reviews" className="btn btn-primary"><li>Reviews</li></Link>
+                <Link to="/dashboard/messages" className="btn btn-primary"><li>Messages</li></Link>
                 <span onClick={this.props.signout} className="btn"><li>Logout</li></span>
             </ul>
         </div>
