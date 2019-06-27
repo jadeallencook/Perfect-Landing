@@ -165,7 +165,7 @@ class Property extends Component {
                                         </div>
                                         <div className="details">
                                             <div className="row" id="comments-container">
-                                                <Reviews reviews={this.props.reviews} />
+                                                <Reviews propid={this.props.property.propid['_text']} />
                                             </div>
                                         </div>
 

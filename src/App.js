@@ -30,16 +30,31 @@ class App extends Component {
                 beds: '',
                 baths: '',
                 amenities: []
-            }
+            },
+            blogs: [],
+            banner: {},
+            featured: []
         };
         firebase.initializeApp(config);
     }
 
     componentDidMount() {
-        firebase.database().ref('/').on('value', snapshot => {
+        firebase.database().ref('/banner').once('value').then(snapshot => {
             this.setState({
                 ...this.state,
-                ...snapshot.val()
+                banner: snapshot.val()
+            });
+        });
+        firebase.database().ref('/blogs').once('value').then(snapshot => {
+            this.setState({
+                ...this.state,
+                blogs: snapshot.val()
+            });
+        });
+        firebase.database().ref('/featured').once('value').then(snapshot => {
+            this.setState({
+                ...this.state,
+                featured: snapshot.val()
             });
         });
     }

@@ -1,11 +1,23 @@
 import React, { Component } from 'react';
 import './Reviews.scss';
 import format from '../../services/format';
+import * as firebase from 'firebase/app';
+import 'firebase/database';
 
 class Reviews extends Component {
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {
+            reviews: null
+        };
+    }
+
+    componentDidMount() {
+        firebase.database().ref(`reviews/${this.props.propid}/`).once('value').then(snapshot => {
+            this.setState({
+                reviews: snapshot.val()
+            });
+        });
     }
 
     render() {
@@ -13,8 +25,8 @@ class Reviews extends Component {
             <div className="Reviews details">
                 <div className="row feedback">
                     {
-                        (this.props.reviews && Object.keys(this.props.reviews).length > 0) ? Object.keys(this.props.reviews).map(key => {
-                            const { name, review, response, overall, date } = this.props.reviews[key];
+                        (this.state.reviews && Object.keys(this.state.reviews).length > 0) ? Object.keys(this.state.reviews).map(key => {
+                            const { name, review, response, overall, date } = this.state.reviews[key];
                             return (
                                 <div className="user-feedback" key={key}>
                                     <span className="name">{(name) ? name : 'anonymous'}</span>
