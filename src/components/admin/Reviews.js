@@ -143,7 +143,7 @@ class Reviews extends Component {
         }).then(ref => {
             this.setState({
                 ...this.state,
-                link: `https://www.perfectlanding.com/review/${ref.key}`
+                link: `https://www.perfectlandingrentals.com/review/${ref.key}`
             });
         });
     }
