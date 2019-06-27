@@ -9,6 +9,7 @@ class Reviews extends Component {
         this.state = {
             reviews: {},
             results: [],
+            pending: {},
             delete: false,
             property: '',
             review: {
@@ -19,6 +20,7 @@ class Reviews extends Component {
                 review: '',
                 response: ''
             },
+            link: '',
             error: {
                 search: null
             }
@@ -29,6 +31,11 @@ class Reviews extends Component {
         firebase.database().ref('reviews').on('value', snapshot => {
             this.setState({
                 reviews: snapshot.val()
+            });
+        });
+        firebase.database().ref('pending').on('value', snapshot => {
+            this.setState({
+                pending: snapshot.val() ? snapshot.val() : {}
             });
         });
     }
@@ -127,12 +134,49 @@ class Reviews extends Component {
         }, 3000);
     }
 
+    generate(event) {
+        event.preventDefault();
+        firebase.database().ref('pending/').push({
+            id: event.target[0].value,
+            name: event.target[1].value,
+            date: event.target[2].value
+        }).then(ref => {
+            this.setState({
+                ...this.state,
+                link: `https://www.perfectlanding.com/review/${ref.key}`
+            });
+        });
+    }
+
 
     render() {
         return (
             <div className="Reviews">
                 <h3>Reviews</h3>
-                <p>Manually add reviews by using the form below!</p>
+                <p>Create a new review link here - </p>
+                {
+                    (!this.state.link) ? <form onSubmit={this.generate.bind(this)}>
+                        <input className="form-control" type="number" placeholder="Property ID" required />
+                        <input className="form-control" type="text" placeholder="Client Name" required />
+                        <input className="form-control" type="date" placeholder="Date Stayed" required />
+                        <input type="submit" className="btn btn-primary" value="Generate Link" />
+                    </form> : null
+                }
+                {
+                    (this.state.link) ? <div>
+                        <br />
+                        <h2>You've created a review link!</h2>
+                        <a href={this.state.link}>{this.state.link}</a>
+                        <br /><br />
+                        <button className="btn btn-primary" onClick={() => {
+                            this.setState({
+                                ...this.state,
+                                link: ''
+                            });
+                        }}>Create Another</button>
+                    </div> : null
+                }
+                <p>or manually add reviews by using the form below!</p>
                 <br />
                 <form onSubmit={this.add.bind(this)}>
                     <input type="text" className="form-control" data-key="name" placeholder="Name" onChange={event => this.handler('name', event.target.value)} value={this.state.review.name} required />
@@ -141,13 +185,34 @@ class Reviews extends Component {
                     <input type="number" className="form-control" data-key="overall" placeholder="Overall (0-5)" onChange={event => this.handler('overall', event.target.value)} value={this.state.review.overall} required />
                     <textarea type="text" className="form-control" data-key="review" placeholder="Description" onChange={event => this.handler('review', event.target.value)} value={this.state.review.review} required></textarea>
                     <textarea type="text" className="form-control" data-key="response" placeholder="Response" onChange={event => this.handler('response', event.target.value)} value={this.state.review.response} ></textarea>
-                    <input type="submit" className="btn btn-primary" />
+                    <input type="submit" className="btn btn-primary" value="Add Review" />
                 </form>
                 <br />
                 <h3>Pending</h3>
-                <p>This is where you can find reviews that are ready to be approved!</p>
-                <br />
-                <p><b>No pending reviews...</b></p>
+                {
+                    Object.keys(this.state.pending).length ? Object.keys(this.state.pending).map(uid => {
+                        const node = this.state.pending[uid];
+                        const { name = '', id = 0, date = '', review = '', overall = 0 } = node;
+                        const link = `https://www.perfectlandingrentals.com/review/${uid}`;
+                        return (
+                            <div key={uid}>
+                                <h4>{name} @ {id} ({date})</h4>
+                                <p><a href={link}>{link}</a></p>
+                                <p><b>Review ({overall ? overall : 0}/5): </b>{review ? review : 'No review has been left yet...'}</p>
+                                <div>
+                                    { (overall && review) ? <button 
+                                        className="btn btn-primary"
+                                        onClick={() => firebase.database().ref(`reviews/${id}/${uid}`).set(node).then(() => {
+                                            firebase.database().ref(`pending/${uid}`).remove()
+                                        })}
+                                    >Approve</button> : null }
+                                    <button className="btn btn-danger" onClick={() => firebase.database().ref(`pending/${uid}`).remove()}>Remove</button>
+                                </div>
+                                <br />
+                            </div>
+                        )
+                    }) : <p><b>No pending reviews...</b></p>
+                }
                 <br />
                 <h3>Search</h3>
                 <p>Use the input below to search reviews by property ID!</p>

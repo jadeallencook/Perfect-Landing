@@ -7,9 +7,12 @@ class Messages extends Component {
 
     constructor() {
         super();
+        this.state = null;
+    }
+
+    componentDidMount() {
         firebase.database().ref('messages/').on('value', snapshot => {
             this.setState(snapshot.val());
-            console.log(true);
         });
     }
 

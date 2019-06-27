@@ -1,0 +1,13 @@
+div.Review {
+    padding: 150px 100px 0px 100px;
+    >div>form {
+        max-width: 500px;
+        margin-bottom: 50px;
+    }
+}
+
+@media only screen and (max-device-width: 480px) {
+    div.Review {
+    padding: 100px 20px 0px 20px;
+    }
+}
