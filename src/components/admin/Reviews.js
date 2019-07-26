@@ -20,7 +20,6 @@ class Reviews extends Component {
                 review: '',
                 response: ''
             },
-            link: '',
             error: {
                 search: null
             }
@@ -134,49 +133,11 @@ class Reviews extends Component {
         }, 3000);
     }
 
-    generate(event) {
-        event.preventDefault();
-        firebase.database().ref('pending/').push({
-            id: event.target[0].value,
-            name: event.target[1].value,
-            date: event.target[2].value
-        }).then(ref => {
-            this.setState({
-                ...this.state,
-                link: `https://www.perfectlandingrentals.com/review/${ref.key}`
-            });
-        });
-    }
-
-
     render() {
         return (
             <div className="Reviews">
                 <h3>Reviews</h3>
-                <p>Create a new review link here - </p>
-                {
-                    (!this.state.link) ? <form onSubmit={this.generate.bind(this)}>
-                        <input className="form-control" type="number" placeholder="Property ID" required />
-                        <input className="form-control" type="text" placeholder="Client Name" required />
-                        <input className="form-control" type="date" placeholder="Date Stayed" required />
-                        <input type="submit" className="btn btn-primary" value="Generate Link" />
-                    </form> : null
-                }
-                {
-                    (this.state.link) ? <div>
-                        <br />
-                        <h2>You've created a review link!</h2>
-                        <a href={this.state.link}>{this.state.link}</a>
-                        <br /><br />
-                        <button className="btn btn-primary" onClick={() => {
-                            this.setState({
-                                ...this.state,
-                                link: ''
-                            });
-                        }}>Create Another</button>
-                    </div> : null
-                }
-                <p>or manually add reviews by using the form below!</p>
+                <p>Manually add reviews by using the form below!</p>
                 <br />
                 <form onSubmit={this.add.bind(this)}>
                     <input type="text" className="form-control" data-key="name" placeholder="Name" onChange={event => this.handler('name', event.target.value)} value={this.state.review.name} required />
