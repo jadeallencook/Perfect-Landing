@@ -90,7 +90,15 @@ class App extends Component {
                             search={this.search.bind(this)}
                         />
                     )} />
-                    <Route path="/review/:uid" render={route => <Review uid={route.match.params.uid} />} />
+                    <Route
+                        path="/review/:uid"
+                        render={route => {
+                            return <Review
+                                uid={route.match.params.uid}
+                                properties={this.props.properties}
+                            />
+                        }}
+                    />
                     <Route path="/property/:id" render={route => {
                         return <Property
                             property={this.props.properties[Number(route.match.params.id)]}

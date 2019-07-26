@@ -13,29 +13,27 @@ class Review extends Component {
     }
 
     componentWillMount() {
-        firebase
-            .database()
-            .ref(`pending/${this.props.uid}`)
-            .once('value', snapshot => {
-                this.setState({
-                    ...this.state,
-                    flag: (snapshot.val()) ? 1 : 2,
-                    review: snapshot.val()
-                });
-            });
+        const { properties, uid } = this.props;
+        this.setState({
+            flag: (properties[uid]) ? 1 : 2
+        });
     }
 
     handler(event) {
         event.preventDefault();
-        const overall = Number(event.target.querySelector('select').value);
-        const review = event.target.querySelector('textarea').value;
         const elem = event.target;
+        const overall = Number(elem.querySelector('select').value);
+        const review = elem.querySelector('textarea').value;
+        const name = elem.querySelector('input#name').value;
+        const date = elem.querySelector('input[type="date"]').value;
         if (overall && review && this.state.flag === 1) {
-            firebase.database().ref(`pending/${this.props.uid}`).set({
-                ...this.state.review,
+            firebase.database().ref(`pending/`).push({
+                date: date,
+                name: name,
                 review: review,
-                overall: overall
-            }).then(value => {
+                overall: overall,
+                property: this.props.uid
+            }).then(() => {
                 elem.innerHTML = '<h2>Thank you!</h2>';
             });
         }
@@ -51,16 +49,16 @@ class Review extends Component {
                             <h1>Tell us about your stay!</h1>
                             <form onSubmit={this.handler.bind(this)}>
                                 <label>Name: </label>
-                                <input type="text" className="form-control" value={this.state.review.name} disabled required />
+                                <input type="text" id="name" className="form-control" required />
                                 <br />
                                 <label>Date: </label>
-                                <input type="text" className="form-control" value={this.state.review.date} disabled required />
+                                <input type="date" className="form-control" required />
                                 <br />
-                                <label>Property (<Link to={`/property/${this.state.review.id}`}>link</Link>): </label>
-                                <input type="text" className="form-control" value={this.state.review.id} disabled required />
+                                <label>Property (<Link to={`/property/${this.props.uid}`}>link</Link>): </label>
+                                <input type="text" className="form-control" defaultValue={this.props.uid} disabled required />
                                 <br />
                                 <label>Overall: </label>
-                                <select className="form-control" defaultValue={this.state.review.overall} required>
+                                <select className="form-control" required>
                                     {
                                         new Array(5).fill(null).map((val, index) => {
                                             const num = 5 - index;
@@ -74,14 +72,14 @@ class Review extends Component {
                                 </select>
                                 <br />
                                 <label>Review: </label>
-                                <textarea className="form-control" defaultValue={this.state.review.review} placeholder="Write your review here..." required></textarea>
+                                <textarea className="form-control" placeholder="Write your review here..." required></textarea>
                                 <br />
                                 <input type="submit" value="Leave Review" className="btn btn-primary" />
                             </form>
                         </div>
                     ) : (
                             <div>
-                                <h1>Review not found!</h1>
+                                <h1>Property not found!</h1>
                             </div>
                         ) : (
                             <div>

@@ -153,20 +153,19 @@ class Reviews extends Component {
                 {
                     Object.keys(this.state.pending).length ? Object.keys(this.state.pending).map(uid => {
                         const node = this.state.pending[uid];
-                        const { name = '', id = 0, date = '', review = '', overall = 0 } = node;
+                        const { name = '', property = 0, date = '', review = '', overall = 0 } = node;
                         const link = `https://www.perfectlandingrentals.com/review/${uid}`;
                         return (
                             <div key={uid}>
-                                <h4>{name} @ {id} ({date})</h4>
-                                <p><a href={link}>{link}</a></p>
+                                <h4>{name} @ {property} ({date})</h4>
                                 <p><b>Review ({overall ? overall : 0}/5): </b>{review ? review : 'No review has been left yet...'}</p>
                                 <div>
-                                    { (overall && review) ? <button 
+                                    {(overall && review) ? <button
                                         className="btn btn-primary"
-                                        onClick={() => firebase.database().ref(`reviews/${id}/${uid}`).set(node).then(() => {
-                                            firebase.database().ref(`pending/${uid}`).remove()
+                                        onClick={() => firebase.database().ref(`reviews/${property}/${uid}`).set(node).then(() => {
+                                            firebase.database().ref(`pending/${uid}`).remove();
                                         })}
-                                    >Approve</button> : null }
+                                    >Approve</button> : null}
                                     <button className="btn btn-danger" onClick={() => firebase.database().ref(`pending/${uid}`).remove()}>Remove</button>
                                 </div>
                                 <br />
