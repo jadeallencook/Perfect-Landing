@@ -206,7 +206,7 @@ class Property extends Component {
                                     <input type="hidden" name="un" value="perfectlanding" />
                                     <input type="hidden" name="assoc_referrer" value="" />
                                     <input type="hidden" name="referring_url" value="" />
-                                    <input type="image" src="https://perfectlandingrentals.com/images/booknow-blue.png" border="0" alt="Submit" />
+                                    <input type="image" src="https://perfectlandingrentals.com/assets/images/booknow-blue.png" border="0" alt="Submit" />
                                 </form>
 
                                 <div className="section-title line-style line-style">
