@@ -1,8 +1,9 @@
 {
-    "apiKey": "AIzaSyAOIzwuqx4wfdOsrHvixvcdslCL0rAmrp8",
-    "authDomain": "perfect-landing-rentals.firebaseapp.com",
-    "databaseURL": "https://perfect-landing-rentals.firebaseio.com",
-    "projectId": "perfect-landing-rentals",
-    "storageBucket": "perfect-landing-rentals.appspot.com",
-    "messagingSenderId": "150449177546"
-  }
+  "apiKey": "AIzaSyAHjrZleUn42PIHpK7LgBdioNzvuzNOw4A",
+  "authDomain": "perfectlandingrental.firebaseapp.com",
+  "databaseURL": "https://perfectlandingrental.firebaseio.com",
+  "projectId": "perfectlandingrental",
+  "storageBucket": "perfectlandingrental.appspot.com",
+  "messagingSenderId": "220562602681",
+  "appId": "1:220562602681:web:39deefbdb6bbcd4dee3968"
+}
