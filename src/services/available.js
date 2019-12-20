@@ -12,6 +12,9 @@ function days(start, end) {
 }
 
 export default function (checkin, checkout, calendar, start) {
+    if (!calendar) {
+        return false;
+    }
     const yesterday = new Date();
     checkin = new Date(checkin);
     checkout = new Date(checkout);
