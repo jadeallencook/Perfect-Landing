@@ -33,28 +33,35 @@ class App extends Component {
             },
             blogs: [],
             banner: {},
-            featured: []
+            featured: [],
+            calendars: {}
         };
         firebase.initializeApp(config);
     }
 
     componentDidMount() {
-        firebase.database().ref('/banner').once('value').then(snapshot => {
+        firebase.database().ref('/banner').on('value', snapshot => {
             this.setState({
                 ...this.state,
                 banner: snapshot.val()
             });
         });
-        firebase.database().ref('/blogs').once('value').then(snapshot => {
+        firebase.database().ref('/blogs').on('value', snapshot => {
             this.setState({
                 ...this.state,
                 blogs: snapshot.val()
             });
         });
-        firebase.database().ref('/featured').once('value').then(snapshot => {
+        firebase.database().ref('/featured').on('value', snapshot => {
             this.setState({
                 ...this.state,
                 featured: snapshot.val()
+            });
+        });
+        firebase.database().ref('/calendars').on('value', snapshot => {
+            this.setState({
+                ...this.state,
+                calendars: snapshot.val()
             });
         });
     }
@@ -103,6 +110,7 @@ class App extends Component {
                         return <Property
                             property={this.props.properties[Number(route.match.params.id)]}
                             filters={this.state.filters}
+                            calendar={(Object.keys(this.state.calendars).length) ? this.state.calendars[Number(route.match.params.id)] : null}
                             reviews={(this.state.reviews) ? this.state.reviews[Number(route.match.params.id)] : {}}
                             properties={Object.keys(this.props.properties).filter(key => filter(this.props.properties[key], this.state.filters)).map(key => this.props.properties[key])} />
                     }} />
@@ -115,6 +123,7 @@ class App extends Component {
                             banner={this.state.banner}
                             featured={this.state.featured}
                             blogs={this.state.blogs}
+                            calendars={this.state.calendars}
                         />
                     )} />
                     <Footer />

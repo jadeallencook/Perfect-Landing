@@ -1,0 +1,10 @@
+div.Calendars {
+    max-width: 750px;
+    div.form-group:first-child {
+        padding-left: 0px;
+    }
+    span.delete {
+        color: red;
+        cursor: pointer;
+    }
+}

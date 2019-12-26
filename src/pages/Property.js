@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import rate from '../services/rate';
 import clean from '../services/clean';
 import profile from '../services/profile';
-import AOIds from '../information/availability-online.json';
 import Reviews from '../components/property/Reviews';
 
 class Property extends Component {
@@ -20,14 +19,20 @@ class Property extends Component {
         window.ga('send', 'event', 'Property Viewed', this.props.property.city['_text'], this.props.property.propid['_text']);
     }
 
-    setCalendar(year, month) {
+    setCalendar(year, month, calendar) {
         this.setState({
-            calendarURL: `http://images.availabilityonline.com/api/gcal/index.php?un=perfectlanding&year=${year}&month=${month}&roomId=${AOIds[this.props.property.propid['_text']]}`,
+            calendarURL: `http://images.availabilityonline.com/api/gcal/index.php?un=perfectlanding&year=${year}&month=${month}&roomId=${calendar}}`,
             calendarYear: year,
             calendarMonth: month
         });
     }
-    
+
+    componentWillReceiveProps(props) {
+        if (props.calendar) {
+            this.setCalendar(this.state.calendarYear, this.state.calendarMonth, props.calendar);
+        }
+    }
+
     componentDidMount() {
         window.scrollTo(0, 0);
         // photo gallery
@@ -50,8 +55,13 @@ class Property extends Component {
                 });
             }
         }
-        // ao calendar
-        this.setCalendar(this.state.calendarYear, this.state.calendarMonth);
+        if (this.props.calendar) {
+            this.setCalendar(
+                this.state.calendarYear,
+                this.state.calendarMonth,
+                this.props.calendar
+            );
+        }
         // map
         if (window.Map) {
             const mapMarker = '/assets/images/map-pin.png';
@@ -124,7 +134,7 @@ class Property extends Component {
 
                                 <div id="property-photos">
                                     <div className="fotorama" id="fotorama" data-auto="false" data-width="100%" data-fit="cover" data-max-width="100%" data-nav="thumbs" data-transition="crossfade">
-                                        { photos.map((photo, x) => (<img src={`${this.props.property.htppostdir['_text']}${photo}`} key={x} alt={descriptions[x]} />)) }
+                                        {photos.map((photo, x) => (<img src={`${this.props.property.htppostdir['_text']}${photo}`} key={x} alt={descriptions[x]} />))}
                                     </div>
                                 </div>
 
@@ -186,13 +196,13 @@ class Property extends Component {
                                         <span id="previousMonth" onClick={() => {
                                             const month = (this.state.calendarMonth === 1) ? 12 : this.state.calendarMonth - 1;
                                             const year = (this.state.calendarMonth === 1) ? this.state.calendarYear - 1 : this.state.calendarYear;
-                                            this.setCalendar(year, month);
+                                            this.setCalendar(year, month, this.props.calendar);
                                         }}>
                                             <font size="2">&lt;&lt; Previous</font>
                                         </span> | <span id="nextMonth" onClick={() => {
                                             const month = (this.state.calendarMonth === 12) ? 1 : this.state.calendarMonth + 1;
                                             const year = (month === 1) ? this.state.calendarYear + 1 : this.state.calendarYear;
-                                            this.setCalendar(year, month);
+                                            this.setCalendar(year, month, this.props.calendar);
                                         }}>
                                             <font size="2"> Next &gt;</font>
                                         </span>
