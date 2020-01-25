@@ -154,7 +154,6 @@ class Reviews extends Component {
                     Object.keys(this.state.pending).length ? Object.keys(this.state.pending).map(uid => {
                         const node = this.state.pending[uid];
                         const { name = '', property = 0, date = '', review = '', overall = 0 } = node;
-                        const link = `https://www.perfectlandingrentals.com/review/${uid}`;
                         return (
                             <div key={uid}>
                                 <h4>{name} @ {property} ({date})</h4>
