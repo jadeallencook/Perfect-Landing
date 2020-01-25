@@ -9,5 +9,18 @@ section.Banner {
 }
 
 @media only screen and (max-device-width: 480px) {
-    section.Banner {}
+    section.Banner {
+
+        div.slider-box div.content:first-child {
+            margin-top: -30px;
+        }
+
+        figure#banner-image {
+            height: 235px;
+        }
+
+        h1#banner-1-big-text {
+            white-space: normal;
+        }
+    }
 }

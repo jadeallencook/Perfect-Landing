@@ -21,7 +21,7 @@ const Results = props => {
         return accumulator;
     }, []);
     return (
-        <div className="col-md-9 col-md-push-3" id="properties-container">
+        <div className="col-md-9 col-md-push-3 Results" id="properties-container">
             <h3>
                 <b>
                     {(properties.length > 0) ? properties.length : null}

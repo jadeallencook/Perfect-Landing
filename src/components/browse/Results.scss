@@ -1,9 +1,23 @@
-div.Results {
-
-}
-
 @media only screen and (max-device-width: 480px) {
     div.Results {
-        
+        .detail { 
+            grid-template-columns: repeat(2, 3fr 1fr) !important;
+        }
+        .image {
+            width: 94%!important;
+        }
+        .box-list > span, 
+        .box-list > dl {
+            margin-left: 0px !important;
+        }
+        .box-list > .address {
+            margin-top: 190px !important;
+        }
+        .box-featured .description {
+            height: 95px !important;
+        }
+        .box-featured.box-list .detail dd {
+            border-right: 0 !important;
+        }
     }
 }
