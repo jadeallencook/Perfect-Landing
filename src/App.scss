@@ -1,3 +1,20 @@
-div.App > div {
-    min-height: 75vh;
+div.App {
+
+    >div {
+        min-height: 100vh;
+    }
+
+    >div#loading-screen {
+        background-color: #E37C19;
+        padding-top: 35vh;
+        color: #fff;
+        position: fixed;
+        width: 100%;
+        z-index: 9999;
+        text-align: center;
+        > img {
+            width: 300px;
+            margin-bottom: 15px;
+        }
+    }
 }

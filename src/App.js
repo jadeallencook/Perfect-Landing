@@ -22,6 +22,7 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            loaded: false,
             filters: {
                 name: '',
                 checkin: '',
@@ -40,28 +41,37 @@ class App extends Component {
     }
 
     componentDidMount() {
+        let num = 0;
         firebase.database().ref('/banner').on('value', snapshot => {
+            num++;
             this.setState({
                 ...this.state,
-                banner: snapshot.val()
+                banner: snapshot.val(),
+                loaded: (num >= 4)
             });
         });
         firebase.database().ref('/blogs').on('value', snapshot => {
+            num++;
             this.setState({
                 ...this.state,
-                blogs: snapshot.val()
+                blogs: snapshot.val(),
+                loaded: (num >= 4)
             });
         });
         firebase.database().ref('/featured').on('value', snapshot => {
+            num++;
             this.setState({
                 ...this.state,
-                featured: snapshot.val()
+                featured: snapshot.val(),
+                loaded: (num >= 4)
             });
         });
         firebase.database().ref('/calendars').on('value', snapshot => {
+            num++;
             this.setState({
                 ...this.state,
-                calendars: snapshot.val()
+                calendars: snapshot.val(),
+                loaded: (num >= 4)
             });
         });
     }
@@ -77,57 +87,64 @@ class App extends Component {
     render() {
         return (
             <div className="App">
-                <Router>
-                    <Navbar />
-                    <Route exact path="/" render={() => (
-                        <Home
-                            properties={this.props.properties}
-                            search={this.search.bind(this)}
-                            filters={this.state.filters}
-                            banner={this.state.banner}
-                            featured={this.state.featured}
-                            blogs={this.state.blogs}
-                        />
-                    )} />
-                    <Route path="/browse" render={() => (
-                        <Browse
-                            properties={this.props.properties}
-                            calendars={this.props.calendars}
-                            filters={this.state.filters}
-                            search={this.search.bind(this)}
-                        />
-                    )} />
-                    <Route
-                        path="/review/:uid"
-                        render={route => {
-                            return <Review
-                                uid={route.match.params.uid}
+                {(this.state.loaded) ?
+                    <Router>
+                        <Navbar />
+                        <Route exact path="/" render={() => (
+                            <Home
                                 properties={this.props.properties}
+                                search={this.search.bind(this)}
+                                filters={this.state.filters}
+                                banner={this.state.banner}
+                                featured={this.state.featured}
+                                blogs={this.state.blogs}
                             />
-                        }}
-                    />
-                    <Route path="/property/:id" render={route => {
-                        return <Property
-                            property={this.props.properties[Number(route.match.params.id)]}
-                            filters={this.state.filters}
-                            calendar={(Object.keys(this.state.calendars).length) ? this.state.calendars[Number(route.match.params.id)] : null}
-                            reviews={(this.state.reviews) ? this.state.reviews[Number(route.match.params.id)] : {}}
-                            properties={Object.keys(this.props.properties).filter(key => filter(this.props.properties[key], this.state.filters)).map(key => this.props.properties[key])} />
-                    }} />
-                    <Route path="/contact" render={() => (
-                        <Contact />
-                    )} />
-                    <Route path="/IDX" render={IDX} />
-                    <Route path="/dashboard" render={() => (
-                        <Dashboard
-                            banner={this.state.banner}
-                            featured={this.state.featured}
-                            blogs={this.state.blogs}
-                            calendars={this.state.calendars}
+                        )} />
+                        <Route path="/browse" render={() => (
+                            <Browse
+                                properties={this.props.properties}
+                                calendars={this.props.calendars}
+                                filters={this.state.filters}
+                                search={this.search.bind(this)}
+                            />
+                        )} />
+                        <Route
+                            path="/review/:uid"
+                            render={route => {
+                                return <Review
+                                    uid={route.match.params.uid}
+                                    properties={this.props.properties}
+                                />
+                            }}
                         />
-                    )} />
-                    <Footer />
-                </Router>
+                        <Route path="/property/:id" render={route => {
+                            return <Property
+                                property={this.props.properties[Number(route.match.params.id)]}
+                                filters={this.state.filters}
+                                calendar={(Object.keys(this.state.calendars).length) ? this.state.calendars[Number(route.match.params.id)] : null}
+                                reviews={(this.state.reviews) ? this.state.reviews[Number(route.match.params.id)] : {}}
+                                properties={Object.keys(this.props.properties).filter(key => filter(this.props.properties[key], this.state.filters)).map(key => this.props.properties[key])} />
+                        }} />
+                        <Route path="/contact" render={() => (
+                            <Contact />
+                        )} />
+                        <Route path="/IDX" render={IDX} />
+                        <Route path="/dashboard" render={() => (
+                            <Dashboard
+                                banner={this.state.banner}
+                                featured={this.state.featured}
+                                blogs={this.state.blogs}
+                                calendars={this.state.calendars}
+                            />
+                        )} />
+                        <Footer />
+                    </Router> :
+                    <div id="loading-screen">
+                        <img src="/assets/images/large-logo.png" className="animated flipInX" />
+                        <br />
+                        <span className="animated fadeIn">Loading your perfect getaway...</span>
+                    </div>
+                }
             </div>
         );
     }
