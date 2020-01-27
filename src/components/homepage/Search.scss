@@ -2,6 +2,13 @@ section.Search {
     label {
         font-size: 0.75em;
     }
+    div#prop-name-search {
+        margin-bottom: 25px;
+        margin-top: -5px;
+    }
+    div.searcher {
+        margin-bottom: 50px;
+    }
 }
 
 @media only screen and (max-width: 992px) {

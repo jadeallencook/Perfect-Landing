@@ -18,11 +18,12 @@ class Home extends Component {
     }
     
     render() { 
+        console.log(this.props);
         return (
         <div className="Home">
             { (this.state.hash) ? <Redirect to={`/property/${this.state.hash}`} /> : null }
             <Banner banner={this.props.banner} />
-            <Search search={this.props.search} filters={this.props.filters} />
+            <Search search={this.props.search} filters={this.props.filters} properties={this.props.properties} />
             <Featured properties={this.props.properties} featured={this.props.featured} />
             <About />
             <Blog blogs={this.props.blogs} />

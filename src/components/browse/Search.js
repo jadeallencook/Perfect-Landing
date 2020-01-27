@@ -24,7 +24,7 @@ const Search = props => (
                     </select>
                 </div>
                 <div className="col-md-6 space-div">
-                    <label>Beds</label>
+                    <label>Sleeps</label>
                     <input min="1" max="10" className="form-control" type="number" name="bedroom" id="bedroom" placeholder="1" defaultValue={props.filters.beds} />
                 </div>
                 <div className="col-md-6 space-div">
@@ -47,9 +47,10 @@ const Search = props => (
                         let city = document.getElementById('cities').value; 
                         bedroom = bedroom < 1 ? 1 : parseInt(bedroom);
                         bathroom = bathroom < 1 ? 1 : parseInt(bathroom);
+                        console.log(bedroom);
                         props.search('name', name);
-                        props.search('bedroom', bedroom);
-                        props.search('bathroom', bathroom);
+                        props.search('beds', bedroom);
+                        props.search('baths', bathroom);
                         props.search('checkin', checkin);
                         props.search('checkout', checkout);
                         props.search('city', city);

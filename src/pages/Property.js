@@ -167,6 +167,11 @@ class Property extends Component {
                                         <div className="section-title line-style">
                                             <h3 className="title">Map</h3>
                                         </div>
+                                        <p>
+                                            {property.addr1['_text'] || ''}
+                                            <br />
+                                            {property.city['_text'] || ''}, {property.state['_text'] || ''}
+                                        </p>
                                         <div className="map-container" id="map-canvas"></div>
                                         <br />
                                         <span id="property-address"></span>

@@ -6,6 +6,9 @@ section.Banner {
             }
         }
     }
+    h2#banner-1-top-text {
+        margin-top: 95px !important;
+    }
 }
 
 @media only screen and (max-device-width: 480px) {
