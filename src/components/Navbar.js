@@ -38,7 +38,7 @@ const Navbar = props => (
                         <Link to="/IDX">Real Estate</Link>
                     </li>
                     <li>
-                        <a href="http://www.rentals4you.info/" rel="noopener noreferrer" target="_blank">Monthly Rentals</a>
+                        <a href="http://www.perfectlandingmonthly.com" rel="noopener noreferrer" target="_blank">Monthly Rentals</a>
                     </li>
                     <li>
                         <Link to="/contact">Contact</Link>
