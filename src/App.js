@@ -28,7 +28,7 @@ class App extends Component {
                 checkin: '',
                 checkout: '',
                 city: '',
-                beds: '',
+                beds: 1,
                 baths: '',
                 amenities: []
             },

@@ -18,7 +18,6 @@ class Home extends Component {
     }
     
     render() { 
-        console.log(this.props);
         return (
         <div className="Home">
             { (this.state.hash) ? <Redirect to={`/property/${this.state.hash}`} /> : null }

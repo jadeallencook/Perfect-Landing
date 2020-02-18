@@ -23,13 +23,30 @@ const Search = props => (
                         }
                     </select>
                 </div>
-                <div className="col-md-6 space-div">
+                <div className="col-md-12 space-div">
                     <label>Sleeps</label>
-                    <input min="1" max="10" className="form-control" type="number" name="bedroom" id="bedroom" placeholder="1" defaultValue={props.filters.beds} />
-                </div>
-                <div className="col-md-6 space-div">
-                    <label>Baths</label>
-                    <input min="1" max="10" className="form-control" type="number" name="bathroom" id="bathroom" placeholder="1" defaultValue={props.filters.baths} />
+                    <select 
+                            className="form-control"
+                            id="bedroom"
+                            defaultValue={props.filters.beds || 1}>
+                                {
+                                    [{
+                                        text: '1-4',
+                                        value: 1
+                                    }, {
+                                        text: '5-8',
+                                        value: 5
+                                    }, {
+                                        text: '9-12',
+                                        value: 9
+                                    }, {
+                                        text: '13+',
+                                        value: 13
+                                    }].map(object => {
+                                        return <option key={object.text} value={object.value}>{object.text} Guests</option>
+                                    })
+                                }
+                            </select>
                 </div>
                 <div className="col-md-12 space-div">
                     <label>Check In</label>
@@ -39,21 +56,18 @@ const Search = props => (
                     <label>Check Out</label>
                     <input className="form-control" type="date" name="checkout" id="checkout" placeholder="Check Out" defaultValue={props.filters.checkout} />
                     <button type="button" className="btn btn-default search-button" onClick={() => {
-                        let name = document.getElementById('prop-name').value;
-                        let bedroom = document.getElementById('bedroom').value; 
-                        let bathroom = document.getElementById('bathroom').value; 
-                        let checkin = document.getElementById('checkin').value; 
-                        let checkout = document.getElementById('checkout').value; 
-                        let city = document.getElementById('cities').value; 
-                        bedroom = bedroom < 1 ? 1 : parseInt(bedroom);
-                        bathroom = bathroom < 1 ? 1 : parseInt(bathroom);
-                        console.log(bedroom);
-                        props.search('name', name);
-                        props.search('beds', bedroom);
-                        props.search('baths', bathroom);
-                        props.search('checkin', checkin);
-                        props.search('checkout', checkout);
-                        props.search('city', city);
+                        let name = document.querySelector('input#prop-name');
+                        let bedroom = document.querySelector('select#bedroom'); 
+                        let bathroom = document.querySelector('input#bathroom'); 
+                        let checkin = document.querySelector('input#checkin'); 
+                        let checkout = document.querySelector('input#checkout'); 
+                        let city = document.querySelector('select#cities'); 
+                        props.search('name', name ? name.value : '');
+                        props.search('beds', bedroom ? Number(bedroom.value) : null);
+                        props.search('baths', bathroom ? Number(bathroom.value) : null);
+                        props.search('checkin', checkin ? checkin.value : null);
+                        props.search('checkout', checkout ? checkout.value : null);
+                        props.search('city', city ? city.value : null);
                     }}>APPLY FILTERS</button>
                 </div>
             </div>
