@@ -49,7 +49,7 @@ const Results = props => {
                                 <dt className="bath">Baths:</dt>
                                 <dd><span>{property.numbaths['_text']}</span></dd>
                                 <dt className="status">Sleeps:</dt>
-                                <dd><span>{property.maxsleeps['_text']}</span></dd>
+                                <dd><span>{property.maxpersons['_text']}</span></dd>
                             </dl>
                         </div>
                     ) : null
