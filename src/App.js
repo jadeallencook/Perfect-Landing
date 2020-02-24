@@ -140,7 +140,7 @@ class App extends Component {
                         <Footer />
                     </Router> :
                     <div id="loading-screen">
-                        <img src="/assets/images/large-logo.png" className="animated flipInX" />
+                        <img src="/assets/images/large-logo.png" className="animated flipInX" alt="Perfect Landing Logo" />
                         <br />
                         <span className="animated fadeIn">Loading your perfect getaway...</span>
                     </div>
