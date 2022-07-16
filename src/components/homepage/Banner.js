@@ -5,7 +5,7 @@ const Banner = props => (
     <section id="home-slide" className="header-margin-color-line Banner">
         <div className="home-slider carousel">
             <div className="crsl-wrap">
-                <figure className="crsl-item" id="banner-image" style={{ backgroundImage: (props.banner) ? `url(${props.banner.image})` : null}}>
+                <figure className="crsl-item" id="banner-image" style={{ backgroundImage: (props.banner) ? `url(assets/images/trees.jpg)` : null}}>
                     <div className="container slider-box">
                         <div className="content">
                             <h2 id="banner-1-top-text">{(props.banner) ? props.banner.small : null}</h2>

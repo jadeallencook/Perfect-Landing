@@ -35,7 +35,7 @@ const Results = props => {
                         <div className="box-featured box-list" key={property.key}>
                             <Link to={`/property/${property.key}`} className="hover-effect image image-fill">
                                 <span className="cover"></span>
-                                <img src={property.htppostdir['_text'] + profile(property.photos['_text'])} alt={`${property.propname['_text']}`} />
+                                <img src='assets/images/property.jpg' />
                                 <h3 className="title">{property.propname['_text']}</h3>
                             </Link>
                             <span className="price">{rate(property.grppgsum['_text'])}</span>

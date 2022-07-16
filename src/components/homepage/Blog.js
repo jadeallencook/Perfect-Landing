@@ -15,12 +15,12 @@ const Blog = props => (
                         return (
                             <div className="col-md-4" key={key}>
                                 <div className="blog-list masonry-post">
-                                    <div className="image blog-image" style={{ backgroundImage: `url(${blog.photo})`}}></div>
+                                    <div className="image blog-image" style={{ backgroundImage: `url(assets/images/stairs.jpg)`}}></div>
                                     <div className="text">
                                         <h3 className="subtitle">{blog.title}</h3>
                                         <span>{blog.description}</span>
                                     </div>
-                                    <a className="btn btn-default button-read" href={blog.link}>Read now</a>
+                                    <a className="btn btn-default button-read" href='#'>Read now</a>
                                 </div>
                             </div>
                         );

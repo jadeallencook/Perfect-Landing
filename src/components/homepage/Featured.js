@@ -55,7 +55,7 @@ class Featured extends Component {
                                             <div className="box-featured box-home">
                                                 <Link to={`/property/${propid}`} className="hover-effect image image-fill">
                                                     <span className="cover"></span>
-                                                    <img alt={property.shortdesc['_text']} src={property.htppostdir['_text'] + profile(property.photos['_text'])} />
+                                                    <img alt={property.shortdesc['_text']} src='assets/images/property.jpg' />
                                                     <h3 className="title">{property.propname['_text']}</h3>
                                                 </Link>
                                                 <span className="price">{rate(property.grppgsum['_text'])}</span>
@@ -101,7 +101,7 @@ class Featured extends Component {
                                             <div className="box-featured box-home">
                                                 <Link to={`/property/${propid}`} className="hover-effect image image-fill">
                                                     <span className="cover"></span>
-                                                    <img alt={property.shortdesc['_text']} src={image} />
+                                                    <img alt={property.shortdesc['_text']} src='assets/images/property.jpg' />
                                                     <h3 className="title">{property.propname['_text']}</h3>
                                                 </Link>
                                                 <span className="price">{rate(property.grppgsum['_text'])}</span>

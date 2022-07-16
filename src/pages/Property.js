@@ -95,7 +95,8 @@ class Property extends Component {
 
     render() {
         const property = this.props.property;
-        const photos = this.props.property.photos['_text'].split('|').filter(photo => (photo && photo !== undefined) ? true : false);
+        // const photos = this.props.property.photos['_text'].split('|').filter(photo => (photo && photo !== undefined) ? true : false);
+        const photos = ['/assets/images/property.jpg', '/assets/images/property.jpg', '/assets/images/property.jpg', '/assets/images/property.jpg']
         const descriptions = this.props.property.photodescs['_text'].split('|').filter(photo => (photo && photo !== undefined) ? true : false);
         return (
             <div className="Property">
@@ -136,7 +137,7 @@ class Property extends Component {
 
                                 <div id="property-photos">
                                     <div className="fotorama" id="fotorama" data-auto="false" data-width="100%" data-fit="cover" data-max-width="100%" data-nav="thumbs" data-transition="crossfade">
-                                        {photos.map((photo, x) => (<img src={`${this.props.property.htppostdir['_text']}${photo}`} key={x} alt={descriptions[x]} />))}
+                                        {photos.map((photo, x) => (<img src={photo} key={x} alt={descriptions[x]} />))}
                                     </div>
                                 </div>
 
@@ -223,7 +224,7 @@ class Property extends Component {
                                     <input type="hidden" name="un" value="perfectlanding" />
                                     <input type="hidden" name="assoc_referrer" value="" />
                                     <input type="hidden" name="referring_url" value="" />
-                                    <input type="image" src="https://perfectlandingrentals.com/assets/images/booknow-blue.png" border="0" alt="Submit" />
+                                    <input type="image" src="/assets/images/booknow-blue.png" border="0" alt="Submit" />
                                 </form>
 
                                 <div className="section-title line-style line-style">
@@ -235,7 +236,7 @@ class Property extends Component {
                                             <div className="box-featured box-grid mini" key={`property-${x}`}>
                                                 <Link className="hover-effect image image-fill other-1-link" to={`/#${property.propid['_text']}`}>
                                                     <span className="cover"></span>
-                                                    <img alt="home" src={`${property.htppostdir['_text']}${profile(property.photos['_text'])}`} />
+                                                    <img alt="home" src='/assets/images/property.jpg' />
                                                     <h3 className="title">{property.propname['_text']}</h3>
                                                 </Link>
                                                 <span className="price" id="other-1-price">{rate(property.grppgsum['_text'])}</span>
